@@ -1,0 +1,76 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<layout:VerticalLayout>
+		<layout:content>
+			<!--<smartForm:SmartForm id="idAltLanguageInput" app:defaultCheckBoxDisplayBehaviour="OnOff"-->
+			<!--	app:defaultDropDownDisplayBehaviour="idAndDescription" editable="true">-->
+			<!--	<smartForm:customToolbar>-->
+			<!--		<Toolbar>-->
+			<!--			<content>-->
+			<!--				<Title text="Add Language"></Title>-->
+			<!--				<ToolbarSpacer></ToolbarSpacer>-->
+			<!--				<Button text="Save" icon="sap-icon://save" press="handleSaveAltLanguage"></Button>-->
+			<!--				<Button text="Reset" icon="sap-icon://cancel" press="handleDiscardAltLanguage"></Button>-->
+			<!--			</content>-->
+			<!--		</Toolbar>-->
+			<!--	</smartForm:customToolbar>-->
+			<!--	<smartForm:layout>-->
+			<!--		<smartForm:ColumnLayout columnsM="2" columnsL="2" columnsXL="2"/>-->
+			<!--	</smartForm:layout>-->
+			<!--	<smartForm:Group>-->
+			<!--		<smartForm:GroupElement>-->
+			<!--			<smartForm:elements>-->
+			<!--				<smartField:SmartField value="{LanguageId}" editable="true" textLabel="Language ID">-->
+			<!--					<smartField:configuration>-->
+			<!--						<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>-->
+			<!--					</smartField:configuration>-->
+			<!--				</smartField:SmartField>-->
+			<!--				<smartField:SmartField value="{LanguageDesc}" editable="true" textLabel="Language Description">-->
+			<!--					<smartField:configuration>-->
+			<!--						<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>-->
+			<!--					</smartField:configuration>-->
+			<!--				</smartField:SmartField>-->
+			<!--			</smartForm:elements>-->
+			<!--		</smartForm:GroupElement>-->
+			<!--	</smartForm:Group>-->
+			<!--</smartForm:SmartForm>-->
+			<Table id="idAltLanguagesTable" mode="SingleSelectLeft" items="{ path: '' }">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Title text="Alt Languages"></Title>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://add" text="Add" press="handleAddAltLanguage"></Button>
+						<!--<Button icon="sap-icon://edit" text="Edit" press="handleEditAltLanguage"></Button>-->
+						<Button icon="sap-icon://delete" text="Delete" press="handleDeleteAltLanguage"></Button>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<header>
+							<Text text="Language"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Description"></Text>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<smartField:SmartField value="{LanguageId}" editable="true" change="handleLanguageChange">
+								<smartField:configuration>
+									<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+								</smartField:configuration>
+							</smartField:SmartField>
+							<!--<Input value="{LanguageId}" change="handleChangeLanguage" showValueHelp="true" valueHelpRequest="handleValueHelpLanguageId"></Input>-->
+							<Input value="{MaterialDesc}"></Input>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</layout:content>
+	</layout:VerticalLayout>
+</core:FragmentDefinition>

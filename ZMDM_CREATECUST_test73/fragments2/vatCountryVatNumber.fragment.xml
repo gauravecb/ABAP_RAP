@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog contentWidth="65%" title="{i18n>additionalVatsFragTitle}" class="sapUiSizeCompact">
+		<Table  enableBusyIndicator="false" items="{VatDataModelSet>/TaxData/AdditionalVats}" >
+			<columns>
+			
+				<Column demandPopin="true" minScreenWidth="Tablet">
+					<Text text="{i18n>VatCountry}"/>
+				</Column>
+				<Column demandPopin="true" minScreenWidth="Tablet">
+					<Text text="{i18n>VatNumber}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+				<Text text="{VatDataModelSet>VatCountDesc}"></Text>
+				<Text text="{VatDataModelSet>VatNum}"></Text>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<buttons>
+			<Button text="{i18n>OK}" tooltip="{i18n>OK}" press="onPressVatDataOkDisplay"></Button>
+		<!--	<Button text="{i18n>Cancel}" press="onPressVatDataCancel"></Button>-->
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

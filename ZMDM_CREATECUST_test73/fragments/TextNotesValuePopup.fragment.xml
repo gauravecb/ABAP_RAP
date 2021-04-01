@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:u="sap.ui.table" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>FreeTextData}" class="sapUiSizeCompact">
+		<content>
+			<l:VerticalLayout class="sapUiContentPadding" width="100%">
+				<l:content>
+					<TextArea enabled="{path:'RequiredOptionalSet>/FreeTextTNCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" rows="5"
+						width="100%" value="{TextNotesModelSet>/TextAreaPopup}" maxLength="1000"></TextArea>
+				</l:content>
+			</l:VerticalLayout>
+		</content>
+		<beginButton>
+			<Button text="{i18n>OK}" press="onPressOkValuePopup" tooltip="{i18n>Ok}"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" press="onPressCancelValuePopup" tooltip="{i18n>Cancel}"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

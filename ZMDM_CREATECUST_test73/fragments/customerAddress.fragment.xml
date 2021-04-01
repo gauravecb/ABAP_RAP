@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+		<Panel  expandable="true" expanded="true">
+				<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>NameAddress}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		</Panel>
+</core:FragmentDefinition>

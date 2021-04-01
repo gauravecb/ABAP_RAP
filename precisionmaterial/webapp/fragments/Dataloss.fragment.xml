@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="Unsaved Changes" class="sapUiContentPadding">
+		<content>
+			<Text id="idText" text="{/dataLossText}"></Text>
+		</content>
+		<buttons>
+			<Button text="Save and Continue" press="handleSaveAndContinue"></Button>
+			<Button text="Discard and Continue" press="handleDiscardAndContinue"></Button>
+			<Button text="Go Back" press="handleCancel"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

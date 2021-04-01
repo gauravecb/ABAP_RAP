@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog title="Material Type" class="sapUiPopupWithPadding sapUiSizeCompact" items="{path: '/MaterialTypeSet'}" search="_handleMaterialTypeSearch" confirm="_handleMaterialTypeConfirm">
+        <StandardListItem class="sapUiSizeCompact" title="{MaterialTypeId}" description="{Description}"/>
+    </SelectDialog>
+</core:FragmentDefinition>

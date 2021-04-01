@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+<!--	<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments.customerBusinessArea"></core:Fragment>-->
+	<!--<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments.customerAddress"></core:Fragment>-->
+		<VBox>
+		<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments.companyContactDetail"></core:Fragment>
+	<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments.contactPerson"></core:Fragment>
+	</VBox>
+</core:FragmentDefinition>

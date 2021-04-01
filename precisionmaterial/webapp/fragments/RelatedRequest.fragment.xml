@@ -1,0 +1,148 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<layout:VerticalLayout>
+		<f:SimpleForm layout="ResponsiveGridLayout">
+			<f:content>
+				<MultiInput id="idRelatedRequestInput" change="handleTokenChange" placeholder="Enter the Related Request(s) separated by comma (,)"
+					showValueHelp="false">
+					<layoutData>
+						<layout:GridData span="XL4 L4 M6 S12"/>
+					</layoutData>
+				</MultiInput>
+				<Button text="Add Requests" press="handleAddRelatedRequests">
+					<layoutData>
+						<layout:GridData span="XL1 L2 M4 S6"/>
+					</layoutData>
+				</Button>
+			</f:content>
+		</f:SimpleForm>
+		<!--<Table id="idRelatedRequestsTable" mode="Delete" items="{ path: '' }" delete="handleRelatedRequestDelete">-->
+		<Table id="idRelatedRequestsTable" mode="Delete" items="{ path: '' }" delete="handleRelatedRequestDelete">
+			<headerToolbar>
+				<OverflowToolbar>
+					<Title text="Related Requests"></Title>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://excel-attachment" press="handleRelatedRequestsDownload" tooltip="Export to Spreadsheet"></Button>
+				</OverflowToolbar>
+			</headerToolbar>
+			<columns>
+				<Column minScreenWidth="Phone" demandPopin="true">
+					<header>
+						<Text text="Request ID">
+							<customData>
+								<core:CustomData key="RelRequestId"></core:CustomData>
+								<core:CustomData key="RelRequestDesc"></core:CustomData>
+							</customData>
+						</Text>
+					</header>
+				</Column>
+				<Column minScreenWidth="Phone" demandPopin="true">
+					<header>
+						<Text text="Request Type">
+							<customData>
+								<core:CustomData key="RequestType"></core:CustomData>
+								<core:CustomData key="RequestTypeDesc"></core:CustomData>
+							</customData>
+						</Text>
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<header>
+						<Text text="Business Region">
+							<customData>
+								<core:CustomData key="BusinessRegionId"></core:CustomData>
+								<core:CustomData key="BusinessRegionDec"></core:CustomData>
+							</customData>
+						</Text>
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<header>
+						<Text text="Business Unit">
+							<customData>
+								<core:CustomData key="BusiUnitId"></core:CustomData>
+								<core:CustomData key="BusiUnitDesc"></core:CustomData>
+							</customData>
+						</Text>
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<header>
+						<Text text="Plant">
+							<customData>
+								<core:CustomData key="PlantId"></core:CustomData>
+								<core:CustomData key="PlantDesc"></core:CustomData>
+							</customData>
+						</Text>
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<header>
+						<Text text="Division">
+							<customData>
+								<core:CustomData key="DivisionId"></core:CustomData>
+								<core:CustomData key="DivisionDesc"></core:CustomData>
+							</customData>
+						</Text>
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<header>
+						<Text text="Material Type">
+							<customData>
+								<core:CustomData key="MaterialTypeId"></core:CustomData>
+								<core:CustomData key="MaterialTypeDesc"></core:CustomData>
+							</customData>
+						</Text>
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<header>
+						<Text text="Specification">
+							<customData>
+								<core:CustomData key="SpecificationId"></core:CustomData>
+								<core:CustomData key="SpecificationDes"></core:CustomData>
+							</customData>
+						</Text>
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<header>
+						<Text text="Justification">
+							<customData>
+								<core:CustomData key="Justification"></core:CustomData>
+							</customData>
+						</Text>
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<header>
+						<Text text="Status">
+							<customData>
+								<core:CustomData key="RequestStatus"></core:CustomData>
+							</customData>
+						</Text>
+					</header>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{RelRequestId}" tooltip="{RelRequestDesc}"></Text>
+						<Text text="{RequestType}" tooltip="{RequestTypeDesc}"></Text>
+						<Text text="{BusinessRegionId}" tooltip="{BusinessRegionDec}"></Text>
+						<Text text="{BusiUnitId}" tooltip="{BusiUnitDesc}"></Text>
+						<Text text="{PlantId}" tooltip="{PlantDesc}"></Text>
+						<Text text="{DivisionId}" tooltip="{DivisionDesc}"></Text>
+						<Text text="{MaterialTypeId}" tooltip="{MaterialTypeDesc}"></Text>
+						<Text text="{ProTypeId}" tooltip="{ProTypeDesc}"></Text>
+						<Text text="{SpecificationId}" tooltip="{SpecificationDes}"></Text>
+						<Text text="{Justification}" tooltip="{Justification}"></Text>
+						<Text text="{RequestStatus}" tooltip="{RequestStatus}"></Text>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</layout:VerticalLayout>
+</core:FragmentDefinition>

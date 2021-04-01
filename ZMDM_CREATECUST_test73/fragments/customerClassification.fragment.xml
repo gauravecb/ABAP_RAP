@@ -1,0 +1,115 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/BusPartDataCustClassPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>CustomerClassification}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm class="customClassTitle editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+			labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>AccountType}"
+					required="{path:'RequiredOptionalSet>/AccouTypeCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox selectedKey="{CreateModelSet>/CustomerClassification/Account_Type}"
+					enabled="{path:'RequiredOptionalSet>/AccouTypeCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					valueStateText="{CreateModelSet>/CustomerClassification/AccountTypeMessage}"
+					valueState="{CreateModelSet>/CustomerClassification/AccountTypeState}" change="changeAccountTypeClassification"
+					tooltip="{CreateModelSet>/CustomerClassification/AccountTypeTooltip}">
+					<core:Item key="Customer" text="Customer"/>
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>IndustryClassification1}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/IndClass1Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/IndClass1Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					items="{industryClassificationSet>/IndustryClassification}" change="onClassification1Change"
+					valueStateText="{CreateModelSet>/CustomerClassification/IndustryClassification1Message}"
+					valueState="{CreateModelSet>/CustomerClassification/IndustryClassification1State}"
+					selectedKey="{CreateModelSet>/CustomerClassification/IndustryClassification_1}" placeholder="{i18n>select} {i18n>IndustryClassification1}"
+					tooltip="{CreateModelSet>/CustomerClassification/IndustryClassification1Tooltip}">
+					<core:Item key="{industryClassificationSet>rowidObject}" text="{industryClassificationSet>lbl}"/>
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>IndustryClassification2}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/IndClass2Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/IndClass2Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					items="{industryClassificationSet2>/IndustryClassification2}"
+					valueStateText="{CreateModelSet>/CustomerClassification/IndustryClassification2Message}" change="liveChangeCustomerClassific2Class"
+					valueState="{CreateModelSet>/CustomerClassification/IndustryClassification2State}"
+					selectedKey="{CreateModelSet>/CustomerClassification/IndustryClassification_2}" placeholder="{i18n>select} {i18n>IndustryClassification2}"
+					tooltip="{CreateModelSet>/CustomerClassification/IndustryClassification2Tooltip}">
+					<core:Item key="{industryClassificationSet2>rowidObject}" text="{industryClassificationSet2>lbl}"/>
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>Banner}"
+					required="{path:'RequiredOptionalSet>/BannerCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/BannerCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					items="{bannerSet>/Banner}" change="liveChangeBannerClassfic"
+					valueStateText="{CreateModelSet>/CustomerClassification/BannerMessage}" valueState="{CreateModelSet>/CustomerClassification/BannerState}"
+					selectedKey="{CreateModelSet>/CustomerClassification/Banner}" placeholder="{i18n>select} {i18n>Banner}"
+					tooltip="{CreateModelSet>/CustomerClassification/BannerTooltip}">
+					<core:Item key="{bannerSet>rowidObject}" text="{bannerSet>codeAndDescription}"/>
+				</ComboBox>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>IndirectCustomerType}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/IndCustTypeCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input enabled="false" valueStateText="{CreateModelSet>/CustomerClassification/IndirectCustomerTypeMessage}"
+					valueState="{CreateModelSet>/CustomerClassification/IndirectCustomerTypeState}"
+					value="{CreateModelSet>/CustomerClassification/IndirectCustomer_Type}" liveChange="liveChnageIndirectCustomerTypeClassFic"
+					tooltip="{CreateModelSet>/CustomerClassification/IndirectCustomerTypeTooltip}"/>
+				<Label textAlign="Left" text="{i18n>BusinessActivityType}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/BusActTypeCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/BusActTypeCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					items="{businessActivitySet>/BusinessActivity}" change="liveChangebusnActivityTypeClassFic"
+					valueStateText="{CreateModelSet>/CustomerClassification/BusinessActivityTypeMessage}"
+					valueState="{CreateModelSet>/CustomerClassification/BusinessActivityTypeState}"
+					selectedKey="{CreateModelSet>/CustomerClassification/BusinessActivity_Type}" placeholder="{i18n>select} {i18n>BusinessActivityType1}"
+					tooltip="{CreateModelSet>/CustomerClassification/BusinessActivityTypeTooltip}">
+					<core:Item key="{businessActivitySet>rowidObject}" text="{businessActivitySet>literalAcronym}-{businessActivitySet>literalValue}"/>
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>OrganizationLevel}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/OrganizationLvlCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/OrganizationLvlCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					items="{organizationLevelSet>/OrganizationLevel}"
+					valueStateText="{CreateModelSet>/CustomerClassification/OrganizationLevelMessage}" change="liveChangeOrganizationLevelClassFic"
+					valueState="{CreateModelSet>/CustomerClassification/OrganizationLevelState}"
+					selectedKey="{CreateModelSet>/CustomerClassification/Organization_Level}" placeholder="{i18n>select} {i18n>OrganizationLevel}"
+					tooltip="{CreateModelSet>/CustomerClassification/OrganizationLevelTooltip}">
+					<core:Item key="{organizationLevelSet>rowidObject}" text="{organizationLevelSet>literalValue}"/>
+					<!--	literalAcronym-->
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>AccountLegalStatus}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/AccLeglstusCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/AccLeglstusCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					items="{accountLegalStatusSet>/AccountLegalStatus}" change="liveChangeAccountLegalStatusClass"
+					valueStateText="{CreateModelSet>/CustomerClassification/AccountLegalStatusMessage}"
+					valueState="{CreateModelSet>/CustomerClassification/AccountLegalStatusState}"
+					selectedKey="{CreateModelSet>/CustomerClassification/AccountLegal_Status}" placeholder="{i18n>select} {i18n>AccountLegalStatus}"
+					tooltip="{CreateModelSet>/CustomerClassification/AccountLegalTooltip}">
+					<core:Item key="{accountLegalStatusSet>rowidObject}" text="{accountLegalStatusSet>classification}"/>
+				</ComboBox>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>CommercialDeal-to}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/CommerDelToCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Checkbox width="10%"
+					valueStateText="{CreateModelSet>/CustomerClassification/CommercialDeal_ToMessage}"
+					valueState="{CreateModelSet>/CustomerClassification/CommercialDeal_ToState}"
+				enabled="{path:'RequiredOptionalSet>/CommerDelToCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selected="{CreateModelSet>/CustomerClassification/CommercialDeal_To}" select="liveChangeCommercialDealTo"/>
+				<Label textAlign="Left" text="{i18n>ServiceDeal-to}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/ServDelToCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Checkbox width="10%"
+				valueStateText="{CreateModelSet>/CustomerClassification/ServiceDeal_ToMessage}"
+					valueState="{CreateModelSet>/CustomerClassification/ServiceDeal_ToState}"
+				enabled="{path:'RequiredOptionalSet>/ServDelToCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selected="{CreateModelSet>/CustomerClassification/ServiceDeal_To}" select="liveChangeServiceDealTo"/>
+				<Label textAlign="Left" text="{i18n>Store}"
+					required="{path:'RequiredOptionalSet>/StoreCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Checkbox width="10%"
+					valueStateText="{CreateModelSet>/CustomerClassification/StoreMessage}"
+					valueState="{CreateModelSet>/CustomerClassification/StoreState}"
+				enabled="{path:'RequiredOptionalSet>/StoreCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selected="{CreateModelSet>/CustomerClassification/Store}" select="liveChangeStoreClass"/>
+				<Label/>
+				<Button text="{i18n>validate}" tooltip="{i18n>validate}" press="onPressCustClassificationValidation" enabled="{RequiredOptionalSet>/CustClassficEdit}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="false">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>AccountManagement}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm class="customClassTitle editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+			labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>ReconAccount}"/>
+				<Input enabled = "false" value="{parts:[{path:'SearchDisplayModelSet>/results/ReconciliationAccnt'},{path:'SearchDisplayModelSet>/results/ReconciliationAccntDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label textAlign="Left" text="{i18n>HeadOffice}"/>
+				<Input enabled = "false"  value = "{SearchDisplayModelSet>/results/HeadOffice}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>SortKey}"/>
+				<Input enabled = "false" value="{parts:[{path:'SearchDisplayModelSet>/results/SortKey'},{path:'SearchDisplayModelSet>/results/SortKeyDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label textAlign="Left" text="{i18n>PreviousAccountNumber}"/>
+				<Input enabled = "false" value = "{SearchDisplayModelSet>/results/PrevAcctNo}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>BuyingGroup}"/>
+				<Input enabled = "false" value = "{SearchDisplayModelSet>/results/BuyingGrp}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

@@ -1,0 +1,201 @@
+<mvc:View controllerName="ui.newell.PrecisionMaterial.controller.CreateConf" displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form" xmlns:f="sap.f" xmlns:layout="sap.ui.layout"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield">
+	<App>
+		<pages>
+			<f:DynamicPage id="idCreateConfPage" showFooter="true">
+				<f:title>
+					<f:DynamicPageTitle>
+						<f:heading>
+							<Title text="Precision Material - Create"/>
+						</f:heading>
+						<!-- <f:actions>
+                            <Button type="Accept" icon="sap-icon://save" text="Continue" press="handleContinue"/>
+                            <Button type="Reject" icon="sap-icon://reset" text="Reset" press="handleReset"/> -->
+						<!-- <Button type="Reject" text="Reserve" press="handleCreate"/> -->
+						<!-- <Button type="Reject" icon="sap-icon://delete" text="Delete" press="handleCreate"/>
+                            <Button type="Transparent" icon="sap-icon://sys-cancel" text="Cancel" press="handleCreate"/>
+                            <Button type="Back" text="Back" press="handleNavBacToWorklist"/> -->
+						<!-- </f:actions> -->
+					</f:DynamicPageTitle>
+				</f:title>
+				<f:content>
+					<smartForm:SmartForm id="idCreateConf" app:defaultCheckBoxDisplayBehaviour="OnOff" app:defaultDropDownDisplayBehaviour="idAndDescription"
+						editable="true">
+						<!--<smartForm:layout>-->
+						<!--	<smartForm:ColumnLayout columnsM="1" columnsL="1" columnsXL="1"/>-->
+						<!--</smartForm:layout>-->
+						<smartForm:layout>
+							<layout:GridData span="XL4 L4 M4 S4"/>
+						</smartForm:layout>
+						<smartForm:Group label="Create Material">
+							<!--<smartForm:GroupElement>-->
+							<!--	<smartField:SmartField id="idType" value="{RequestType}" textLabel="Request Type">-->
+							<!--		<smartField:configuration>-->
+							<!--			<smartField:Configuration controlType="dropDownList" displayBehaviour="descriptionOnly"/>-->
+							<!--		</smartField:configuration>-->
+							<!--	</smartField:SmartField>-->
+							<!--</smartForm:GroupElement>-->
+							<smartForm:GroupElement>
+								<smartForm:elements>
+									<smartField:SmartField value="{BusinessRegionId}" editable="true" textLabel="Region" mandatory="true" showValueStateMessage="true"
+										valueStateText="Enter a Valid Business Region" change="handleBusinessRegionIdChange" fieldGroupIds="mandatoryCreate" contextEditable="false">
+										<smartField:configuration>
+											<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+										</smartField:configuration>
+										<smartField:layoutData>
+											<layout:GridData span="XL1 L2 M4 S6"/>
+										</smartField:layoutData>
+									</smartField:SmartField>
+									<Text text="{BusinessRegionDec}"></Text>
+								</smartForm:elements>
+							</smartForm:GroupElement>
+							<smartForm:GroupElement>
+								<smartForm:elements>
+									<smartField:SmartField value="{BusiUnitId}" editable="true" textLabel="Business Unit" mandatory="true" showValueStateMessage="true"
+										valueStateText="Enter a Valid Business Unit" change="handleBusinessUnitChange" fieldGroupIds="mandatoryCreate">
+										<smartField:configuration>
+											<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+										</smartField:configuration>
+										<smartField:layoutData>
+											<layout:GridData span="XL1 L2 M4 S6"/>
+										</smartField:layoutData>
+									</smartField:SmartField>
+									<Text text="{BusiUnitDesc}"></Text>
+								</smartForm:elements>
+							</smartForm:GroupElement>
+							<smartForm:GroupElement>
+								<smartForm:elements>
+									<smartField:SmartField value="{SpecificationId}" editable="true" textLabel="Specification" mandatory="true" showValueStateMessage="true"
+										valueStateText="Enter a Valid Specification" change="handleSpecificationChange" fieldGroupIds="mandatoryCreate">
+										<smartField:configuration>
+											<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+										</smartField:configuration>
+										<smartField:layoutData>
+											<layout:GridData span="XL1 L2 M4 S6"/>
+										</smartField:layoutData>
+									</smartField:SmartField>
+									<Text text="{SpecificationDes}"></Text>
+								</smartForm:elements>
+							</smartForm:GroupElement>
+							<smartForm:GroupElement>
+								<smartForm:elements>
+									<smartField:SmartField value="{PlantId}" editable="true" textLabel="Plant" mandatory="true" showValueStateMessage="true"
+										valueStateText="Enter a Valid Plant" change="handlePlantChange" fieldGroupIds="mandatoryCreate">
+										<smartField:configuration>
+											<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+										</smartField:configuration>
+										<smartField:layoutData>
+											<layout:GridData span="XL1 L2 M4 S6"/>
+										</smartField:layoutData>
+									</smartField:SmartField>
+									<Text text="{PlantDesc}"></Text>
+								</smartForm:elements>
+							</smartForm:GroupElement>
+							<smartForm:GroupElement>
+								<smartForm:elements>
+									<smartField:SmartField value="{MaterialTypeId}" editable="true" textLabel="Material Type" mandatory="true" showValueStateMessage="true"
+										valueStateText="Enter a Valid Material Type" change="handleMaterialTypeChange" fieldGroupIds="mandatoryCreate">
+										<smartField:configuration>
+											<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+										</smartField:configuration>
+										<smartField:layoutData>
+											<layout:GridData span="XL1 L2 M4 S6"/>
+										</smartField:layoutData>
+									</smartField:SmartField>
+									<Text text="{MaterialTypeDesc}"></Text>
+								</smartForm:elements>
+							</smartForm:GroupElement>
+							<smartForm:GroupElement>
+								<smartForm:elements>
+									<smartField:SmartField value="{ProTypeId}" editable="true" textLabel="Procuremnt" mandatory="true" showValueStateMessage="true"
+										valueStateText="Enter a Valid Procurement" change="handleProcurementChange" fieldGroupIds="mandatoryCreate">
+										<smartField:configuration>
+											<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+										</smartField:configuration>
+										<smartField:layoutData>
+											<layout:GridData span="XL1 L2 M4 S6"/>
+										</smartField:layoutData>
+									</smartField:SmartField>
+									<Text text="{ProTypeDesc}"></Text>
+								</smartForm:elements>
+							</smartForm:GroupElement>
+							<!-- <smartForm:GroupElement>
+                                <smartForm:elements>
+                                    <smartField:SmartField value="{Process}" editable="true" textLabel="Plant"/>
+                                    <Text text="{ProcessDesc}"></Text>
+                                </smartForm:elements>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartForm:elements>
+                                    <smartField:SmartField value="{Process}" editable="true" textLabel="Material Type"/>
+                                    <Text text="{ProcessDesc}"></Text>
+                                </smartForm:elements>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartForm:elements>
+                                    <smartField:SmartField value="{Process}" editable="true" textLabel="Procurement"/>
+                                    <Text text="{ProcessDesc}"></Text>
+                                </smartForm:elements>
+                            </smartForm:GroupElement> -->
+						</smartForm:Group>
+					</smartForm:SmartForm>
+					<!-- <form:SimpleForm editable="true" class="sapUiSizeCompact" visible="{priceCondKeyCond>/visiblity}" layout="ResponsiveGridLayout" columnsM="4" columnsL="4" columnsXL="4" labelSpanS="12" labelSpanM="5" labelSpanL="6" labelSpanXL="4">
+                        <form:content>
+                            <Label text="Region"></Label>
+                            <Input id="idRegion" showValueHelp="true" valueHelpRequest="handleRegionValueHelp">
+                                <layoutData>
+                                    <layout:GridData span="XL2 L2 M4 S6"/>
+                                </layoutData>
+                            </Input>
+                            <Text id="idRegionDesc"></Text>
+                            <Label text="Business"></Label>
+                            <Input id="idBusinessUnit" showValueHelp="true" valueHelpRequest="handleBusinessUnitValueHelp">
+                                <layoutData>
+                                    <layout:GridData span="XL2 L2 M4 S6"/>
+                                </layoutData>
+                            </Input>
+                            <Text id="idBusinessUnitDesc"></Text>
+                            <Label text="Specification"></Label>
+                            <Input showValueHelp="true">
+                                <layoutData>
+                                    <layout:GridData span="XL2 L2 M4 S6"/>
+                                </layoutData>
+                            </Input>
+                            <Label text="Plant"></Label>
+                            <Input id="idPlant" showValueHelp="true" valueHelpRequest="handlePlantValueHelp">
+                                <layoutData>
+                                    <layout:GridData span="XL2 L2 M4 S6"/>
+                                </layoutData>
+                            </Input>
+                            <Text id="idPlantDesc"></Text>
+                            <Label text="Material Type"></Label>
+                            <Input id="idMaterialType" showValueHelp="true" valueHelpRequest="handleMaterialTypeValueHelp">
+                                <layoutData>
+                                    <layout:GridData span="XL2 L2 M4 S6"/>
+                                </layoutData>
+                            </Input>
+                            <Text id="idMaterialTypeDesc"></Text>
+                            <Label text="Procurement"></Label>
+                            <Input id="idProcurement" showValueHelp="true" valueHelpRequest="handleProcurementValueHelp">
+                                <layoutData>
+                                    <layout:GridData span="XL2 L2 M4 S6"/>
+                                </layoutData>
+                            </Input>
+                            <Text id="idProcurementDesc"></Text>
+                        </form:content>
+                    </form:SimpleForm> -->
+				</f:content>
+				<f:footer>
+					<OverflowToolbar>
+						<Button id="idMessagePopoverView" icon="sap-icon://alert" text="{= ${message>/}.length }" type="Transparent" press="onMessagePopoverPress"/>
+						<ToolbarSpacer/>
+						<Button type="Accept" icon="sap-icon://save" text="Continue" press="handleContinue"/>
+						<Button type="Reject" icon="sap-icon://reset" text="Reset" press="handleReset"/>
+					</OverflowToolbar>
+				</f:footer>
+			</f:DynamicPage>
+		</pages>
+	</App>
+</mvc:View>

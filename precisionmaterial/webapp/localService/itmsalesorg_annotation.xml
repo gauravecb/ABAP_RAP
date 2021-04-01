@@ -1,0 +1,195 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/opu/odata/sap/ZCL_MATERIAL_MASTER_SRV/$metadata">
+		<edmx:Include Alias="Metadata" Namespace="ZCL_MATERIAL_MASTER_SRV"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm"
+			Namespace="zpriceagreement.localService.ZCL_MATERIAL_MASTER_SRV.annotation.ZCL_MATERIAL_MASTER_SRV">
+			<Annotations Target="Metadata.ITMSalesOrg/SalesOrgId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Sales Org"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="SalesOrgSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="RequestId"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrgId"/>
+									<PropertyValue Property="ValueListProperty" String="SalesOrgId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrgDesc"/>
+									<PropertyValue Property="ValueListProperty" String="SalesOrgDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMSalesOrg/DeliveryPlantId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Delivery Plant"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="DeliveryPlantSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="RequestId"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryPlantId"/>
+									<PropertyValue Property="ValueListProperty" String="DeliveryPlantId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryPlantDesc"/>
+									<PropertyValue Property="ValueListProperty" String="DeliveryPlantDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMSalesOrg/RoundProfileId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Rounding Profile"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="RoundingProfileSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+							    <Record Type="Common.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="RequestId"/>
+									<PropertyValue Property="ValueListProperty" String="RequestId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="RoundProfileId"/>
+									<PropertyValue Property="ValueListProperty" String="RoundProfileId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="RoundProfileDesc"/>
+									<PropertyValue Property="ValueListProperty" String="RoundProfileDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMSalesOrg/ItemCategoryGroupsId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Item Category"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="ItemCategoryGroupsSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="ItemCategoryGroupsId"/>
+									<PropertyValue Property="ValueListProperty" String="ItemCategoryGroupsId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="ItemCategoryGroupsDesc"/>
+									<PropertyValue Property="ValueListProperty" String="ItemCategoryGroupsDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMSalesOrg/MaterialGroup1Id">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Material Group1"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="MaterialGroup1Set"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialGroup1Id"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialGroup1Id"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialGroup1Desc"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialGroup1Desc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMSalesOrg/MaterialGroup2Id">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Rounding Profile"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="MaterialGroup2Set"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialGroup2Id"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialGroup2Id"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialGroup2Desc"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialGroup2Desc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			
+			<Annotations Target="Metadata.ITMSalesOrg/MaterialGroup3Id">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Rounding Profile"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="MaterialGroup3Set"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialGroup3Id"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialGroup3Id"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialGroup3Desc"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialGroup3Desc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMSalesOrg/InnovationId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Innovation Project"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="InnovationProjectSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="InnovationId"/>
+									<PropertyValue Property="ValueListProperty" String="InnovationId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="InnovationDescription"/>
+									<PropertyValue Property="ValueListProperty" String="InnovationDescription"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

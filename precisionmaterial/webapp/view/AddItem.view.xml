@@ -1,0 +1,75 @@
+<mvc:View controllerName="ui.newell.PrecisionMaterial.controller.AddItem" displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:f="sap.f">
+	<App>
+		<pages>
+			<f:DynamicPage id="idCreateMaterial" showFooter="true">
+				<f:title>
+					<f:DynamicPageTitle>
+						<f:heading>
+							<Title text="Precision Material - Add Product - {addItemView>/RequestId} / {addItemView>/Product}"/>
+						</f:heading>
+					</f:DynamicPageTitle>
+				</f:title>
+				<f:header>
+					<f:DynamicPageHeader pinnable="true">
+						<!--<Breadcrumbs currentLocationText="{addItemView>/Product}" separatorStyle="{/selected}">-->
+						<!--	<Link text="{addItemView>/RequestId}"/>-->
+						<!--</Breadcrumbs>-->
+						<layout:HorizontalLayout id="idHeaderContent" allowWrapping="true" class="sapUiContentPadding">
+							<layout:VerticalLayout class="sapUiLargeMarginEnd">
+								<ObjectAttribute title="MCRID"/>
+								<ObjectStatus text="{RequestId}"/>
+							</layout:VerticalLayout>
+							<layout:VerticalLayout class="sapUiLargeMarginEnd">
+								<ObjectAttribute title="Request Type"/>
+								<ObjectStatus text="{RequestType} {RequestTypeDesc}" state="Success"/>
+							</layout:VerticalLayout>
+							<layout:VerticalLayout class="sapUiLargeMarginEnd">
+								<ObjectAttribute title="Request Date"/>
+								<ObjectStatus text="{CreatedAT}"/>
+							</layout:VerticalLayout>
+							<layout:VerticalLayout class="sapUiLargeMarginEnd">
+								<ObjectAttribute title="No of SKU Lines"/>
+								<ObjectStatus text="{NumberOfLineItems}"/>
+							</layout:VerticalLayout>
+							<layout:VerticalLayout class="sapUiLargeMarginEnd">
+								<ObjectAttribute title="Requestor"/>
+								<ObjectStatus text="{CreatedByUserName}"/>
+							</layout:VerticalLayout>
+							<layout:VerticalLayout class="sapUiLargeMarginEnd">
+								<ObjectAttribute title="Request Status"/>
+								<ObjectStatus text="{RequestStatus}"/>
+							</layout:VerticalLayout>
+						</layout:HorizontalLayout>
+					</f:DynamicPageHeader>
+				</f:header>
+				<f:content>
+					<IconTabBar id="idCreateHeaderTabs" selectedKey="{addItemView>/selectedTab}" select="handleAddItemTabSelect" expandable="false"
+						enabled="false" enableTabReordering="true">
+						<items>
+							<IconTabFilter id="idGeneralSection" icon="sap-icon://activity-items" text="General" key="requestdetail" design="Horizontal"/>
+							<IconTabFilter id="idAltLanguageSection" icon="sap-icon://globe" text="Alt Language" key="altlanguage" design="Horizontal"/>
+							<IconTabFilter id="idCharacteristicsSection" icon="sap-icon://list" text="Characteristics " key="characteristics" design="Horizontal"/>
+							<IconTabFilter id="idPlantSection" icon="sap-icon://factory" text="Plant" key="plant" design="Horizontal"/>
+							<IconTabFilter id="idSalesOrgSection" icon="sap-icon://overview-chart" text="Sales Org" key="salesorg" design="Horizontal"/>
+							<IconTabFilter id="idLogisticalSection" icon="sap-icon://compare" text="Logistical" key="logistics" design="Horizontal"/>
+							<IconTabFilter id="idSupplyChainSection" icon="sap-icon://shipping-status" text="Supply Chain" key="supplychain" design="Horizontal"/>
+							<IconTabFilter id="idDemandSection" icon="sap-icon://manager-insight" text="Demand" key="demand" design="Horizontal"/>
+							<IconTabFilter id="idPurchasingSection" icon="sap-icon://credit-card" text="Purchasing" key="purchasing" design="Horizontal"/>
+							<IconTabFilter id="idPPPSection" icon="sap-icon://shelf" text="PPP" key="ppp" design="Horizontal"/>
+							<IconTabFilter id="idPDMSection" icon="sap-icon://dimension" text="PDM" key="pdm" design="Horizontal"/>
+						</items>
+					</IconTabBar>
+				</f:content>
+				<f:footer>
+					<OverflowToolbar>
+						<Button id="idMessagePopoverView" icon="sap-icon://alert" text="{= ${message>/}.length }" type="Transparent" press="onMessagePopoverPress"/>
+						<ToolbarSpacer/>
+						<Button type="Accept" icon="sap-icon://save" text="Save Material" press="handleItemSave"/>
+						<Button type="Reject" icon="sap-icon://sys-cancel" text="Cancel" press="handleNavBackToCreate"/>
+					</OverflowToolbar>
+				</f:footer>
+			</f:DynamicPage>
+		</pages>
+	</App>
+</mvc:View>

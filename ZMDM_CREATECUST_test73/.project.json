@@ -1,0 +1,34 @@
+{
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/sap/ZMDM_BUSINESSPARTNER_SRV",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "deploy": {
+    "destination": "FID",
+    "name": "ZMDM_CREATECUST"
+  },
+  "projectType": [
+    "sap.watt.uitools.ide.fiori",
+    "com.watt.common.builder.sapui5clientbuild"
+  ],
+  "build": {
+    "buildRequired": true,
+    "targetFolder": "dist",
+    "lastBuildDateTime": "Tue, 22 Sep 2020 06:34:16 GMT"
+  },
+  "generation": [
+    {
+      "templateId": "servicecatalog.connectivityComponent",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Tue, 10 Mar 2020 04:22:18 GMT"
+    },
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationComponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Sun, 21 Jun 2020 11:00:08 GMT"
+    }
+  ]
+}

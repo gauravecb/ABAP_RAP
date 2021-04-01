@@ -1,0 +1,196 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/BusPartDataNameAddPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>NameAddress}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<VBox items="{CreateModelSet>/NameAndAddress}">
+			<VBox>
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="5" emptySpanL="0" emptySpanM="0" columnsL="3"
+					columnsM="3">
+					<f:content>
+						<core:Title/>
+						<Label text="{i18n>Country}" required="{path:'RequiredOptionalSet>/CountryNameCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<ComboBox
+							enabled="{parts:[{path:'CreateModelSet>CountryEnabled'},{path:'RequiredOptionalSet>/CountryNameCond'}],formatter:'MDMZCUSTOMER.model.Formatter.NameaddSectionEnabledCond'}"
+							change="onSelectCountryAddressAndName" valueStateText="{CreateModelSet>CountryMessage}" valueState="{CreateModelSet>CountryState}"
+							items="{CountryComboSet>/results}" selectedKey="{CreateModelSet>Country}" placeholder="{i18n>select} {i18n>Country}"
+							tooltip="{CreateModelSet>CountryTooltip}">
+							<core:Item key="{CountryComboSet>code}" text="{CountryComboSet>englishShortName}"/>
+						</ComboBox>
+						<Label text="{i18n>AddressVersion}"
+							required="{path:'RequiredOptionalSet>/AddrsVernCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<ComboBox enabled="{path:'RequiredOptionalSet>/AddrsVernCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							valueStateText="{CreateModelSet>AddrVrsMessage}" valueState="{CreateModelSet>AddrVrsState}" change="onSelectAddressVersionAddressAndName"
+							items="{AddressVersionComboSet>/results}" selectedKey="{CreateModelSet>Address_Version}" placeholder="{i18n>select} {i18n>AddressVersion}"
+							tooltip="{CreateModelSet>AddrVrsTooltip}">
+							<core:Item key="{AddressVersionComboSet>addressVersionCode}" text="{AddressVersionComboSet>addressVersionDesc}"/>
+						</ComboBox>
+						<Label text="{i18n>PreferredAddressVersion}"
+							required="{path:'RequiredOptionalSet>/PrefAddVerCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<CheckBox width="10%" selected="{CreateModelSet>Preferred_Local_Language}" valueState="{CreateModelSet>PrefLangState}"
+							valueStateText="{CreateModelSet>PrefLangMessage}"
+							enabled="{parts:[{path:'CreateModelSet>PreferedAddrsVerEnabled'},{path:'RequiredOptionalSet>/PrefAddVerCond'}],formatter:'MDMZCUSTOMER.model.Formatter.NameaddSectionEnabledCond'}"
+							select="onChangePreferedAddressChange"></CheckBox>
+						<Label text="{i18n>Name1}" required="true"></Label>
+						<Input liveChange="liveChnageName1Address" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/Name1Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" value="{CreateModelSet>Name_1}"
+							valueStateText="{CreateModelSet>Name1Message}" valueState="{CreateModelSet>Name1State}" tooltip="{CreateModelSet>Name1Tooltip}"></Input>
+						<Label text="{i18n>Name2}" required="{path:'RequiredOptionalSet>/Name2Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input liveChange="liveChnageName2Address" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/Name2Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" value="{CreateModelSet>Name_2}"
+							valueStateText="{CreateModelSet>Name2Message}" valueState="{CreateModelSet>Name2State}" tooltip="{CreateModelSet>Name2Tooltip}"></Input>
+						<Label text="{i18n>Name3}" required="{path:'RequiredOptionalSet>/Name3Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input liveChange="liveChnageName3Address" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/Name3Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" value="{CreateModelSet>Name_3}"
+							valueStateText="{CreateModelSet>Name3Message}" valueState="{CreateModelSet>Name3State}" tooltip="{CreateModelSet>Name3Tooltip}"></Input>
+						<Label text="{i18n>Name4}" required="{path:'RequiredOptionalSet>/Name4Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input liveChange="liveChnageName4Address" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/Name4Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" value="{CreateModelSet>Name_4}"
+							valueStateText="{CreateModelSet>Name4Message}" valueState="{CreateModelSet>Name4State}" tooltip="{CreateModelSet>Name4Tooltip}"></Input>
+						<core:Title/>
+						<Label text="{i18n>Street1}" required="{path:'RequiredOptionalSet>/Street1Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input liveChange="liveChnageNameAddressStreet1" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/Street1Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							value="{CreateModelSet>Street_1}" valueStateText="{CreateModelSet>Street1Message}" valueState="{CreateModelSet>Street1State}"
+							tooltip="{CreateModelSet>Street1Tooltip}"></Input>
+						<Label text="{i18n>Street2}" required="{path:'RequiredOptionalSet>/Street2Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input liveChange="liveChnageNameAddressStreet2" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/Street2Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							value="{CreateModelSet>Street_2}" valueStateText="{CreateModelSet>Street2Message}" valueState="{CreateModelSet>Street2State}"
+							tooltip="{CreateModelSet>Street2Tooltip}"></Input>
+						<Label text="{i18n>Street3}" required="{path:'RequiredOptionalSet>/Street3Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input liveChange="liveChnageNameAddressStreet3" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/Street3Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							value="{CreateModelSet>Street_3}" valueStateText="{CreateModelSet>Street3Message}" valueState="{CreateModelSet>Street3State}"
+							tooltip="{CreateModelSet>Street3Tooltip}"></Input>
+						<Label text="{i18n>Street4}" required="{path:'RequiredOptionalSet>/Street4Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input liveChange="liveChnageNameAddressStreet4" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/Street4Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							value="{CreateModelSet>Street_4}" valueStateText="{CreateModelSet>Street4Message}" valueState="{CreateModelSet>Street4State}"
+							tooltip="{CreateModelSet>Street4Tooltip}"></Input>
+						<Label text="{i18n>Street5}" required="{path:'RequiredOptionalSet>/Street5Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input liveChange="liveChnageNameAddressStreet5" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/Street5Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							value="{CreateModelSet>Street_5}" valueStateText="{CreateModelSet>Street5Message}" valueState="{CreateModelSet>Street5State}"
+							tooltip="{CreateModelSet>Street5Tooltip}"></Input>
+						<Label text="{i18n>House}" required="{path:'RequiredOptionalSet>/HouseCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input liveChange="liveChnageNameAddressHouse" maxLength="10"
+							enabled="{path:'RequiredOptionalSet>/HouseCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							value="{CreateModelSet>House_No}" valueStateText="{CreateModelSet>HouseMessage}" valueState="{CreateModelSet>HouseState}"
+							tooltip="{CreateModelSet>HouseTooltip}"></Input>
+						<Label text="{i18n>HouseSupplement}"
+							required="{path:'RequiredOptionalSet>/HouseSuplmntCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input value="{CreateModelSet>House_No_Supplement}" maxLength="10"
+							enabled="{path:'RequiredOptionalSet>/HouseSuplmntCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							valueStateText="{CreateModelSet>HouseSupMessage}" valueState="{CreateModelSet>HouseSupState}"
+							liveChange="liveChnageNameAddressHouseSuppliment" tooltip="{CreateModelSet>HouseSupTooltip}"></Input>
+						<Label text="{i18n>Building}" required="{path:'RequiredOptionalSet>/BuildingCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input value="{CreateModelSet>Building}" maxLength="20"
+							enabled="{path:'RequiredOptionalSet>/BuildingCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							valueStateText="{CreateModelSet>BuildMessage}" valueState="{CreateModelSet>BuildState}" liveChange="liveChnageNameAddressBuilding"
+							tooltip="{CreateModelSet>BuildTooltip}"></Input>
+						<Label text="{i18n>Floor}" required="{path:'RequiredOptionalSet>/FloorCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input value="{CreateModelSet>Floor}" maxLength="10"
+							enabled="{path:'RequiredOptionalSet>/FloorCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							valueStateText="{CreateModelSet>FloorMessage}" valueState="{CreateModelSet>FloorState}" liveChange="liveChnageNameAddressFloor"
+							tooltip="{CreateModelSet>FloorTooltip}"></Input>
+						<Label text="{i18n>Room}" required="{path:'RequiredOptionalSet>/RoomCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input value="{CreateModelSet>Room}" maxLength="10"
+							enabled="{path:'RequiredOptionalSet>/RoomCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							valueStateText="{CreateModelSet>RoomMessage}" valueState="{CreateModelSet>RoomState}" liveChange="liveChnageNameAddressRoom"
+							tooltip="{CreateModelSet>RoomTooltip}"></Input>
+						<core:Title/>
+						<Label text="{i18n>PostalCode}"
+							required="{path:'RequiredOptionalSet>/PostalCodeCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input value="{CreateModelSet>Postal_Code}" maxLength="10"
+							enabled="{parts:[{path:'CreateModelSet>PostalCodeEnabled'},{path:'RequiredOptionalSet>/PostalCodeCond'}],formatter:'MDMZCUSTOMER.model.Formatter.NameaddSectionEnabledCond'}"
+							valueStateText="{CreateModelSet>PostCodeMessage}" valueState="{CreateModelSet>PostCodeState}" liveChange="liveChnageNameAddressPostalCode"
+							tooltip="{CreateModelSet>PostCodeTooltip}"></Input>
+						<Label text="{i18n>District}" required="{path:'RequiredOptionalSet>/DistrictCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input value="{CreateModelSet>District}" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/DistrictCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							valueStateText="{CreateModelSet>DistrictMessage}" valueState="{CreateModelSet>DistrictState}"
+							liveChange="liveChnageNameAddressPostalDistrict" tooltip="{CreateModelSet>DistrictTooltip}"></Input>
+						<Label text="{i18n>City}" required="{path:'RequiredOptionalSet>/CityCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input value="{CreateModelSet>City}" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/CityCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							valueStateText="{CreateModelSet>CityMessage}" valueState="{CreateModelSet>CityState}" liveChange="liveChnageNameAddressState"
+							tooltip="{CreateModelSet>CityTooltip}"></Input>
+						<Label text="{i18n>Region}" required="{path:'RequiredOptionalSet>/RegionCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<ComboBox
+							enabled="{parts:[{path:'CreateModelSet>RegionEnabled'},{path:'RequiredOptionalSet>/RegionCond'}],formatter:'MDMZCUSTOMER.model.Formatter.NameaddSectionEnabledCond'}"
+							selectedKey="{CreateModelSet>Region}" items="{RegionBasedCountryComboSet>/results}" placeholder="{i18n>select} {i18n>Region}"
+							valueStateText="{CreateModelSet>RegionMessage}" valueState="{CreateModelSet>RegionState}" change="liveChnageNameAddressRegion"
+							tooltip="{CreateModelSet>RegionTooltip}">
+							<core:Item key="{RegionBasedCountryComboSet>cntrySubdivCode}" text="{RegionBasedCountryComboSet>cntrySubdivName}"/>
+						</ComboBox>
+						<Label text="{i18n>FreeTradeRegion}"
+							required="{path:'RequiredOptionalSet>/FreeTraderegCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<ComboBox
+							enabled="{parts:[{path:'CreateModelSet>FreeTradeRegionEnabled'},{path:'RequiredOptionalSet>/FreeTraderegCond'}],formatter:'MDMZCUSTOMER.model.Formatter.NameaddSectionEnabledCond'}"
+							selectedKey="{CreateModelSet>Free_Trade_Region}" items="{FreeTadeRegionBasedCountryComboSet>/results}"
+							placeholder="{i18n>select} {i18n>FreeTradeRegion}" valueStateText="{CreateModelSet>FreeTradeRegionMessage}"
+							valueState="{CreateModelSet>FreeTradeRegionState}" change="liveChnageNameAddressFreeTradeRegion"
+							tooltip="{CreateModelSet>FreeTradeRegionTooltip}">
+							<core:Item key="{FreeTadeRegionBasedCountryComboSet>intFreeTradeRegionId}" text="{FreeTadeRegionBasedCountryComboSet>freeTradeRegion}"/>
+						</ComboBox>
+						<Label text="{i18n>POBoxNumber}"
+							required="{path:'RequiredOptionalSet>/POBOXNumCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input maxLength="10"
+							enabled="{parts:[{path:'CreateModelSet>POBoxNumEnabled'},{path:'RequiredOptionalSet>/POBOXNumCond'}],formatter:'MDMZCUSTOMER.model.Formatter.NameaddSectionEnabledCond'}"
+							value="{CreateModelSet>PO_Box}" valueStateText="{CreateModelSet>POBoxNumMessage>}" valueState="{CreateModelSet>POBoxNumState}"
+							liveChange="liveChnageNameAddressPOBoxNumber" tooltip="{CreateModelSet>POBoxNumTooltip}"></Input>
+						<Label text="{i18n>POBoxPostalCode}"
+							required="{path:'RequiredOptionalSet>/PoBoxPostCodeCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input maxLength="10"
+							enabled="{parts:[{path:'CreateModelSet>PoBoxPostCodeEnabled'},{path:'RequiredOptionalSet>/PoBoxPostCodeCond'}],formatter:'MDMZCUSTOMER.model.Formatter.NameaddSectionEnabledCond'}"
+							value="{CreateModelSet>PO_Box_Code}" valueStateText="{CreateModelSet>POBoxPostCodMessage}" valueState="{CreateModelSet>POBoxPostCodState}"
+							liveChange="liveChnageNameAddressPOBoxPostalCode" tooltip="{CreateModelSet>POBoxPostCodTooltip}" ></Input>
+						<Label text="{i18n>POBoxCity}" required="{path:'RequiredOptionalSet>/PoBoxCityCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input value="{CreateModelSet>PO_Box_City}" maxLength="35"
+							enabled="{path:'RequiredOptionalSet>/PoBoxCityCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							valueStateText="{CreateModelSet>POBoxCityMessage}" valueState="{CreateModelSet>POBoxCityState}" liveChange="liveChnageNameAddressPOBoxCity"
+							tooltip="{CreateModelSet>POBoxCityTooltip}"></Input>
+						<Label text="{i18n>CompanyPostalCode}"
+							required="{path:'RequiredOptionalSet>/CompPostCodeCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input maxLength="10" 
+							value="{CreateModelSet>CompPostalCode}" valueStateText="{CreateModelSet>CompPostalCodeMessage}"
+								enabled="{parts:[{path:'CreateModelSet>CompPostalCodeEnabled'},{path:'RequiredOptionalSet>/CompPostCodeCond'}],formatter:'MDMZCUSTOMER.model.Formatter.NameaddSectionEnabledCond'}"
+							valueState="{CreateModelSet>CompPostalCodeState}" liveChange="liveChangeCompPostalCode" tooltip="{CreateModelSet>CompPostalCodeTooltip}"></Input>
+					</f:content>
+				</f:SimpleForm>
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="5" emptySpanL="0" emptySpanM="0" columnsL="3"
+					columnsM="3">
+					<f:content>
+						<core:Title/>
+						<Label></Label>
+						<Button text="{i18n>ValidateAddress}" tooltip="{i18n>ValidateAddress}" press="ValidateAddreessName" icon="sap-icon://validate"
+							enabled="{RequiredOptionalSet>/NameAndAddrsEdit}"></Button>
+						<Label text="{i18n>ByPassAddressValidation}"
+							required="{path:'RequiredOptionalSet>/ByPassAddrValCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<CheckBox width="10%" selected="{CreateModelSet>Bypass_Validation}" valueState="{CreateModelSet>ByPassAddrsState}"
+							valueStateText="{CreateModelSet>ByPassAddrsMessage}"
+							enabled="{path:'RequiredOptionalSet>/ByPassAddrValCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+							select="liveChnageNameAddressByPassValidation"></CheckBox>
+						<core:Title/>
+						<Label text="{i18n>StreetValidation}"
+							required="{path:'RequiredOptionalSet>/streetValCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input value="{CreateModelSet>Street_Validation}" valueState="{CreateModelSet>streetValState}"
+							valueStateText="{CreateModelSet>StreetValMessage}" enabled="false" liveChange="liveChnageStreetValidation"></Input>
+						<core:Title/>
+						<Label text="{i18n>PoBoxValidation}"
+							required="{path:'RequiredOptionalSet>/PoBoxValCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"></Label>
+						<Input liveChange="liveChnagePOBoxValStateValidation" valueState="{CreateModelSet>PoBoxValState}"
+							valueStateText="{CreateModelSet>POBoxValMessage}" enabled="false" value="{CreateModelSet>POBox_Validation}"></Input>
+						<Label text=""></Label>
+						<Text text="{CreateModelSet>AddCountNo}"></Text>
+						<Button text="+" press="addNewAddressRow" enabled="{RequiredOptionalSet>/NameAndAddrsEdit}"></Button>
+						<Button text="-" press="deleteAddressRow" enabled="{RequiredOptionalSet>/NameAndAddrsEdit}"></Button>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		</VBox>
+	</Panel>
+</core:FragmentDefinition>

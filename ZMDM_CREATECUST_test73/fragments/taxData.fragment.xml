@@ -1,0 +1,145 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/BusPartDataTaxDataPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>TaxData}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8" labelSpanS="6" adjustLabelSpan="false"
+			emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" required="{path:'RequiredOptionalSet>/TaxVal1cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"
+					wrapping="true"
+					text="{parts:[{path:'CreateModelSet>/TaxData/Text1'},{path:'CreateModelSet>/TaxData/Natural_Person'},{path:'i18n>tax1'}],formatter:'MDMZCUSTOMER.model.Formatter.basedOnNaturalPersonChangeTaxLabel'}"/>
+				<Input maxLength="16" valueState="{CreateModelSet>/TaxData/Tax1State}" valueStateText="{CreateModelSet>/TaxData/Tax1Message}"
+					enabled="{path:'RequiredOptionalSet>/TaxVal1cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					value="{CreateModelSet>/TaxData/Text1Value}" liveChange="liveChangeTax1Value" tooltip="{CreateModelSet>/TaxData/Tax1Tooltip}"/>
+				<Label textAlign="Left" required="{path:'RequiredOptionalSet>/TaxVal2cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"
+					wrapping="true"
+					text="{parts:[{path:'CreateModelSet>/TaxData/Text2'},{path:'CreateModelSet>/TaxData/Natural_Person'},{path:'i18n>tax2'}],formatter:'MDMZCUSTOMER.model.Formatter.basedOnNaturalPersonChangeTaxLabel'}"/>
+				<Input maxLength="11" valueState="{CreateModelSet>/TaxData/Tax2State}" valueStateText="{CreateModelSet>/TaxData/Tax2Message}"
+					enabled="{path:'RequiredOptionalSet>/TaxVal2cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					value="{CreateModelSet>/TaxData/Text2Value}" liveChange="liveChangeTax2Value" tooltip="{CreateModelSet>/TaxData/Tax2Tooltip}"/>
+				<Label required="{path:'RequiredOptionalSet>/TaxVal3cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" textAlign="Left"
+					wrapping="true"
+					text="{parts:[{path:'CreateModelSet>/TaxData/Text3'},{path:'CreateModelSet>/TaxData/Natural_Person'},{path:'i18n>tax3'}],formatter:'MDMZCUSTOMER.model.Formatter.basedOnNaturalPersonChangeTaxLabel'}"/>
+				<Input maxLength="18" valueState="{CreateModelSet>/TaxData/Tax3State}" valueStateText="{CreateModelSet>/TaxData/Tax3Message}"
+					enabled="{path:'RequiredOptionalSet>/TaxVal3cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					value="{CreateModelSet>/TaxData/Text3Value}" liveChange="liveChangeTax3Value" tooltip="{CreateModelSet>/TaxData/Tax3Tooltip}"/>
+				<Label required="{path:'RequiredOptionalSet>/TaxVal4cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" textAlign="Left"
+					wrapping="true"
+					text="{parts:[{path:'CreateModelSet>/TaxData/Text4'},{path:'CreateModelSet>/TaxData/Natural_Person'},{path:'i18n>tax4'}],formatter:'MDMZCUSTOMER.model.Formatter.basedOnNaturalPersonChangeTaxLabel'}"/>
+				<Input maxLength="18" valueState="{CreateModelSet>/TaxData/Tax4State}" valueStateText="{CreateModelSet>/TaxData/Tax4Message}"
+					enabled="{path:'RequiredOptionalSet>/TaxVal4cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					value="{CreateModelSet>/TaxData/Text4Value}" liveChange="liveChangeTax4Value" tooltip="{CreateModelSet>/TaxData/Tax4Tooltip}"/>
+				<Label required="{path:'RequiredOptionalSet>/TaxVal5cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" textAlign="Left"
+					wrapping="true"
+					text="{parts:[{path:'CreateModelSet>/TaxData/Text5'},{path:'CreateModelSet>/TaxData/Natural_Person'},{path:'i18n>tax5'}],formatter:'MDMZCUSTOMER.model.Formatter.basedOnNaturalPersonChangeTaxLabel'}"/>
+				<Input maxLength="60" valueState="{CreateModelSet>/TaxData/Tax5State}" valueStateText="{CreateModelSet>/TaxData/Tax5Message}"
+					value="{CreateModelSet>/TaxData/Text5Value}"
+					enabled="{path:'RequiredOptionalSet>/TaxVal5cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					liveChange="liveChangeTax5Value" tooltip="{CreateModelSet>/TaxData/Tax5Tooltip}"/>
+				<core:Title/>
+				<Label text="{i18n>VatCountry}"
+					required="{path:'RequiredOptionalSet>/VatCountryCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<!--<Input enabled="false" value="{CreateModelSet>/TaxData/VatCountKey}"></Input>-->
+				<!--	enabled="{path:'RequiredOptionalSet>/VatCountryCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"-->
+				<ComboBox valueState="{CreateModelSet>/TaxData/VatCountryViewState}" valueStateText="{CreateModelSet>/TaxData/VatCountryViewMessage}"
+					selectedKey="{CreateModelSet>/TaxData/VatCountKey}" enabled="false" items="{vatDataSet>/NAVTAXCOUNTRY}"
+					change="onChangeCountryTaxDatBusPart" tooltip="{CreateModelSet>/TaxData/VatCountryTooltip}">
+					<core:Item key="{vatDataSet>Land1}" text="{vatDataSet>Landx}"></core:Item>
+				</ComboBox>
+				<Label text="{i18n>VatNumber}" required="{path:'RequiredOptionalSet>/VatNumCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="20" valueState="{CreateModelSet>/TaxData/VatNumViewState}" valueStateText="{CreateModelSet>/TaxData/VatNumViewMessage}"
+					value="{CreateModelSet>/TaxData/VatNum}"
+					enabled="{path:'RequiredOptionalSet>/VatNumCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					liveChange="onChangeVatNumTaxDataBusPart" tooltip="{CreateModelSet>/TaxData/VatNumTooltip}"></Input>
+				<Button text="+" press="onPressAddVatCountryVatNumber" tooltip="{i18n>clickhereforAdditionalVATS}"></Button>
+				<Label></Label>
+				<Link press="onPressAddVatCountryVatNumber"
+					text="{parts:[{path:'CreateModelSet>/TaxData/TotalAdditionalVat'},{path:'i18n>labelCountVatCountryVatNum'}],formatter:'MDMZCUSTOMER.model.Formatter.countBasedVatCountryVatNum'}"></Link>
+				<core:Title/>
+			</f:content>
+		</f:SimpleForm>
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8" labelSpanS="6" adjustLabelSpan="false"
+			emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label text="{i18n>TaxJurisdictionCode}"
+					required="{path:'RequiredOptionalSet>/TaxJurisCodeCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input value="{CreateModelSet>/TaxData/TaxJurisdiction_Code}" valueState="{CreateModelSet>/TaxData/TaxJurisdictionCodeState}"
+					valueStateText="{CreateModelSet>/TaxData/TaxJurisdictionCodeMessgae}" enabled="false" liveChange="liveChangeTaxJurisdictionCodeTaxData"
+					tooltip="{CreateModelSet>/TaxData/TaxJurisdictionCodeTooltip}"/>
+				<Label text="{i18n>TaxationType}"
+					required="{path:'RequiredOptionalSet>/TaxationTypeCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/TaxationTypeCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					items="{taxationSet>/NAVTAXTYPE}" valueStateText="{CreateModelSet>/TaxData/TaxationTypeMessage}"
+					valueState="{CreateModelSet>/TaxData/TaxationTypeState}" selectedKey="{CreateModelSet>/TaxData/Taxation_Type}"
+					placeholder="{i18n>select} {i18n>TaxationType}" change="onChangeTaxationTypeTaxData" tooltip="{CreateModelSet>/TaxData/TaxationTypeTooltip}">
+					<core:Item key="{taxationSet>code}" text="{taxationSet>code} - {taxationSet>description}"/>
+				</ComboBox>
+				<Label text="{i18n>TaxNumberType}"
+					required="{path:'RequiredOptionalSet>/TaxNumberTypeCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/TaxNumberTypeCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					valueState="{CreateModelSet>/TaxData/TaxNumberTypeState}" valueStateText="{CreateModelSet>/TaxData/TaxNumberTypeMessage}"
+					items="{taxNumSet>/NAVTAXNUMTYPE}" selectedKey="{CreateModelSet>/TaxData/TaxNumber_Type}" placeholder="{i18n>select} {i18n>TaxNumberType}"
+					change="onChangeTaxNumberTypeTaxData" tooltip="{CreateModelSet>/TaxData/TaxNumberTypeTooltip}">
+					<core:Item key="{taxNumSet>code}" text="{taxNumSet>code} - {taxNumSet>description}"/>
+				</ComboBox>
+				<core:Title/>
+				<Label text="{i18n>CFOPCategory}"
+					required="{path:'RequiredOptionalSet>/CFOPCatCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/CFOPCatCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					items="{cfopSet>/NAVCFOPCAT}" selectedKey="{CreateModelSet>/TaxData/CFOP_Category}" placeholder="{i18n>select} {i18n>CFOPCategory}"
+					valueState="{CreateModelSet>/TaxData/CFOPCategoryState}" valueStateText="{CreateModelSet>/TaxData/CFOPCategoryMessage}"
+					change="onChangeCPFOCatTaxData" tooltip="{CreateModelSet>/TaxData/CFOPCategoryTooltip}">
+					<core:Item key="{cfopSet>Cfopc}" text="{cfopSet>Cfopc} - {cfopSet>Descrip}"/>
+				</ComboBox>
+				<Label text="{i18n>ICMSLaw}" required="{path:'RequiredOptionalSet>/ICMSLawCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox valueState="{CreateModelSet>/TaxData/ICMSLawState}" valueStateText="{CreateModelSet>/TaxData/ICMSLawMessage}"
+					enabled="{path:'RequiredOptionalSet>/ICMSLawCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					items="{icmsLawSet>/NAVICMSLAW}" selectedKey="{CreateModelSet>/TaxData/ICMS_Law}" placeholder="{i18n>select} {i18n>ICMSLaw}"
+					change="onChangeICMSLowTaxData" tooltip="{CreateModelSet>/TaxData/ICMSLawTooltip}">
+					<core:Item key="{icmsLawSet>Taxlaw}" text="{icmsLawSet>Taxlaw} - {icmsLawSet>Descrip}"/>
+				</ComboBox>
+				<Label text="{i18n>IPI-Law}" required="{path:'RequiredOptionalSet>/IPILawCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox valueState="{CreateModelSet>/TaxData/IPILawState}" valueStateText="{CreateModelSet>/TaxData/IPILawMessage}"
+					enabled="{path:'RequiredOptionalSet>/IPILawCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" items="{ipiLawSet>/NAVIPILAW}"
+					selectedKey="{CreateModelSet>/TaxData/IPI_Law}" placeholder="{i18n>select} {i18n>IPI-Law}" change="onChangeIPILOwTaxData"
+					tooltip="{CreateModelSet>/TaxData/IPILawTooltip}">
+					<core:Item key="{ipiLawSet>Taxlaw}" text="{ipiLawSet>Taxlaw} - {ipiLawSet>Descrip}"/>
+				</ComboBox>
+				<core:Title/>
+				<Label text="{i18n>NaturalPerson}"
+					required="{path:'RequiredOptionalSet>/NaturlPerCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Checkbox width="10%" valueState="{CreateModelSet>/TaxData/NaturalPerState}" valueStateText="{CreateModelSet>/TaxData/NaturalPerMessage}"
+					enabled="{path:'RequiredOptionalSet>/NaturlPerCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selected="{CreateModelSet>/TaxData/Natural_Person}" select="onSelectNaturalPersonTaxData"/>
+				<Label text="{i18n>Sales/Pur.Tax}"
+					required="{path:'RequiredOptionalSet>/SalesPurTxCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Checkbox width="10%" valueState="{CreateModelSet>/TaxData/salesPurchase_TaxState}"
+					valueStateText="{CreateModelSet>/TaxData/salesPurchase_TaxMessage}"
+					enabled="{path:'RequiredOptionalSet>/SalesPurTxCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selected="{CreateModelSet>/TaxData/salesPurchase_Tax}" select="onSelectSalesPurTaxTaxData"
+					tooltip="{CreateModelSet>/TaxData/salesPurchase_TaxTooltip}"/>
+				<Label text="{i18n>EqualizationTax}"
+					required="{path:'RequiredOptionalSet>/EqualizTaxCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Checkbox width="10%" valueState="{CreateModelSet>/TaxData/Equalization_TaxState}"
+					valueStateText="{CreateModelSet>/TaxData/Equalization_TaxMessage}"
+					enabled="{path:'RequiredOptionalSet>/EqualizTaxCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selected="{CreateModelSet>/TaxData/Equalization_Tax}" select="onSelectEqualizationTaxTaxData"/>
+				<Label text="{i18n>ICMS-Exempt}"
+					required="{path:'RequiredOptionalSet>/ICMSExempCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Checkbox width="10%" valueState="{CreateModelSet>/TaxData/ICMS_ExemptState}" valueStateText="{CreateModelSet>/TaxData/ICMS_ExemptMessage}"
+					enabled="{path:'RequiredOptionalSet>/ICMSExempCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selected="{CreateModelSet>/TaxData/ICMS_Exempt}" select="onSelectICMS_ExemptTaxData"/>
+				<Label text="{i18n>IPI-Exempt}"
+					required="{path:'RequiredOptionalSet>/IPIExemptCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Checkbox width="10%" valueState="{CreateModelSet>/TaxData/IPI_ExemptState}" valueStateText="{CreateModelSet>/TaxData/IPI_ExemptMessage}"
+					enabled="{path:'RequiredOptionalSet>/IPIExemptCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selected="{CreateModelSet>/TaxData/IPI_Exempt}" select="onSelectIPI_EXPmptTaxData"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

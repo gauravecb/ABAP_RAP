@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="false">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>Shipping}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<!--<content>-->
+		<f:SimpleForm class="customClassTitle editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+			labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label class="newclass" text="{i18n>DeliveryPriority}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/DeliveryPriority'},{path:'SearchDisplayModelSet>/results/DeliveryPriorityDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label class="newclass" text="{i18n>ShippingConditions}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/ShippingCond'},{path:'SearchDisplayModelSet>/results/ShippingCondDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label class="newclass" text="{i18n>DeliveryPlant}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/DeliveringPlant'},{path:'SearchDisplayModelSet>/results/DeliveringPlantDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<core:Title/>
+				<Label class="newclass" text="{i18n>OrderCombination}" wrapping="true"/>
+				<CheckBox enabled="false"
+					selected="{path:'SearchDisplayModelSet>/results/OrderCombination',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+				<Label class="newclass" text="{i18n>RelevantforProd}" wrapping="true"/>
+				<CheckBox enabled="false" selected="{path:'SearchDisplayModelSet>/results/RelevantForPod',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+				<Label class="newclass" text="{i18n>ProductionTimeFrame}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/results/PodTimeframe}"/>
+				<core:Title/>
+				<Label class="newclass" text="{i18n>CompleteDeliveryRequired}" wrapping="true"/>
+				<CheckBox enabled="false" selected="{path:'SearchDisplayModelSet>/results/CompleteDelvryRequired',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+				<Label class="newclass" text="{i18n>PartialDeliveryPerItem}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/PartialDelvryPerItem'},{path:'SearchDisplayModelSet>/results/PartialDelvryPerItemDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label class="newclass" text="{i18n>MaxPartialDeliveries}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/results/MaxPartialDelvry}"/>
+			</f:content>
+		</f:SimpleForm>
+		<!--</content>-->
+	</Panel>
+</core:FragmentDefinition>

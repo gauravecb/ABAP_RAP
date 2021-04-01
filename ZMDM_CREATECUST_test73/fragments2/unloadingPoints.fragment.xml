@@ -1,0 +1,79 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/CustDataUnloadingPointsPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>UnloadingPoints}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<VBox items="{UnloadingModelSet>/UnloadingPoints}">
+			<VBox visible="{UnloadingModelSet>VisibleBasedOnNext}">
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8" labelSpanS="6" adjustLabelSpan="false"
+					emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+					<f:content>
+						<core:Title/>
+						<Label textAlign="Left" text="{i18n>UnloadPoint}" wrapping="true"/>
+						<Input enabled="false" value="{UnloadingModelSet>UnloadPoint}"/>
+						<Label textAlign="Left" text="{i18n>GoodsReceivingHours}" wrapping="true"/>
+						<Input enabled="false"
+							value="{parts:[{path:'UnloadingModelSet>GoodsReceivingHours'},{path:'UnloadingModelSet>GoodsrecText'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+						<core:Title/>
+						<Label textAlign="Left" text="{i18n>Default}" wrapping="true"/>
+						<CheckBox enabled="false" selected="{path:'UnloadingModelSet>Default',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+						<core:Title/>
+						<Label textAlign=" Left" text=" {i18n>CalendarKey}" wrapping="true"/>
+						<Input enabled="false"
+							value="{parts:[{path:'UnloadingModelSet>CalendarKey'},{path:'UnloadingModelSet>Factorycaltext'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+						<core:Title/>
+					</f:content>
+				</f:SimpleForm>
+				<Table items="{UnloadingModelSet>DayTable}">
+					<columns>
+						<Column>
+							<Label text="{i18n>dayTable}"></Label>
+						</Column>
+						<Column>
+							<Label text="{i18n>MorningOpenTable}"></Label>
+						</Column>
+						<Column>
+							<Label text="{i18n>MorningCloseTable}"></Label>
+						</Column>
+						<Column>
+							<Label text="{i18n>AfternoonOpenTable}"></Label>
+						</Column>
+						<Column>
+							<Label text="{i18n>AfternoonCloseTable}"></Label>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<Text text="{UnloadingModelSet>Weekday}"></Text>
+							<TimePicker enabled="false" valueFormat="HH:mm" displayFormat="HH:mm"
+								dateValue="{path:'UnloadingModelSet>Morningopen',formatter:'MDMZCUSTOMER.model.Formatter.readBackendTime'}"/>
+							<TimePicker enabled="false" valueFormat="HH:mm" displayFormat="HH:mm"
+								dateValue="{path:'UnloadingModelSet>Morningclose',formatter:'MDMZCUSTOMER.model.Formatter.readBackendTime'}"/>
+							<TimePicker enabled="false" valueFormat="HH:mm" displayFormat="HH:mm"
+								dateValue="{path:'UnloadingModelSet>Afternoonopen',formatter:'MDMZCUSTOMER.model.Formatter.readBackendTime'}"/>
+							<TimePicker enabled="false" valueFormat="HH:mm" displayFormat="HH:mm"
+								dateValue="{path:'UnloadingModelSet>Afternoonclose',formatter:'MDMZCUSTOMER.model.Formatter.readBackendTime'}"/>
+						</ColumnListItem>
+					</items>
+				</Table>
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8" labelSpanS="6" adjustLabelSpan="false"
+					emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+					<f:content>
+						<core:Title/>
+						<core:Title/>
+						<core:Title/>
+						<Label></Label>
+						<HBox>
+							<Button tooltip="{i18n>PriviousBtn}" press="previosDipalyUnloadingPoints" icon="sap-icon://slim-arrow-left"></Button>
+							<Text text="{UnloadingModelSet>AddCountNo}"></Text>
+							<Button iconFirst="false" tooltip="{i18n>NextBtn}" press="nextDisplayUnloadingPoints" icon="sap-icon://slim-arrow-right"></Button>
+						</HBox>
+						<core:Title/>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		</VBox>
+	</Panel>
+</core:FragmentDefinition>

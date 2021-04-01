@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<VBox>
+		<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.salesOrder"></core:Fragment>
+		<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.shipping"></core:Fragment>
+		<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.billingDocument"></core:Fragment>
+		<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.partnerFunctions"></core:Fragment>
+		<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.additionalFields"></core:Fragment>
+	</VBox>
+</core:FragmentDefinition>

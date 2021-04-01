@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog title="Plant" class="sapUiPopupWithPadding sapUiSizeCompact" items="{path: '/PlantSet'}" search="_handlePlantSearch" confirm="_handlePlantConfirm">
+        <StandardListItem class="sapUiSizeCompact" title="{PlantId}" description="{PlantDesc}"/>
+    </SelectDialog>
+</core:FragmentDefinition>

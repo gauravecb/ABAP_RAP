@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:uni="sap.ui.unified" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<VBox>
+		<Toolbar>
+			<Label text="Uploaded Files" design="Bold"></Label>
+			<ToolbarSpacer></ToolbarSpacer>
+			<uni:FileUploader sameFilenameAllowed="true" enabled="{ButtonPropertyModel>/UploadDocument}" id="idfileUploader" multiple="true"
+				maximumFilenameLength="255" buttonOnly="true" icon="sap-icon://upload" iconOnly="true" fileType="{i18n>allowFileType}"
+				filenameLengthExceed="onFilenameLengthExceed" maximumFileSize="5" change="onChangeFile" uploadAborted="uploadAborted"
+				typeMissmatch="fileTypeMissmatch" fileSizeExceed="fileSizeExceed" uploadComplete="onUploadComplete"/>
+			<!--uploadUrl="/sap/opu/odata/sap/ZRVCOS_VESSEL_CHARTERING_SRV/AttachmentSet"-->
+			<!--	sendXHR="true" useMultipart="false"-->
+			<!--<ToolbarSpacer></ToolbarSpacer>-->
+		</Toolbar>
+		<Table items="{FileUploadSet>/results}">
+			<columns>
+				<Column minScreenWidth="Tablet" demandPopin="true" width="30%">
+					<Text text="{i18n>fileNameFile}"></Text>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" width="8%">
+					<Text text="{i18n>sizeFile}"></Text>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" width="8%">
+					<Text text="{i18n>typeFile}"></Text>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>noteFile}"></Text>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>fullNameAndTimestampFile}"></Text>
+				</Column>
+				<Column width="6%" minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>actionFile}"></Text>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<Link text="{FileUploadSet>FileName}" wrapping="true" tooltip="{FileUploadSet>FileName}" press="onClickOfFileRedirect"></Link>
+					<Text text="{path:'FileUploadSet>Size',formatter:'MDMZCUSTOMER.model.Formatter.fileUploadFileSizeConvert'}"></Text>
+					<Text text="{path:'FileUploadSet>FileName',formatter:'MDMZCUSTOMER.model.Formatter.fileUploadFileType'}"></Text>
+					<Input value="{FileUploadSet>Note}" enabled="{FileUploadSet>NoteEnabled}"></Input>
+					<Text text="{FileUploadSet>FullName} {path:'FileUploadSet>TimeStamp',formatter:'MDMZCUSTOMER.model.Formatter.dateToStringForm'}"></Text>
+					<Button icon="sap-icon://delete" type="Reject" press="onDeleteAttachment" enabled="{FileUploadSet>DeleteEnabled}"></Button>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</VBox>
+	<!--</Panel>-->
+</core:FragmentDefinition>

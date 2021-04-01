@@ -1,0 +1,112 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/opu/odata/sap/ZCL_MATERIAL_MASTER_SRV/$metadata">
+		<edmx:Include Alias="Metadata" Namespace="ZCL_MATERIAL_MASTER_SRV"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm"
+			Namespace="zpriceagreement.localService.ZCL_MATERIAL_MASTER_SRV.annotation.ZCL_MATERIAL_MASTER_SRV">
+			<Annotations Target="Metadata.ITMPlant/MaterialFreightGroupsId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Material Freight Group"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="MaterialFreightGroupsSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialFreightGroupsId"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialFreightGroupsId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialFreightGroupsDesc"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialFreightGroupsDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMPlant/CountryOrgId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Country of Origin"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="CountryOfOrginSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="CountryOrgId"/>
+									<PropertyValue Property="ValueListProperty" String="CountryOrgId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="CountryOrgDesc"/>
+									<PropertyValue Property="ValueListProperty" String="CountryOrgDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMPlant/GoldenTaxId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Golden Tax"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="GoldenTaxSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="GoldenTaxId"/>
+									<PropertyValue Property="ValueListProperty" String="GoldenTaxId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="GoldenTaxDesc"/>
+									<PropertyValue Property="ValueListProperty" String="GoldenTaxDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMPlant/StorageConditionsId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Golden Tax"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="StorageConditionsSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="StorageConditionsId"/>
+									<PropertyValue Property="ValueListProperty" String="StorageConditionsId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="StorageConditionsDesc"/>
+									<PropertyValue Property="ValueListProperty" String="StorageConditionsDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

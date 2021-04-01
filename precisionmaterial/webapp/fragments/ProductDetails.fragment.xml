@@ -1,0 +1,118 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form">
+	<Table id="idProductDetailsTable" mode="SingleSelectLeft" items="{ path: '' }">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Product Details"></Title>
+				<ToolbarSpacer/>
+				<Button type="Accept" icon="sap-icon://add" text="Add" press="handleAddItem"></Button>
+				<!--<Button type="Accept" icon="sap-icon://edit" text="Edit" press="handleEdittem"></Button>-->
+				<Button type="Reject" icon="sap-icon://delete" text="Delete" press="handleDeleteItem"></Button>
+				<Button type="Emphasized" icon="sap-icon://copy" text="Copy" press="handleCopyItem"></Button>
+				<Button icon="sap-icon://excel-attachment" press="handleDownloadProductDetails" tooltip="Export to Spreadsheet"></Button>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column minScreenWidth="Phone" demandPopin="true">
+				<header>
+					<Text text="Line Item">
+						<customData>
+							<core:CustomData key="ProductId"></core:CustomData>
+						</customData>
+					</Text>
+				</header>
+			</Column>
+			<Column>
+				<header minScreenWidth="Phone" demandPopin="true">
+					<Text text="Reversable">
+						<customData>
+							<core:CustomData key="Reservable"></core:CustomData>
+						</customData>
+					</Text>
+				</header>
+			</Column>
+			<Column minScreenWidth="Phone" demandPopin="true">
+				<header>
+					<Text text="Submittable">
+						<customData>
+							<core:CustomData key="Submittable"></core:CustomData>
+						</customData>
+					</Text>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="SKU">
+						<customData>
+							<core:CustomData key="SKUCode"></core:CustomData>
+							<core:CustomData key="SKUDescp"></core:CustomData>
+						</customData>
+					</Text>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="Division">
+						<customData>
+							<core:CustomData key="DivisionId"></core:CustomData>
+						</customData>
+					</Text>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="Business Unit">
+						<customData>
+							<core:CustomData key="BusiUnitId"></core:CustomData>
+						</customData>
+					</Text>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="Product Category">
+						<customData>
+							<core:CustomData key="ProductCateg"></core:CustomData>
+						</customData>
+					</Text>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="Product Family">
+						<customData>
+							<core:CustomData key="ProductFamily"></core:CustomData>
+						</customData>
+					</Text>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="Product Line">
+						<customData>
+							<core:CustomData key="ProductLine"></core:CustomData>
+						</customData>
+					</Text>
+				</header>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<!--<Text text="{Reservable}" valueState="Error"></Text>-->
+					<Link text="{ProductId}" press="handleEdittem"></Link>
+					<CheckBox selected="{Reservable}" valueState="{= ${Reservable} ? 'Success' : 'Error' }" enabled="false"/>
+					<CheckBox selected="{Submittable}" valueState="{= ${Submittable} ? 'Success' : 'Error' }" enabled="false"/>
+					<!--<Text text="{Submittable}"></Text>-->
+					<Text text="{SKUCode}-{SKUDescp}"></Text>
+					<Text text="{DivisionId}" tooltip="{DivisionDesc}"></Text>
+					<Text text="{BusiUnitId}" tooltip="{BusiUnitDesc}"></Text>
+					<Text text="{ProductCateg}"></Text>
+					<Text text="{ProductFamily}"></Text>
+					<Text text="{ProductLine}"></Text>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

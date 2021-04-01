@@ -1,0 +1,33 @@
+/* Enter your custom styles here */
+
+.customClassTitle>div>div>div>div>.sapUiFormContainerTitle>.sapUiFormTitle {
+    height: 0rem !important;
+    line-height: 0rem !important;
+}
+
+.sapUiSizeCompact .sapUiFormContainerTitle>.sapUiFormTitle {
+    height: 0rem !important;
+    line-height: 0rem !important;
+}
+
+.sapFDynamicPageHeader.sapFDynamicPageHeaderWithContent {
+    padding: 0rem 0.6rem!important;
+}
+
+.sapUiSizeCompact .sapUxAPBlockContainerDesktop {
+    padding: 1rem 1rem 1rem 1rem!important;
+}
+
+.sapMLabel {
+    white-space: inherit!important;
+}
+
+/* for header page alige like below simple form*/
+.sapUiMedia-Std-Desktop .sapUxAPObjectPageHeaderContent {
+    padding-left: 2.5rem!important;
+    padding-right: 3rem!important;
+}
+
+.sapUxAPObjectPageHeaderContent .sapUxAPObjectPageHeaderContentItem {
+    margin-bottom: 0rem!important;
+}

@@ -1,0 +1,124 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="MDMZCUSTOMER.controller.Display"
+	xmlns:ux="sap.uxap" xmlns:fb="sap.ui.comp.filterbar" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:objPage="sap.uxap">
+	<!--	<App>
+		<pages>-->
+	<Page title="{i18n>searchCustomer}" class="sapUiSizeCompact" showNavButton="true" navButtonPress="onPressExBusToDisplay">
+		<content>
+			<objPage:ObjectPageLayout id="ObjectPageLayout" preserveHeaderStateOnScroll="false" alwaysShowContentHeader="false"
+				navigate="onChnageIconTabBar" showTitleInHeaderContent="false" showEditHeaderButton="false" editHeaderButtonPress="handleEditBtnPress"
+				upperCaseAnchorBar="false" useIconTabBar="true" headerContentPinnable="false">
+				<objPage:headerContent>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="5" emptySpanL="0" emptySpanM="0" columnsL="3"
+						columnsM="3">
+						<core:Title></core:Title>
+						<Label text="{i18n>CompanyCode}"></Label>
+						<Input enabled="false" value="{SearchDisplayModelSet>/results/Bukrs}"/>
+						<core:Title></core:Title>
+						<Label text="{i18n>SalesOrg}"></Label>
+						<Input enabled="false" value="{SearchDisplayModelSet>/results/Vkorg}"/>
+						<Label text="{i18n>DistributionChannel}"></Label>
+						<Input enabled="false" value="{SearchDisplayModelSet>/results/Vtweg}"/>
+						<Label text="{i18n>Division}"></Label>
+						<Input enabled="false" value="{SearchDisplayModelSet>/results/Spart}"/>
+						<core:Title></core:Title>
+						<Label text="{i18n>System}"></Label>
+						<Input enabled="false" value="{SystemModelSet>/System}"/>
+						<Label text="{i18n>AccountGroup}"></Label>
+						<Input enabled="false" value="{SystemModelSet>/AccountGroupKey}-{SystemModelSet>/AccountGroupDesc}"/>
+						<Label text="{i18n>ApplicationId}"></Label>
+						<Input enabled="false" value="{SystemModelSet>/ApplicatioID}"/>
+						<Label text="{i18n>GoldenRecordID}"></Label>
+						<Input enabled="false" value="{GoldenRecIDModelSet>/GoldenRecID}"></Input>
+						<f:content>
+							<core:Title/>
+						</f:content>
+					</f:SimpleForm>
+				</objPage:headerContent>
+				<objPage:sections >
+					<objPage:ObjectPageSection title="{i18n>BusinessPartnerData}">
+						<objPage:subSections>
+							<objPage:ObjectPageSubSection>
+								<objPage:blocks>
+									<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.businessPartnerData"></core:Fragment>
+								</objPage:blocks>
+							</objPage:ObjectPageSubSection>
+						</objPage:subSections>
+					</objPage:ObjectPageSection>
+					<objPage:ObjectPageSection title="{i18n>CustomerData}">
+						<objPage:subSections >
+							<objPage:ObjectPageSubSection >
+								<objPage:blocks>
+									<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.customerData"></core:Fragment>
+								</objPage:blocks>
+							</objPage:ObjectPageSubSection>
+						</objPage:subSections>
+					</objPage:ObjectPageSection>
+					<objPage:ObjectPageSection title="{i18n>ContactDetails}">
+						<objPage:subSections>
+							<objPage:ObjectPageSubSection>
+								<objPage:blocks>
+									<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.contactDetails"></core:Fragment>
+								</objPage:blocks>
+							</objPage:ObjectPageSubSection>
+						</objPage:subSections>
+					</objPage:ObjectPageSection>
+					<objPage:ObjectPageSection title="{i18n>AccountingData}" visible="{AccountingDataModelSet>/AccountingDataTab/AccountingDataTabVisible}"
+						id="ID_OP_ACCOUNT_DATA">
+						<objPage:subSections>
+							<objPage:ObjectPageSubSection>
+								<objPage:blocks>
+									<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.accountingData"></core:Fragment>
+								</objPage:blocks>
+							</objPage:ObjectPageSubSection>
+						</objPage:subSections>
+					</objPage:ObjectPageSection>
+					<objPage:ObjectPageSection title="{i18n>SalesData}">
+						<objPage:subSections>
+							<objPage:ObjectPageSubSection>
+								<objPage:blocks>
+									<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.salesData"></core:Fragment>
+								</objPage:blocks>
+							</objPage:ObjectPageSubSection>
+						</objPage:subSections>
+					</objPage:ObjectPageSection>
+					<objPage:ObjectPageSection title="{i18n>StatusData}" id="ID_OP_STUS_DATA">
+						<objPage:subSections>
+							<objPage:ObjectPageSubSection>
+								<objPage:blocks>
+									<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.statusData"></core:Fragment>
+								</objPage:blocks>
+							</objPage:ObjectPageSubSection>
+						</objPage:subSections>
+					</objPage:ObjectPageSection>
+					<objPage:ObjectPageSection title="{i18n>TextNotes}" id="ID_OP_TEXT_NOTE">
+						<objPage:subSections>
+							<objPage:ObjectPageSubSection>
+								<objPage:blocks>
+									<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.textNotes"></core:Fragment>
+								</objPage:blocks>
+							</objPage:ObjectPageSubSection>
+						</objPage:subSections>
+					</objPage:ObjectPageSection>
+					<objPage:ObjectPageSection visible="false" title="{i18n>UploadDocuments}" id="ID_OP_UPLOD_DOC">
+						<objPage:subSections>
+							<objPage:ObjectPageSubSection >
+								<objPage:blocks >
+									<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.documentUpload"></core:Fragment>
+								</objPage:blocks>
+							</objPage:ObjectPageSubSection>
+						</objPage:subSections>
+					</objPage:ObjectPageSection>
+				</objPage:sections>
+			</objPage:ObjectPageLayout>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button text="{i18n>cancelBtn}" tooltip="{i18n>cancelBtn}" type="Reject" press="onCancelRequest" icon="sap-icon://decline"/>
+			</Toolbar>
+		</footer>
+	</Page>
+	<!--</pages>
+	</App>-->
+</mvc:View>

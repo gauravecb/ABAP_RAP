@@ -1,0 +1,59 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/AccountManagementPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>AccountManagement}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm class="customClassTitle editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+			labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>ReconAccount}"
+					required="{path:'RequiredOptionalSet>/ReconAccCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/ReconAccCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="onLivechangeofReconAccount" items="{NavReconAccountSet>/results}"
+					valueStateText="{AccountingDataModelSet>/AccountManagement/ReconAccountMessage}"
+					valueState="{AccountingDataModelSet>/AccountManagement/ReconAccountState}"
+					tooltip="{AccountingDataModelSet>/AccountManagement/ReconAccountTooltip}"
+					selectedKey="{AccountingDataModelSet>/AccountManagement/ReconAccount}" placeholder="{i18n>select} {i18n>ReconAccount}">
+					<core:Item key="{NavReconAccountSet>Saknr}"
+						text="{parts:[{path:'NavReconAccountSet>Saknr'},{path:'NavReconAccountSet>Txt50'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>HeadOffice}"
+					required="{path:'RequiredOptionalSet>/HeadOfficeCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input valueStateText="{AccountingDataModelSet>/AccountManagement/HeadOfficeMessage}"
+					valueState="{AccountingDataModelSet>/AccountManagement/HeadOfficeState}"
+					tooltip="{AccountingDataModelSet>/AccountManagement/HeadOfficeTooltip}"
+					enabled="{path:'RequiredOptionalSet>/HeadOfficeCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="onLiveChangeHeadOffice" textAlign="Left" maxLength="10" value="{AccountingDataModelSet>/AccountManagement/HeadOffice}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>SortKey}"
+					required="{path:'RequiredOptionalSet>/SorkKeyCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox valueStateText="{AccountingDataModelSet>/AccountManagement/SortKeyMessage}"
+					valueState="{AccountingDataModelSet>/AccountManagement/SortKeyState}" tooltip="{AccountingDataModelSet>/AccountManagement/SortKeyTooltip}"
+					enabled="{path:'RequiredOptionalSet>/SorkKeyCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" change="onLivechangeofSortKey"
+					items="{NavSortKeySet>/results}" selectedKey="{AccountingDataModelSet>/AccountManagement/SortKey}"
+					placeholder="{i18n>select} {i18n>SortKey}">
+					<core:Item key="{NavSortKeySet>Zuawa}"
+						text="{parts:[{path:'NavSortKeySet>Zuawa'},{path:'NavSortKeySet>Ttext'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>PreviousAccountNumber}"
+					required="{path:'RequiredOptionalSet>/PreAccNoCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="10" valueStateText="{AccountingDataModelSet>/AccountManagement/PrevAcctNoMessage}"
+					valueState="{AccountingDataModelSet>/AccountManagement/PrevAcctNoState}"
+					tooltip="{AccountingDataModelSet>/AccountManagement/PrevAcctNoTooltip}"
+					enabled="{path:'RequiredOptionalSet>/PreAccNoCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					liveChange="onLiveChangePreviousAccountNumber" textAlign="Left" value="{AccountingDataModelSet>/AccountManagement/PrevAcctNo}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>BuyingGroup}"
+					required="{path:'RequiredOptionalSet>/BuyingGrpCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="10" valueStateText="{AccountingDataModelSet>/AccountManagement/BuyingGroupMessage}"
+					valueState="{AccountingDataModelSet>/AccountManagement/BuyingGroupState}"
+					tooltip="{AccountingDataModelSet>/AccountManagement/BuyingGroupTooltip}"
+					enabled="{path:'RequiredOptionalSet>/BuyingGrpCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="onLiveChangeBuyingGroup" textAlign="Left" value="{AccountingDataModelSet>/AccountManagement/BuyingGroup}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+    <Dialog title="New Request" contentWidth="50%">
+        <content>
+            <form:SimpleForm editable="true">
+                <form:content>
+                    <Label text="Request Type"></Label>
+                    <RadioButtonGroup columns="1" selectedIndex="0">
+                        <RadioButton id="RB3-1" text="SKU Creation Request" />
+                        <RadioButton id="RB3-2" text="SKU Modification Request" />
+                    </RadioButtonGroup>
+                    <Label text="Region"></Label>
+                    <Input></Input>
+                    <Label text="Business"></Label>
+                    <Input></Input>
+                    <Label text="Specification"></Label>
+                    <Input></Input>
+                    <Label text="Plant"></Label>
+                    <Input></Input>
+                    <Label text="Material Type"></Label>
+                    <Input></Input>
+                    <Label text="Procurement"></Label>
+                    <Input></Input>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+        <buttons>
+            <Button text="OK" press="handleDialogOpen"></Button>
+            <Button text="Cancel" press="handleDialogOpenCancel"></Button>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

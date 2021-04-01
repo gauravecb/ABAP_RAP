@@ -1,0 +1,233 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form">
+	<smartForm:SmartForm id="idSupplyChain" app:defaultCheckBoxDisplayBehaviour="OnOff" app:defaultDropDownDisplayBehaviour="idAndDescription"
+		editable="true">
+		<smartForm:layout>
+			<smartForm:ColumnLayout columnsM="2" columnsL="2" columnsXL="2"/>
+		</smartForm:layout>
+		<smartForm:Group>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{CommodityCodeId}" editable="true" textLabel="Commodity Code" change="handleCommodityCodeChange">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text="{CommodityCodeDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{PurGroupId}" editable="true" textLabel="Purchasing Group" change="handleChangePurchasingGroup">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text="{PurGroupDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{ABCIndicatorId}" editable="true" textLabel="ABC Indicator" change="handleChangeABCIndicator">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text="{ABCIndicatorDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{MRPControllerId}" editable="true" textLabel="MRP Controller" change="handleChangeMRPController">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text="{MRPControllerDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{RoundingValue}" editable="true" textLabel="Rounding Value">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{MinimumLotSize}" editable="true" textLabel="Minimum Lot Size">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{PlannedDeliveryTime}" editable="true" textLabel="Planned Delivery Time">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{SafetyTime}" editable="true" textLabel="Safety Time">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{SafetyTimeIndicatorId}" editable="true" textLabel="Safety Time Indicator"
+						change="handleChangeSafetyTimeIndicator">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text="{SafetyTimeIndicatorDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{SafetyStock}" editable="true" textLabel="Safety Stock">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{BwdConsumptionPer}" editable="true" textLabel="BWD Consumption per.">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{FwdConsumptionPer}" editable="true" textLabel="FWD Consumption per.">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{Process}" editable="true" textLabel="HTC/Intrasat Code">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text="{ProcessDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{CountryOrgId}" editable="true" textLabel="Country of Origin" change="handleChangeCountryOfOrigin">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text="{CountryOrgDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{Process}" editable="true" textLabel="Total REPL Lead Time">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text="{ProcessDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{MaxOrderQtyVendor}" editable="true" textLabel="Max Order Qty">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{SafetyStkMthdId}" editable="true" textLabel="Safety Stock Method" change="handleChangeSafteyStockMethod">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text="{SafetyStkMthdDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{RLTForecastError}" editable="true" textLabel="RLT Forecast Error">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{TargetDaysSupply}" editable="true" textLabel="Target Days Supply">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{PlanPolicyId}" editable="true" textLabel="Planning Policy" change="handleChangePlanPolicy">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text="{PlanPolicyDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{MTOLeadtime}" editable="true" textLabel="MTO Leadtime">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{GRProcessingTime}" editable="true" textLabel="GR Processing Time">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<Text text=""></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+	</smartForm:SmartForm>
+</core:FragmentDefinition>

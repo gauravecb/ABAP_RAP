@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog title="Procurement" class="sapUiPopupWithPadding sapUiSizeCompact" items="{path: '/ProcurementTypeSet'}" search="_handleProcurementSearch" confirm="_handleProcurementConfirm">
+        <StandardListItem class="sapUiSizeCompact" title="{ProTypeId}" description="{Description}"/>
+    </SelectDialog>
+</core:FragmentDefinition>

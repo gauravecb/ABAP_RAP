@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog contentWidth="60%" title="{i18n>additionalEmail} " class="sapUiSizeCompact">
+		<Table  enableBusyIndicator="false" items="{SearchDisplayModelSet>/N_AddMail}">
+			<columns>
+				<Column demandPopin="true" minScreenWidth="Tablet">
+					<Label text="{i18n>Email}"/>
+				</Column>
+				<Column demandPopin="true" minScreenWidth="Tablet">
+					<Label text="{i18n>Comments}"/>
+				</Column>
+				<Column demandPopin="true" minScreenWidth="Tablet">
+					<Label text="{i18n>Default}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<Text text="{SearchDisplayModelSet>Email}" enabled="false"></Text>
+					<Input liveChange="liveChnageEmailComentFrag" value="{SearchDisplayModelSet>MailComments}" enabled="false"></Input>
+					<RadioButton select="selectEmailDefaultFrag" groupName="GroupEmail" selected="{SearchDisplayModelSet>DefaultMail}" enabled="false"/>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<buttons>
+			<Button text="{i18n>OK}" tooltip="{i18n>OK}" press="onPressEmailValueFragOk"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

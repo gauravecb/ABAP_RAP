@@ -1,0 +1,133 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="false">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>PartnerFunctions}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<Label text="{i18n>DefaultPartnerfunction}"/>
+		<f:SimpleForm class="customClassTitle editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+			labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="1" columnsM="1" columnsS="1">
+			<f:content>
+			<!--	<OverflowToolbar>
+					<Title text="Results ({SearchDisplayModelSet>/N_PartnerFnct/length})"/>
+					<ToolbarSpacer></ToolbarSpacer>
+				</OverflowToolbar>-->
+				<Table enableBusyIndicator="false" growing="true" growingThreshold="20" items="{DefaultGeneratedPartnerFnSet>/results/d/results}">
+					<columns>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>PartnerFunction}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>Number}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>Name}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>PartnerDescription}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>Default}"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<Text enabled="false" text="{DefaultGeneratedPartnerFnSet>PartnerName}"/>
+							<Input enabled="false" value="{DefaultGeneratedPartnerFnSet>Number}"/>
+							<Input enabled="false" value="{DefaultGeneratedPartnerFnSet>Name}"/>
+							<Input enabled="false" value="{DefaultGeneratedPartnerFnSet>PartnerDescription}"/>
+							<CheckBox enabled="false" selected="{path:'DefaultGeneratedPartnerFnSet>Default',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+						
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+		</f:SimpleForm>
+		<Toolbar>
+			<Label text="{i18n>OtherPartnerFunction}" visible="{OtherPartnerFunctionSet>/DisplayOtherPartnerFunctions}"></Label>
+			<ToolbarSpacer></ToolbarSpacer>
+
+		</Toolbar>
+		<f:SimpleForm class="customClassTitle editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+			labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3"
+			visible="{OtherPartnerFunctionSet>/DisplayOtherPartnerFunctions}">
+			<f:content>
+				<Table enableBusyIndicator="false" growing="true" growingThreshold="20" items="{OtherPartnerFunctionSet>/OtherPartnerFunctions}">
+					<columns>
+						<Column demandPopin="true" minScreenWidth="Tablet" width="30%">
+							<Label text="{i18n>PartnerFunction}"
+								required="{path:'RequiredOptionalSet>/PartFunOPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet" width="30%">
+							<Label text="{i18n>Number}" required="{path:'RequiredOptionalSet>/NumOPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet" width="30%">
+							<Label text="{i18n>Name}" required="{path:'RequiredOptionalSet>/NameOPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet" width="40%">
+							<Label text="{i18n>PartnerDescription}"
+								required="{path:'RequiredOptionalSet>/PartDescOPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet" width="30%">
+							<Label text="{i18n>Default}" required="{path:'RequiredOptionalSet>/DefaultOPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							
+							<Input enabled="false" value="{parts:[{path:'OtherPartnerFunctionSet>PartnerFunction'},{path:'OtherPartnerFunctionSet>PartnerDescription'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+							<Input enabled="false" value="{OtherPartnerFunctionSet>Number}"/>
+							<Input enabled="false" value="{OtherPartnerFunctionSet>Name}"/>
+							<Input enabled="false" value="{OtherPartnerFunctionSet>PartnerDescriptionText}"/>
+							<CheckBox enabled="false" selected="{path:'OtherPartnerFunctionSet>Default',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+		</f:SimpleForm>
+		<Toolbar>
+			<Label text="{i18n>LinkedToSoldToParty}" visible="{SoldtoPartnerFunctionSet>/DisplaySoldtoPartnerFunction}"></Label>
+			<ToolbarSpacer></ToolbarSpacer>
+		</Toolbar>
+		<f:SimpleForm class="customClassTitle editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+			labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3"
+			visible="{SoldtoPartnerFunctionSet>/DisplaySoldtoPartnerFunction}">
+			<f:content>
+				<Table enableBusyIndicator="false" growing="true" growingThreshold="20" items="{SoldtoPartnerFunctionSet>/SoldtoPartnerFunctions}">
+					<columns>
+						<Column demandPopin="true" minScreenWidth="Tablet" width="30%">
+							<Label text="{i18n>Number}" required="{path:'RequiredOptionalSet>/NumSOPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet" width="30%">
+							<Label text="{i18n>Name}" required="{path:'RequiredOptionalSet>/NameSOPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet" width="30%">
+							<Label text="{i18n>PartnerFunction}"
+								required="{path:'RequiredOptionalSet>/PartFunSOPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet" width="40%">
+							<Label text="{i18n>PartnerDescription}"
+								required="{path:'RequiredOptionalSet>/PartDescSOPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet" width="30%">
+							<Label text="{i18n>Default}" required="{path:'RequiredOptionalSet>/DefaultSOPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+						
+							<Input enabled="false" value="{SoldtoPartnerFunctionSet>Number}"/>
+							<Input enabled="false" value="{SoldtoPartnerFunctionSet>Name}"/>
+							<Input enabled="false" value="{parts:[{path:'SoldtoPartnerFunctionSet>PartnerFunction'},{path:'SoldtoPartnerFunctionSet>PartnerDescription'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+							<Input enabled="false" value="{SoldtoPartnerFunctionSet>PartnerDescriptionText}"/>
+							<CheckBox enabled="false" selected="{path:'SoldtoPartnerFunctionSet>Default',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+						
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>
+

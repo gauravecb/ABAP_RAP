@@ -1,0 +1,137 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/ContactPersonPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>ContactPersons}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<VBox items="{ContactDetailsSet>/ContactDetails/ContactPerson/ContactPersonList}">
+			<f:SimpleForm visible="{ContactDetailsSet>VisibleBasedOnNext}" class="editableForm" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="5" labelSpanM="8" labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+				<f:content>
+					<core:Title/>
+					<Label textAlign="Left" text="{i18n>LastName}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/LastNameCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<Input 
+					maxLength="35"
+					valueState="{ContactDetailsSet>LastNameState}" valueStateText="{ContactDetailsSet>LastNameMessage}"
+						liveChange = "onLiveChangeOfLastName" value="{ContactDetailsSet>LastName}"
+						enabled="{path:'RequiredOptionalSet>/LastNameCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+						tooltip="{ContactDetailsSet>LastNameTooltip}"/>
+					<Label textAlign="Left" text="{i18n>Function}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/FunctionCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<ComboBox valueState="{ContactDetailsSet>FunctionState}" valueStateText="{ContactDetailsSet>FunctionMessage}"
+						items="{FunctionContPCombSet>/results}" placeholder="{i18n>select} {i18n>Function}"
+					  change = "onLiveChangeOfFunction"	selectedKey="{ContactDetailsSet>Function}"
+						enabled="{path:'RequiredOptionalSet>/FunctionCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+						tooltip="{ContactDetailsSet>FunctionTooltip}">
+						<core:Item key="{FunctionContPCombSet>ContactPersonFunction}" text="{FunctionContPCombSet>Description}"/>
+					</ComboBox>
+					<Label textAlign="Left" text="{i18n>Telephone}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/TelephoneCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<Input 
+					maxLength="20"
+					valueState="{ContactDetailsSet>TelephoneState}" valueStateText="{ContactDetailsSet>TelephoneMessage}"
+					   	liveChange = "onLiveChangeOfTelephone"	value="{ContactDetailsSet>Telephone}" 
+						enabled="{path:'RequiredOptionalSet>/TelephoneCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+						tooltip="{ContactDetailsSet>TelephoneTooltip}"/>
+					<Label textAlign="Left" text="{i18n>Fax}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/FaxCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<Input
+						maxLength="24"
+					valueState="{ContactDetailsSet>FaxState}" valueStateText="{ContactDetailsSet>FaxMessage}" value="{ContactDetailsSet>Fax}"
+					  liveChange = "onLiveChangeOfFax"	 enabled="{path:'RequiredOptionalSet>/FaxCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					  tooltip="{ContactDetailsSet>FaxTooltip}"/>
+					<Label textAlign="Left" text="{i18n>MobilePhone}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/MobilePhoneCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<Input 
+					maxLength="30"
+					valueState="{ContactDetailsSet>MobilePhoneState}" valueStateText="{ContactDetailsSet>MobilePhoneMessage}"
+					  liveChange = "onLiveChangeOfMobilePhone"	value="{ContactDetailsSet>MobilePhone}" 
+						enabled="{path:'RequiredOptionalSet>/MobilePhoneCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+						tooltip="{ContactDetailsSet>MobilePhoneTooltip}"/>
+					<Label textAlign="Left" text="{i18n>Email}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/EmailCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<Input 
+					maxLength="130"
+					value="{ContactDetailsSet>Email}"  change="onPersonalEmailChange" liveChange="liveChangeURLEmailFRag"
+						valueState="{ContactDetailsSet>EmailValueState}" valueStateText="{ContactDetailsSet>EmailValueStateText}"
+						enabled="{path:'RequiredOptionalSet>/EmailCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+						tooltip="{ContactDetailsSet>EmailTooltip}"/>
+					<Label textAlign="Left" text="{i18n>Method}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/MethodCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<ComboBox valueState="{ContactDetailsSet>MethodState}" valueStateText="{ContactDetailsSet>MethodStateText}"
+						items="{MethodContPCombSet>/results}" placeholder="{i18n>select} {i18n>Method}"
+					  change = "onLiveChangeOfMethod"	selectedKey="{ContactDetailsSet>Method}"
+						enabled="{path:'RequiredOptionalSet>/MethodCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+						tooltip="{ContactDetailsSet>MethodTooltip}">
+						<core:Item key="{MethodContPCombSet>CommType}" text="{MethodContPCombSet>CommText}"/>
+					</ComboBox>
+					<core:Title/>
+					<Label textAlign="Left" text="{i18n>FirstName}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/FirstNameCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<Input 
+					maxLength="35"
+					valueState="{ContactDetailsSet>FirstNameState}" valueStateText="{ContactDetailsSet>FirstNameMessage}"
+						liveChange = "onLiveChangeOfFirstName" value="{ContactDetailsSet>FirstName}"
+						enabled="{path:'RequiredOptionalSet>/FirstNameCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+						tooltip="{ContactDetailsSet>FirstNameTooltip}"/>
+					<Label textAlign="Left" text="{i18n>Department}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/DepartmentCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<ComboBox valueState="{ContactDetailsSet>DepartmentState}" valueStateText="{ContactDetailsSet>DepartmentMessage}"
+						items="{DepartmentContPCombSet>/results}" placeholder="{i18n>select} {i18n>Department}"
+						change = "onLiveChangeOfDepartment" selectedKey="{ContactDetailsSet>Department}"
+						enabled="{path:'RequiredOptionalSet>/DepartmentCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+						tooltip="{ContactDetailsSet>DepartmentTooltip}">
+						<core:Item key="{DepartmentContPCombSet>DepartmentNumber}" text="{DepartmentContPCombSet>Description}"/>
+					</ComboBox>
+					<Label textAlign="Left" text="{i18n>TelephoneExtension}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/TelebExtCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<Input 	maxLength="10" valueState="{ContactDetailsSet>TelepExtensionState}" valueStateText="{ContactDetailsSet>TelepExtensionMessage}"
+							liveChange = "onLiveChangeOfTelepExtension" value="{ContactDetailsSet>TelephoneExtension}" 
+						enabled="{path:'RequiredOptionalSet>/TelebExtCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+						tooltip="{ContactDetailsSet>TelepExtensionTooltip}"/>
+					<Label textAlign="Left" text="{i18n>FaxExtension}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/FaxExtenCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<Input 	maxLength="10" valueState="{ContactDetailsSet>FaxExtensionState}" valueStateText="{ContactDetailsSet>FaxExtensionMessage}"
+					    liveChange = "onLiveChangeOfFaxExtension"	value="{ContactDetailsSet>FaxExtension}" 
+						enabled="{path:'RequiredOptionalSet>/FaxExtenCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+						tooltip="{ContactDetailsSet>FaxExtensionTooltip}"/>
+					<Label/><Text/>
+					<Label/><Text/>
+					<Label textAlign="Left" text="{i18n>Notes}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/NotesCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<Input 
+					maxLength="40"
+					valueState="{ContactDetailsSet>NotesState}" valueStateText="{ContactDetailsSet>NotesMessage}" value="{ContactDetailsSet>Notes}"
+					   liveChange = "onLiveChangeOfNotes"	enabled="{path:'RequiredOptionalSet>/NotesCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					   tooltip="{ContactDetailsSet>NotesTooltip}"/>
+					<core:Title/>
+					<Label textAlign="Left" text="{i18n>Language}" wrapping="true"
+						required="{path:'RequiredOptionalSet>/LangCPCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+					<ComboBox valueState="{ContactDetailsSet>LanguageState}" valueStateText="{ContactDetailsSet>LanguageMessage}"
+						items="{LanguageContPCombSet>/results}" placeholder="{i18n>select} {i18n>Language}"
+						change = "onLiveChangeOfLanguage" selectedKey="{ContactDetailsSet>Language}"
+						enabled="{path:'RequiredOptionalSet>/LangCPCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+						tooltip="{ContactDetailsSet>LanguageTooltip}">
+						<core:Item key="{LanguageContPCombSet>ContactPerson_Language}"
+							text="{LanguageContPCombSet>ContactPerson_Language}-{LanguageContPCombSet>LanguageText}"/>
+					</ComboBox>
+					<Label/><Text/>
+					<Label/><Text/>
+					<Label/><Text/>
+					<Label/><Text/>
+					<!--	<Label/><Text/>
+					<Label/><Text/>-->
+					<Label></Label>
+					<Text text="{ContactDetailsSet>TotalCount}"></Text>
+					<Button text="+" tooltip="{i18n>addNewContactPersonDetails}" press="addNewContactPersonDetails" enabled="{RequiredOptionalSet>/ContPerEdit}"></Button>
+					<Button text="-" tooltip="{i18n>removeContactPersonDetails}" press="deleteContactPersonDetails" enabled="{RequiredOptionalSet>/ContPerEdit}"></Button>
+					<Label></Label>
+					<Button text="{i18n>PreviousBtn}" tooltip="{i18n>PreviousBtn}" press="previosContactPersonDetails" icon="sap-icon://slim-arrow-left"></Button>
+					<Button text="{i18n>NextBtn}" iconFirst="false" tooltip="{i18n>NextBtn}" press="nextContactPersonDetails" icon="sap-icon://slim-arrow-right"></Button>
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+	</Panel>
+</core:FragmentDefinition>

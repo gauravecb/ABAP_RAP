@@ -1,0 +1,7 @@
+.mandatoryNotFilled .sapMBtnIcon {
+  color: red !important;
+}
+
+.mandatoryFilled .sapMBtnIcon {
+  color: green !important;
+}

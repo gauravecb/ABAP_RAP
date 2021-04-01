@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="false">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>PaymentData}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm class="customClassTitle editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+			labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>TermsofPayment}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/TermsOfPayment'},{path:'SearchDisplayModelSet>/results/TermsOfPaymentDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label textAlign="Left" text="{i18n>CreditMemoPayTerm}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/CreditMemoPaymntTrms'},{path:'SearchDisplayModelSet>/results/CreditMemoPaymntTrmsDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label textAlign="Left" text="{i18n>BeChangesPayTerm}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/BillExchPaymntTerms'},{path:'SearchDisplayModelSet>/results/BillExchPaymntTermsDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>ToleranceGroup}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/ToleranceGroup'},{path:'SearchDisplayModelSet>/results/ToleranceGroupDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label textAlign="Left" text="{i18n>PaymentMethods}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/PaymentMethods'},{path:'SearchDisplayModelSet>/results/PaymentMethodsDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label textAlign="Left" text="{i18n>HouseBank}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/HouseBank'},{path:'SearchDisplayModelSet>/results/HouseBankDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>SelectionRule}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/SelectionRule'},{path:'SearchDisplayModelSet>/results/SelectionRuleDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label textAlign="Left" text="{i18n>PaymentHistoryRecord}" wrapping="true"/>
+				<CheckBox enabled="false" 	selected="{path:'SearchDisplayModelSet>/results/PaymentHistoryRecrd',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

@@ -1,0 +1,85 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/ShippingPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>Shipping}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<!--<content>-->
+		<f:SimpleForm class="customClassTitle editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+			labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label class="newclass" text="{i18n>DeliveryPriority}"
+					required="{path:'RequiredOptionalSet>/DeliveryPrioritySLDCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+				<ComboBox items="{DeliveryPrioritySDShippingSet>/results}" placeholder="{i18n>select} {i18n>DeliveryPriority}"
+					change="onLiveChangeOfDeliveryPriority" selectedKey="{SalesDataSet>/Shipping/DeliveryPriority}"
+					valueState="{SalesDataSet>/Shipping/DeliveryPriorityState}" valueStateText="{SalesDataSet>/Shipping/DeliveryPriorityMessage}"
+					enabled="{path:'RequiredOptionalSet>/DeliveryPrioritySLDCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					tooltip="{SalesDataSet>/Shipping/DeliveryPriorityTooltip}">
+					<core:Item key="{DeliveryPrioritySDShippingSet>Lprio}" text="{DeliveryPrioritySDShippingSet>Lprio}-{DeliveryPrioritySDShippingSet>Bezei}"/>
+				</ComboBox>
+				<Label class="newclass" text="{i18n>ShippingConditions}"
+					required="{path:'RequiredOptionalSet>/ShippingConditionsSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+				<ComboBox items="{ShippingConditionsSDShippingSet>/results}" placeholder="{i18n>select} {i18n>ShippingConditions}"
+					change="onLiveChangeOfShippingConditions" selectedKey="{SalesDataSet>/Shipping/ShippingConditions}"
+					valueState="{SalesDataSet>/Shipping/ShippingConditionsState}" valueStateText="{SalesDataSet>/Shipping/ShippingConditionsMessage}"
+					enabled="{path:'RequiredOptionalSet>/ShippingConditionsSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					tooltip="{SalesDataSet>/Shipping/ShippingConditionsTooltip}">
+					<core:Item key="{ShippingConditionsSDShippingSet>Vsbed}" text="{ShippingConditionsSDShippingSet>Vsbed}-{ShippingConditionsSDShippingSet>Vtext}"/>
+				</ComboBox>
+				<Label class="newclass" text="{i18n>DeliveryPlant}"
+					required="{path:'RequiredOptionalSet>/DeliveryPlantSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+				<ComboBox items="{DeliveryPlantSDShippingSet>/results}" placeholder="{i18n>select} {i18n>DeliveryPlant}"
+					change="onLiveChangeOfDeliveryPlant" selectedKey="{SalesDataSet>/Shipping/DeliveryPlant}"
+					valueState="{SalesDataSet>/Shipping/DeliveryPlantState}" valueStateText="{SalesDataSet>/Shipping/DeliveryPlantMessage}"
+					enabled="{path:'RequiredOptionalSet>/DeliveryPlantSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					tooltip="{SalesDataSet>/Shipping/DeliveryPlantTooltip}">
+					<core:Item key="{DeliveryPlantSDShippingSet>Werks}" text="{DeliveryPlantSDShippingSet>Werks}-{DeliveryPlantSDShippingSet>Name1}"/>
+				</ComboBox>
+				<core:Title/>
+				<Label class="newclass" text="{i18n>OrderCombination}"
+					required="{path:'RequiredOptionalSet>/OrderCombinationSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+				<CheckBox width="10%" selected="{SalesDataSet>/Shipping/OrderCombination}" valueState="{SalesDataSet>/Shipping/OrderCombinationState}"
+					valueStateText="{SalesDataSet>/Shipping/OrderCombinationMessage}" select="selectOrderCobination"
+					enabled="{path:'RequiredOptionalSet>/OrderCombinationSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"/>
+				<Label class="newclass" text="{i18n>RelevantforProd}"
+					required="{path:'RequiredOptionalSet>/RelevantforProdSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+				<CheckBox width="10%" selected="{SalesDataSet>/Shipping/RelevantforProd}" valueState="{SalesDataSet>/Shipping/RelevantforProdState}"
+					valueStateText="{SalesDataSet>/Shipping/RelevantforProdMessage}" select="selectReleventForProd"
+					enabled="{path:'RequiredOptionalSet>/RelevantforProdSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"/>
+				<Label class="newclass" text="{i18n>ProductionTimeFrame}"
+					required="{path:'RequiredOptionalSet>/ProductionTimeFrameSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+				<Input textAlign="Left" value="{SalesDataSet>/Shipping/ProductionTimeFrame}" liveChange="onLiveChangeOfProductionTimeFrame"
+					valueState="{SalesDataSet>/Shipping/ProductionTimeFrameState}" valueStateText="{SalesDataSet>/Shipping/ProductionTimeFrameMessage}"
+					enabled="{parts:[{path:'RequiredOptionalSet>/ProductionTimeFrameSLDCond'},{path:'SalesDataSet>/Shipping/RelevantforProd'}],formatter:'MDMZCUSTOMER.model.Formatter.podTimeFrameEnabled'}"
+					tooltip="{SalesDataSet>/Shipping/ProductionTimeFrameTooltip}"/>
+				<core:Title/>
+				<Label class="newclass" text="{i18n>CompleteDeliveryRequired}"
+					required="{path:'RequiredOptionalSet>/CompleteDeliveryRequiredSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"
+					wrapping="true"/>
+				<CheckBox width="10%" selected="{SalesDataSet>/Shipping/CompleteDeliveryRequired}" valueState="{SalesDataSet>/Shipping/DeliveryPriorityState}"
+					valueStateText="{SalesDataSet>/Shipping/DeliveryPriorityMessage}" select="selectDeliveryPriority"
+					enabled="{path:'RequiredOptionalSet>/CompleteDeliveryRequiredSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"/>
+				<Label class="newclass" text="{i18n>PartialDeliveryPerItem}"
+					required="{path:'RequiredOptionalSet>/PartialDeliveryPerItemSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"
+					wrapping="true"/>
+				<ComboBox items="{PartialDeliveryPerItemSDShippingSet>/results}"
+					placeholder="{i18n>select} {i18n>PartialDeliveryPerItem}" change="onLiveChangeOfPartialDeliveryPerItem"
+					selectedKey="{SalesDataSet>/Shipping/PartialDeliveryPerItem}" valueState="{SalesDataSet>/Shipping/PartialDeliveryPerItemState}"
+					valueStateText="{SalesDataSet>/Shipping/PartialDeliveryPerItemMessage}"
+					enabled="{path:'RequiredOptionalSet>/PartialDeliveryPerItemSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					tooltip="{SalesDataSet>/Shipping/PartialDeliveryPerItemTooltip}">
+					<core:Item key="{PartialDeliveryPerItemSDShippingSet>DomvalueL}" text="{PartialDeliveryPerItemSDShippingSet>DomvalueL}-{PartialDeliveryPerItemSDShippingSet>Ddtext}"/>
+				</ComboBox>
+				<Label class="newclass" text="{i18n>MaxPartialDeliveries}"
+					required="{path:'RequiredOptionalSet>/MaxPartialDeliveriesSLDCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+				<Input textAlign="Left" value="{SalesDataSet>/Shipping/MaxPartialDeliveries}" liveChange="onLiveChangeOfMaxPartialDeliveries"
+					valueState="{SalesDataSet>/Shipping/MaxPartialDeliveriesState}" valueStateText="{SalesDataSet>/Shipping/MaxPartialDeliveriesMessage}"
+					enabled="{parts:[{path:'RequiredOptionalSet>/MaxPartialDeliveriesSLDCond'},{path:'SalesDataSet>/Shipping/PartialDeliveryPerItem'}],formatter:'MDMZCUSTOMER.model.Formatter.BasedOnPartialDeilPerItm'}"
+					tooltip="{SalesDataSet>/Shipping/MaxPartialDeliveriesTooltip}"/>
+			</f:content>
+		</f:SimpleForm>
+		<!--</content>-->
+	</Panel>
+</core:FragmentDefinition>

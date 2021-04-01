@@ -1,0 +1,189 @@
+<mvc:View controllerName="ui.newell.PrecisionMaterial.controller.Worklist" xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:f="sap.f" xmlns:layout="sap.ui.layout">
+	<f:DynamicPage id="idCreateConfPage">
+		<f:header>
+			<f:DynamicPageHeader>
+				<smartFilterBar:SmartFilterBar id="smartFilterBar" filterBarExpanded="true" entitySet="RequestHeaderSet" search="handleSearch"
+					showFilterConfiguration="true" useVariantManagement="true" persistencyKey="prova_pe">
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration index="0" key="RequestId" label="Request ID" groupId="_BASIC" width="300px"
+							visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"></smartFilterBar:ControlConfiguration>
+						<smartFilterBar:ControlConfiguration index="1" key="RequestType" label="Request Type" groupId="_BASIC" width="300px"
+							visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"></smartFilterBar:ControlConfiguration>
+						<smartFilterBar:ControlConfiguration index="5" key="BusinessRegionId" label="Business Region" groupId="_BASIC" width="300px"
+							visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"></smartFilterBar:ControlConfiguration>
+						<smartFilterBar:ControlConfiguration index="2" key="BusiUnitId" label="Business Unit" groupId="_BASIC" width="300px"
+							visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"></smartFilterBar:ControlConfiguration>
+						<smartFilterBar:ControlConfiguration index="3" key="PlantId" label="Plant ID" groupId="_BASIC" width="300px" visibleInAdvancedArea="true"
+							preventInitialDataFetchInValueHelpDialog="false"></smartFilterBar:ControlConfiguration>
+						<smartFilterBar:ControlConfiguration index="4" key="RequestDesc" label="Request Description" groupId="_BASIC" width="300px"
+							visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"></smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:layoutData>
+						<FlexItemData shrinkFactor="0"/>
+					</smartFilterBar:layoutData>
+				</smartFilterBar:SmartFilterBar>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<smartTable:SmartTable id="idSearchTable" entitySet="RequestHeaderSet" smartFilterId="smartFilterBar" tableType="ResponsiveTable"
+				useExportToExcel="true" showVariantManagement="true" showTablePersonalisation="true" useVariantManagement="true"
+				useTablePersonalisation="true" header="Precision Material" showRowCount="true" requestAtLeastFields="" ignoreFromPersonalisation=""
+				class="sapUiNoContentPadding" beforeRebindTable="handleBindStaticFilter" placeToolbarInTable="true" persistencyKey="materialapp"
+				demandPopin="true">
+				<smartTable:customToolbar>
+					<OverflowToolbar width="auto" height="auto" design="Solid" visible="true" enabled="true">
+						<content>
+							<ToolbarSpacer></ToolbarSpacer>
+							<Button type="Accept" icon="sap-icon://create" tooltip="Create" text="Create" press="handleNavToCreateScreen"/>
+							<OverflowToolbarButton type="Emphasized" icon="sap-icon://sort" tooltip="Sort" text="Sort" press="handleSorting"/>
+						</content>
+					</OverflowToolbar>
+				</smartTable:customToolbar>
+				<Table id="table" sticky="ColumnHeaders,HeaderToolbar" fixedLayout="false" includeItemInSelection="true" popinLayout="GridSmall"
+					alternateRowColors="true" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true"
+					growingScrollToLoad="true" updateFinished=".onUpdateFinished">
+					<columns>
+						<Column hAlign="Begin" minScreenWidth="Phone" demandPopin="false">
+							<customData>
+								<core:CustomData key="p13nData"
+									value='\{"columnKey": "RequestId", "columnIndex":"0", "leadingProperty": "RequestId","sortProperty": "RequestId"}'/>
+							</customData>
+							<Label text="Request ID" wrapping="true"/>
+						</Column>
+						<!--<Column hAlign="Begin" minScreenWidth="Phone" demandPopin="false">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "DocumentType","leadingProperty": "DocumentType","sortProperty": "DocumentType"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Request Type" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "PeDesc", "leadingProperty": "PeDesc","sortProperty": "PeDesc"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Description" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "SalesOrg", "leadingProperty": "SalesOrg","sortProperty": "SalesOrg"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Sales Area" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "Status", "leadingProperty": "Status","sortProperty": "Status"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Status" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "CreatedBy","leadingProperty": "CreatedBy","sortProperty": "CreatedBy"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Created By" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "CreatedOn","leadingProperty": "CreatedOn","type":"date","sortProperty": "CreatedOn"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Created On" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "ValidFrom","leadingProperty": "ValidFrom","type":"date","sortProperty": "ValidFrom"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Valid From" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "ValidTo","leadingProperty": "ValidTo","type":"date","sortProperty": "ValidTo"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Valid To" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "ValidTo","leadingProperty": "ValidTo","type":"date","sortProperty": "ValidTo"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Dummy 1" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "ValidTo","leadingProperty": "ValidTo","type":"date","sortProperty": "ValidTo"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Dummy 2" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "ValidTo","leadingProperty": "ValidTo","type":"date","sortProperty": "ValidTo"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Dummy 3" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "ValidTo","leadingProperty": "ValidTo","type":"date","sortProperty": "ValidTo"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Dummy 4" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "ValidTo","leadingProperty": "ValidTo","type":"date","sortProperty": "ValidTo"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Dummy 5" wrapping="true"/>-->
+						<!--</Column>-->
+						<!--<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">-->
+						<!--	<customData>-->
+						<!--		<core:CustomData key="p13nData" value='\{"columnKey": "ValidTo","leadingProperty": "ValidTo","type":"date","sortProperty": "ValidTo"}'/>-->
+						<!--	</customData>-->
+						<!--	<Label text="Dummy 6" wrapping="true"/>-->
+						<!--</Column>-->
+						<!-- <Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">
+							<customData>
+								<core:CustomData key="p13nData" value='\{"columnKey": "ValidTo","leadingProperty": "ValidTo","type":"date","sortProperty": "ValidTo"}'/>
+							</customData>
+							<Label text="Dummy 7" wrapping="true"/>
+						</Column>
+						<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">
+							<customData>
+								<core:CustomData key="p13nData" value='\{"columnKey": "ValidTo","leadingProperty": "ValidTo","type":"date","sortProperty": "ValidTo"}'/>
+							</customData>
+							<Label text="Dummy 8" wrapping="true"/>
+						</Column>
+						<Column hAlign="Begin" minScreenWidth="Tablet" demandPopin="true">
+							<customData>
+								<core:CustomData key="p13nData" value='\{"columnKey": "ValidTo","leadingProperty": "ValidTo","type":"date","sortProperty": "ValidTo"}'/>
+							</customData>
+							<Label text="Dummy 9" wrapping="true"/>
+						</Column> -->
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Link text="{RequestId}" press="handleNavToDoc"></Link>
+								<!--<Text text="{DocumentTypeDescp}"></Text>-->
+								<!--<Text text="{PeDesc}"></Text>-->
+								<!--<Text text="{SalesOrg} - {DistChannel} - {Division}"></Text>-->
+								<!--<ObjectStatus state="{ path: 'Status', formatter: '.formatStatus' }" text="{ path: 'StatusDesc'}"/>-->
+								<!--<ObjectAttribute text="{CreatedBy}" tooltip="{CreatedbyFname} {CreatedbyLname}"></ObjectAttribute>-->
+								<!--<Text text="{ parts: ['CreatedOn', 'usersetting>/dateFormat'], formatter: '.formatter.formatDate' }"></Text>-->
+								<!--<Text text="{ parts: ['ValidFrom', 'usersetting>/dateFormat'], formatter: '.formatter.formatDate' }"></Text>-->
+								<!--<Text text="{ parts: ['ValidTo', 'usersetting>/dateFormat'], formatter: '.formatter.formatDate' }"></Text>-->
+								<!--<Text text=""/>-->
+								<!--<Text text=""/>-->
+								<!--<Text text=""/>-->
+								<!--<Text text=""/>-->
+								<!--<Text text=""/>-->
+								<!--<Text text=""/>-->
+								<!--<Text text=""/>-->
+								<!--<Text text=""/>-->
+								<!--<Text text=""/>-->
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+				<smartTable:layoutData>
+					<FlexItemData growFactor="1" baseSize="0%"/>
+				</smartTable:layoutData>
+			</smartTable:SmartTable>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

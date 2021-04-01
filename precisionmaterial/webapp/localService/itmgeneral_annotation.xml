@@ -1,0 +1,457 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/opu/odata/sap/ZCL_MATERIAL_MASTER_SRV/$metadata">
+		<edmx:Include Alias="Metadata" Namespace="ZCL_MATERIAL_MASTER_SRV"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm"
+			Namespace="zpriceagreement.localService.ZCL_MATERIAL_MASTER_SRV.annotation.ZCL_MATERIAL_MASTER_SRV">
+			
+			<Annotations Target="Metadata.ITMGeneral/ProHierachyId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Product Hierarchy"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="ProductHierarchySet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="ProHierachyId"/>
+									<PropertyValue Property="ValueListProperty" String="ProHierachyId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="ProHierarchyDesc"/>
+									<PropertyValue Property="ValueListProperty" String="ProHierarchyDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/MaterialGroupId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Material Group"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="MaterialGroupSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialGroupId"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialGroupId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialGroupDesc"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialGroupDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/UoMId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Base UOM"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="BaseUoMSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="UoMId"/>
+									<PropertyValue Property="ValueListProperty" String="UoMId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+								    <PropertyValue Property="LocalDataProperty" PropertyPath="UoMDescription"/>
+									<PropertyValue Property="ValueListProperty" String="UoMDescription"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/DivisionId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Base UOM"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="DivisionSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="DivisionId"/>
+									<PropertyValue Property="ValueListProperty" String="DivisionId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="DivisionDesc"/>
+									<PropertyValue Property="ValueListProperty" String="DivisionDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/BrandKeyId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Brand"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="BrandKeySet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="BrandKeyId"/>
+									<PropertyValue Property="ValueListProperty" String="BrandKeyId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+								    <PropertyValue Property="LocalDataProperty" PropertyPath="BrandKeyDesc"/>
+									<PropertyValue Property="ValueListProperty" String="BrandKeyDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/SubBrandId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Sub Brand"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="SubBrandkeySet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SubBrandId"/>
+									<PropertyValue Property="ValueListProperty" String="SubBrandId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+								    <PropertyValue Property="LocalDataProperty" PropertyPath="SubBrandDesc"/>
+									<PropertyValue Property="ValueListProperty" String="SubBrandDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/MaterialNumberId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Material Number"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="MaterialNumberSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialNumberId"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialNumberId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MaterialNumberDesc"/>
+									<PropertyValue Property="ValueListProperty" String="MaterialNumberDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/ProfitCenterId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Profit Center Set"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="ProfitCenterSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="ProfitCenterId"/>
+									<PropertyValue Property="ValueListProperty" String="ProfitCenterId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="ProfitCenterDesc"/>
+									<PropertyValue Property="ValueListProperty" String="ProfitCenterDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/NPDValue">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="NPD PROJECTREF"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="NPDProjectRefSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="NPDValue"/>
+									<PropertyValue Property="ValueListProperty" String="NPDValue"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="NPDDescription"/>
+									<PropertyValue Property="ValueListProperty" String="NPDDescription"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/DangerousGoodsId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Dangerous Goods"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="DangerousGoodsSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="DangerousGoodsId"/>
+									<PropertyValue Property="ValueListProperty" String="DangerousGoodsId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="DangerousGoodsDesc"/>
+									<PropertyValue Property="ValueListProperty" String="DangerousGoodsDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/UNCodeId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="UN Code"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="UNCodeSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="UNCodeId"/>
+									<PropertyValue Property="ValueListProperty" String="UNCodeId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="UNCodeDesc"/>
+									<PropertyValue Property="ValueListProperty" String="UNCodeDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/PackingGroupId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Packaging Group"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="PackingGroupSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="PackingGroupId"/>
+									<PropertyValue Property="ValueListProperty" String="PackingGroupId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="PackingGroupDesc"/>
+									<PropertyValue Property="ValueListProperty" String="PackingGroupDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/FlashPointTempId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Flash Point Temp ID"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="FlashPointTempSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="FlashPointTempId"/>
+									<PropertyValue Property="ValueListProperty" String="FlashPointTempId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="FlashPointTempDesc"/>
+									<PropertyValue Property="ValueListProperty" String="FlashPointTempDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/MerchCategoryId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Merchendiser Group"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="MerchCategorySet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MerchCategoryId"/>
+									<PropertyValue Property="ValueListProperty" String="MerchCategoryId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MerchCategoryDesc"/>
+									<PropertyValue Property="ValueListProperty" String="MerchCategoryDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/NestingGroupId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Nesting Group"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="NestingGroupSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="NestingGroupId"/>
+									<PropertyValue Property="ValueListProperty" String="NestingGroupId"/>
+								</Record>
+								<!--<Record Type="Common.ValueListParameterOut">-->
+								<!--	<PropertyValue Property="LocalDataProperty" PropertyPath="MerchCategoryDesc"/>-->
+								<!--	<PropertyValue Property="ValueListProperty" String="MerchCategoryDesc"/>-->
+								<!--</Record>-->
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/GoldenTaxId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Golden Tax"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="GoldenTaxSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusiUnitDesc"/>
+                                </Record> -->
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="GoldenTaxId"/>
+									<PropertyValue Property="ValueListProperty" String="GoldenTaxId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="GoldenTaxDesc"/>
+									<PropertyValue Property="ValueListProperty" String="GoldenTaxDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/ControlCodeId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Golden Tax"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="ControlCodeSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="RequestId"/>
+                                </Record> -->
+                                <Record Type="Common.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="RequestId"/>
+									<PropertyValue Property="ValueListProperty" String="RequestId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="ControlCodeId"/>
+									<PropertyValue Property="ValueListProperty" String="ControlCodeId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="ControlCodeDesc"/>
+									<PropertyValue Property="ValueListProperty" String="ControlCodeDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ITMGeneral/TaxesMaterialsId">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="Label" String="Golden Tax"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="CollectionPath" String="TaxesMaterialsSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<!-- <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="RequestId"/>
+                                </Record> -->
+                                <Record Type="Common.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="RequestId"/>
+									<PropertyValue Property="ValueListProperty" String="RequestId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="TaxesMaterialsId"/>
+									<PropertyValue Property="ValueListProperty" String="TaxesMaterialsId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="TaxesMaterialsDesc"/>
+									<PropertyValue Property="ValueListProperty" String="TaxesMaterialsDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

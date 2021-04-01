@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog contentWidth="70%" title="{i18n>additionalFax} " class="sapUiSizeCompact">
+		<Table  enableBusyIndicator="false" items="{SearchDisplayModelSet>/N_AddFax}">
+			<columns>
+				<Column demandPopin="true" minScreenWidth="Tablet">
+					<Label text="{i18n>Fax}"/>
+				</Column>
+				<Column demandPopin="true" minScreenWidth="Tablet">
+					<Label text="{i18n>Extension}"/>
+				</Column>
+				<Column demandPopin="true" minScreenWidth="Tablet">
+					<Label text="{i18n>Comments}"/>
+				</Column>
+				<Column demandPopin="true" minScreenWidth="Tablet">
+					<Label text="{i18n>Default}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<Input liveChange="liveChangeFaxFragTable" value="{SearchDisplayModelSet>Fax}" enabled="false"></Input>
+					<Input liveChange="liveChangeFaxExtenstionFragTable" value="{SearchDisplayModelSet>FaxExt}" enabled="false"></Input>
+					<Input liveChange="liveChangeFaxCommentFragTable" value="{SearchDisplayModelSet>FaxComments}" enabled="false"></Input>
+					<RadioButton enabled="false" select="selectDefaultFaxDailog" groupName="GroupFax" selected="{SearchDisplayModelSet>DefaultFax}"/>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<buttons>
+			<Button text="{i18n>OK}" tooltip="{i18n>OK}" press="onPressFaxValueFragOk"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

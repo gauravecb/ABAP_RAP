@@ -1,0 +1,100 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/CustDataBankDetailsPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>CustomerBankDetails}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<VBox items="{CustomerDataSet>/BankDetails/BankIBan}">
+			<f:SimpleForm visible="{CustomerDataSet>VisibleBasedOnNext}" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+				labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+				<f:content>
+					<core:Title/>
+					<Label textAlign="Left" text="{i18n>IBAN}"
+						required="{path:'RequiredOptionalSet>/IBANCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+					<Input
+					maxLength="34"
+					value="{CustomerDataSet>IBan}" valueState="{CustomerDataSet>IBanValState}" showValueStateMessage="false"
+						enabled="{parts:[{path:'CustomerDataSet>IBanEnabled'},{path:'RequiredOptionalSet>/IBANCond'}],formatter:'MDMZCUSTOMER.model.Formatter.bankDetailsEnabledCond'}"
+						change="onChangeIbanValueSelect" tooltip="{CustomerDataSet>IBanTooltip}"/>
+					<Label textAlign="Left" text="{i18n>country}"
+						required="{path:'RequiredOptionalSet>/CountryCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+					<ComboBox items="{CountryComboSet>/results}" showValueStateMessage="false" valueState="{CustomerDataSet>CountryValState}" selectedKey="{CustomerDataSet>Country}" change="onChangeCountryBankBasedOnBank"
+						enabled="{parts:[{path:'CustomerDataSet>BankDetailsEnabled'},{path:'RequiredOptionalSet>/CountryCond'}],formatter:'MDMZCUSTOMER.model.Formatter.bankDetailsEnabledCond'}"
+						placeholder="{i18n>select} {i18n>Country}" tooltip="{CustomerDataSet>CountryTooltip}">
+						<core:Item key="{CountryComboSet>code}" text="{CountryComboSet>englishShortName}"/>
+					</ComboBox>
+					<Label textAlign="Left" required="{path:'RequiredOptionalSet>/BankKeyCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"
+						text="{i18n>BankKey}" wrapping="true"/>
+					<Input value="{CustomerDataSet>BankKey}" valueState="{CustomerDataSet>BankKeyValState}" change="onChangeBankKey" maxLength="15" showValueStateMessage="false"
+						enabled="{parts:[{path:'CustomerDataSet>BankDetailsEnabled'},{path:'RequiredOptionalSet>/BankKeyCond'}],formatter:'MDMZCUSTOMER.model.Formatter.bankDetailsEnabledCond'}"
+						tooltip="{CustomerDataSet>BankKeyTooltip}"></Input>
+					<Label textAlign="Left" required="{path:'RequiredOptionalSet>/BankContKeyCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"
+						text="{i18n>BankControlKey}" wrapping="true"/>
+					<Input value="{CustomerDataSet>BankControlKey}" valueState="{CustomerDataSet>BankControlKeyValState}" change="onChangeBankControlKey" maxLength="2"
+						enabled="{parts:[{path:'CustomerDataSet>BankDetailsEnabled'},{path:'RequiredOptionalSet>/BankContKeyCond'}],formatter:'MDMZCUSTOMER.model.Formatter.bankDetailsEnabledCond'}"
+						tooltip="{CustomerDataSet>BankControlKeyTooltip}"></Input>
+					<core:Title/>
+					<Label></Label>
+					<Text></Text>
+					<Label textAlign="Left" text="{i18n>BankAccount}"
+						required="{path:'RequiredOptionalSet>/BankAccCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+					<Input value="{CustomerDataSet>BankAccount}" valueState="{CustomerDataSet>BankAccountValState}" change="onChangeBankAccount" maxLength="18" showValueStateMessage="false"
+						enabled="{parts:[{path:'CustomerDataSet>BankDetailsEnabled'},{path:'RequiredOptionalSet>/BankAccCond'}],formatter:'MDMZCUSTOMER.model.Formatter.bankDetailsEnabledCond'}"
+						tooltip="{CustomerDataSet>BankAccountTooltip}"/>
+					<Label textAlign="Left" text="{i18n>BankAccountHolder}"
+						required="{path:'RequiredOptionalSet>/BankAccHolderCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+					<Input value="{CustomerDataSet>BankAccHolder}" valueState="{CustomerDataSet>BankAccHolderValState}" liveChange="liveChangeBankAccount" showValueStateMessage="false"
+						enabled="{path:'RequiredOptionalSet>/BankAccHolderCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" maxLength="60"
+						tooltip="{CustomerDataSet>BankAccHolderTooltip}"/>
+					<Label textAlign="Left" text="{i18n>BankType}"
+						required="{path:'RequiredOptionalSet>/BankTypeCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}" wrapping="true"/>
+					<Input value="{CustomerDataSet>BankType}" valueState="{CustomerDataSet>BankTypeValState}" liveChange="liveChangeBankType" showValueStateMessage="false"
+						enabled="{path:'RequiredOptionalSet>/BankTypeCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" maxLength="4"
+						tooltip="{CustomerDataSet>BankTypeTooltip}"/>
+					<core:Title/>
+					<Label></Label>
+					<Text></Text>
+					<Label textAlign="Left" required="{path:'RequiredOptionalSet>/RefDetCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"
+						text="{i18n>ReferenceDetails}" wrapping="true"/>
+					<Input value="{CustomerDataSet>RefDetails}" valueState="{CustomerDataSet>RefDetailsValState}" liveChange="liveChangeReferenceDetails" showValueStateMessage="false"
+						enabled="{path:'RequiredOptionalSet>/RefDetCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" maxLength="20"
+						tooltip="{CustomerDataSet>RefDetailsTooltip}"/>
+					<Label textAlign="Left" required="{path:'RequiredOptionalSet>/CollAuthCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"
+						text="{i18n>CollectionAuth}" wrapping="true"/>
+					<Checkbox width="10%" selected="{CustomerDataSet>CollectionAuth}" valueState="{CustomerDataSet>CollectionAuthValState}" select="liveChangeCollectAuth" showValueStateMessage="false"
+						enabled="{path:'RequiredOptionalSet>/CollAuthCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"/>
+					<Label></Label>
+					<Text text="{CustomerDataSet>TotalCount}"></Text>
+					<Button text="+" tooltip="{i18n>addNewBankDetails}" press="addNewBankDetailsForCustomerDetails" enabled="{RequiredOptionalSet>/BankEdit}"></Button>
+					<Button text="-" tooltip="{i18n>removeBankDetails}" press="deleteBankDetailsForCustomerDetails" enabled="{RequiredOptionalSet>/BankEdit}"></Button>
+					<Label></Label>
+					<Button text="{i18n>PriviousBtn}" tooltip="{i18n>PriviousBtn}" press="priviosBankDetailsCustData" icon="sap-icon://slim-arrow-left"></Button>
+					<Button text="{i18n>NextBtn}" iconFirst="false" tooltip="{i18n>NextBtn}" press="nextBankDetailsCustData" icon="sap-icon://slim-arrow-right"></Button>
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8" labelSpanS="6" adjustLabelSpan="false"
+			emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" required="{path:'RequiredOptionalSet>/AlterPayerCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"
+					text="{i18n>AlernativePayer}" wrapping="true"/>
+				<Input value="{CustomerDataSet>/BankDetails/AlternPayer}" valueState="{CustomerDataSet>/BankDetails/AlternPayerValState}" showValueStateMessage="false" liveChange="liveChangeAlternPayer"
+					enabled="{path:'RequiredOptionalSet>/AlterPayerCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" maxLength="10"
+					tooltip="{CustomerDataSet>/BankDetails/AlternPayerTooltip}"/>
+				<core:Title/>
+				<Label textAlign="Left" required="{path:'RequiredOptionalSet>/IndEntCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"
+					text="{i18n>IndividualEntries}" wrapping="true"/>
+				<Checkbox width="10%" selected="{CustomerDataSet>/BankDetails/IndivEnteris}" valueState="{CustomerDataSet>/BankDetails/IndivEnterisValState}" showValueStateMessage="false" select="liveChangeIndivEnteris"
+					enabled="{path:'RequiredOptionalSet>/IndEntCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"/>
+				<core:Title/>
+				<Label textAlign="Left" required="{path:'RequiredOptionalSet>/AllowPayrCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"
+					text="{i18n>AllowedPayer}" wrapping="true"/>
+				<Input value="{CustomerDataSet>/BankDetails/AllowedPayer}" valueState="{CustomerDataSet>/BankDetails/AllowedPayerValState}" showValueStateMessage="false" liveChange="liveChangeAllowedPayer"
+					enabled="{path:'RequiredOptionalSet>/AllowPayrCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" maxLength="10"
+					tooltip="{CustomerDataSet>/BankDetails/AllowedPayerTooltip}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

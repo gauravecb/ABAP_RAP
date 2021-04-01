@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form">
+	<smartForm:SmartForm id="idCharacteristics" app:defaultCheckBoxDisplayBehaviour="OnOff"
+		app:defaultDropDownDisplayBehaviour="idAndDescription" editable="true">
+		<smartForm:layout>
+			<smartForm:ColumnLayout columnsM="1" columnsL="1" columnsXL="1"/>
+		</smartForm:layout>
+		<smartForm:Group groupElements="{ path: 'characteristicsui>/ui' , factory: '.createFormRow' }">
+			<!--	<smartForm:GroupElement>-->
+			<!--		<smartForm:elements>-->
+			<!--			<smartField:SmartField value="{Procgrp}" editable="true" textLabel="Process Group"/>-->
+			<!--			<Text text="{GroupDesc}"></Text>-->
+			<!--		</smartForm:elements>-->
+			<!--	</smartForm:GroupElement>-->
+			<!--	<smartForm:GroupElement>-->
+			<!--		<smartForm:elements>-->
+			<!--			<smartField:SmartField value="{Scenario}" editable="true" textLabel="Scenario"/>-->
+			<!--			<Text text="{ScenarioDesc}"></Text>-->
+			<!--		</smartForm:elements>-->
+			<!--	</smartForm:GroupElement>-->
+			<!--	<smartForm:GroupElement>-->
+			<!--		<smartForm:elements>-->
+			<!--			<smartField:SmartField value="{Process}" editable="true" textLabel="Process"/>-->
+			<!--			<Text text="{ProcessDesc}"></Text>-->
+			<!--		</smartForm:elements>-->
+			<!--	</smartForm:GroupElement>-->
+		</smartForm:Group>
+	</smartForm:SmartForm>
+</core:FragmentDefinition>

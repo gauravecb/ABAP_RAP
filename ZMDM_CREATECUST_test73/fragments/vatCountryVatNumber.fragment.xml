@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog contentWidth="65%" title="{i18n>additionalVatsFragTitle}" class="sapUiSizeCompact">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" labelSpanS="6" adjustLabelSpan="false"
+			emptySpanL="1" emptySpanM="1" columnsL="2" columnsM="2">
+			<f:content>
+				<core:Title/>
+				<Label text="{i18n>VatCountry}"
+					required="{path:'RequiredOptionalSet>/VatCountryCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/VatCountryCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					items="{vatDataSet>/NAVTAXCOUNTRY}" change="onChangeCountryTaxDatBusPartFrag" valueStateText="{i18n>enterValidVatCountry}"
+					selectedKey="{CreateModelSet>/TaxData/VatCountKeyFrag}" valueState="{CreateModelSet>/TaxData/VatKeyStateFrag}">
+					<core:Item key="{vatDataSet>Land1}" text="{vatDataSet>Landx}"></core:Item>
+				</ComboBox>
+				<core:Title/>
+				<Label text="{i18n>VatNumber}" required="{path:'RequiredOptionalSet>/VatNumCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="20" enabled="{path:'RequiredOptionalSet>/VatNumCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					value="{CreateModelSet>/TaxData/VatNumFrag}" valueState="{CreateModelSet>/TaxData/VatNumStateFrag}"
+					liveChange="onChangeVatNumTaxDataBusPartFrag" valueStateText="{i18n>enterValidVatNumber}"></Input>
+			</f:content>
+		</f:SimpleForm>
+		<Toolbar>
+			<ToolbarSpacer></ToolbarSpacer>
+			<Button icon="sap-icon://add" press="addClassificationCustTypeAdd" type="Accept" enabled="{RequiredOptionalSet>/TaxDataEdit}"></Button>
+			<Button icon="sap-icon://delete" press="addClassificationCustTypeDelete" type="Reject" enabled="{RequiredOptionalSet>/TaxDataEdit}"></Button>
+		</Toolbar>
+		<Table select="onSelectTableVatCoutryNum" enableBusyIndicator="false" items="{CreateModelSet>/TaxData/AdditionalVats}" mode="MultiSelect">
+			<columns>
+				<Column demandPopin="true" minScreenWidth="Tablet">
+					<Text text="{i18n>VatCountry}"/>
+				</Column>
+				<Column demandPopin="true" minScreenWidth="Tablet">
+					<Text text="{i18n>VatNumber}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem selected="{CreateModelSet>Selected}">
+					<!--<Text text="{CreateModelSet>VatCountDesc}"></Text>-->
+					<!--<Text text="{CreateModelSet>VatNum}"></Text>-->
+					<Input value="{CreateModelSet>VatCountDesc}" valueState="{CreateModelSet>VatCountDescState}" enabled="false"
+						tooltip="{ContactDetailsSet>VatCountDescTooltip}"></Input>
+					<Input value="{CreateModelSet>VatNum}" valueState="{CreateModelSet>VatNumState}" enabled="false" tooltip="{CreateModelSet>VatNumTooltip}"></Input>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<buttons>
+			<Button text="{i18n>OK}" tooltip="{i18n>OK}" press="onPressVatDataOk"></Button>
+			<!--	<Button text="{i18n>Cancel}" press="onPressVatDataCancel"></Button>-->
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

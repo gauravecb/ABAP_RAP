@@ -1,0 +1,120 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<smartForm:SmartForm id="idCreateReqDetails" app:defaultCheckBoxDisplayBehaviour="OnOff"
+		app:defaultDropDownDisplayBehaviour="idAndDescription" editable="true">
+		<smartForm:layout>
+			<smartForm:ColumnLayout columnsM="2" columnsL="2" columnsXL="2"/>
+		</smartForm:layout>
+		<smartForm:Group>
+			<smartForm:GroupElement>
+				<smartField:SmartField id="idRequestType" textLabel="Request Type" value="{RequestType}" showValueHelp="true" editable="false"/>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{BusinessRegionId}" editable="true" textLabel="Region" mandatory="true" showValueStateMessage="true"
+					valueStateText="Enter a Valid Business Region" change="handleBusinessRegionIdChange" fieldGroupIds="mandatoryCreate" contextEditable="false">
+					<smartField:configuration>
+						<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+					</smartField:configuration>
+					<smartField:layoutData>
+						<layout:GridData span="XL1 L2 M4 S6"/>
+					</smartField:layoutData>
+				</smartField:SmartField>
+				<Text text="{BusinessRegionDec}"></Text>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{BusiUnitId}" editable="true" textLabel="Business Unit" mandatory="true" showValueStateMessage="true"
+						valueStateText="Enter a Valid Business Unit" change="handleBusinessUnitChange" fieldGroupIds="mandatoryCreate">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+						<smartField:layoutData>
+							<layout:GridData span="XL1 L2 M4 S6"/>
+						</smartField:layoutData>
+					</smartField:SmartField>
+					<Text text="{BusiUnitDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{SpecificationId}" editable="true" textLabel="Specification" mandatory="true" showValueStateMessage="true"
+						valueStateText="Enter a Valid Specification" change="handleSpecificationChange" fieldGroupIds="mandatoryCreate">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+						<smartField:layoutData>
+							<layout:GridData span="XL1 L2 M4 S6"/>
+						</smartField:layoutData>
+					</smartField:SmartField>
+					<Text text="{SpecificationDes}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{PlantId}" editable="true" textLabel="Plant" mandatory="true" showValueStateMessage="true"
+						valueStateText="Enter a Valid Plant" change="handlePlantChange" fieldGroupIds="mandatoryCreate">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+						<smartField:layoutData>
+							<layout:GridData span="XL1 L2 M4 S6"/>
+						</smartField:layoutData>
+					</smartField:SmartField>
+					<Text text="{PlantDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		<smartForm:Group label="Material Detail">
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{MaterialTypeId}" editable="true" textLabel="Material Type" mandatory="true" showValueStateMessage="true"
+						valueStateText="Enter a Valid Material Type" change="handleMaterialTypeChange" fieldGroupIds="mandatoryCreate">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+						<smartField:layoutData>
+							<layout:GridData span="XL1 L2 M4 S6"/>
+						</smartField:layoutData>
+					</smartField:SmartField>
+					<Text text="{MaterialTypeDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartForm:elements>
+					<smartField:SmartField value="{ProTypeId}" editable="true" textLabel="Procuremnt" mandatory="true" showValueStateMessage="true"
+						valueStateText="Enter a Valid Procurement" change="handleProcurementChange" fieldGroupIds="mandatoryCreate">
+						<smartField:configuration>
+							<smartField:Configuration preventInitialDataFetchInValueHelpDialog="false"></smartField:Configuration>
+						</smartField:configuration>
+						<smartField:layoutData>
+							<layout:GridData span="XL1 L2 M4 S6"/>
+						</smartField:layoutData>
+					</smartField:SmartField>
+					<Text text="{ProTypeDesc}"></Text>
+				</smartForm:elements>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField id="idSpecialProcurement" value="{Powner1}" textLabel="Special Procurement"/>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField id="idSourcingCategory" value="{Powner2}" textLabel="Sourcing Category"/>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		<smartForm:Group label="Project Details">
+			<smartForm:GroupElement>
+				<smartField:SmartField id="idProjectName" value="{Project}" textLabel="Project Name"></smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField id="idDescription" value="{RequestDesc}" textLabel="MCR Description">
+					<smartField:configuration>
+						<smartField:Configuration controlType="dropDownList" displayBehaviour="descriptionOnly"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField id="idJustification" value="{Justification}" textLabel="Justification"></smartField:SmartField>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+	</smartForm:SmartForm>
+</core:FragmentDefinition>

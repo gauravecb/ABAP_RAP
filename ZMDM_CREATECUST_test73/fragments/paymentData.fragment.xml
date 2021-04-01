@@ -1,0 +1,95 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/PaymentDataPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>PaymentData}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm class="customClassTitle editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+			labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>TermsofPayment}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/TermsOfPayCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/TermsOfPayCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="onLivechangeofTermsofPayment" items="{NavPaymentTermSet>/results}"
+					valueStateText="{AccountingDataModelSet>/PaymentTerms/terms_of_paymentMessage}"
+					tooltip="{AccountingDataModelSet>/PaymentTerms/TermsofPaymentTooltip}"
+					valueState="{AccountingDataModelSet>/PaymentTerms/terms_of_paymentState}"
+					selectedKey="{AccountingDataModelSet>/PaymentTerms/terms_of_payment}" placeholder="{i18n>select} {i18n>TermsofPayment}">
+					<core:Item key="{NavPaymentTermSet>terms_of_payment}"
+						text="{parts:[{path:'NavPaymentTermSet>terms_of_payment'},{path:'NavPaymentTermSet>explanation'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>CreditMemoPayTerm}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/CredMemoPaytrmCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/CredMemoPaytrmCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="onLivechangeofCreditMemoPayTerm" items="{NavPaymentTermSet>/results}"
+					tooltip="{AccountingDataModelSet>/PaymentData/CreditMemoPaytTermTooltip}"
+					valueStateText="{AccountingDataModelSet>/PaymentData/CreditmemopayttermMessage}"
+					valueState="{AccountingDataModelSet>/PaymentData/CreditmemopayttermState}"
+					selectedKey="{AccountingDataModelSet>/PaymentData/Creditmemopaytterm}" placeholder="{i18n>select} {i18n>CreditMemoPayTerm}">
+					<core:Item key="{NavPaymentTermSet>terms_of_payment}"
+						text="{parts:[{path:'NavPaymentTermSet>terms_of_payment'},{path:'NavPaymentTermSet>explanation'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>BeChangesPayTerm}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/BeChangePayTermCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/BeChangePayTermCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="onLivechangeofBeChangesPayTerm" items="{NavPaymentTermSet>/results}"
+					valueStateText="{AccountingDataModelSet>/PaymentData/BechangespayttermMessage}"
+					tooltip="{AccountingDataModelSet>/PaymentData/BeChangesPayTermTooltip}"
+					valueState="{AccountingDataModelSet>/PaymentData/BechangespayttermState}"
+					selectedKey="{AccountingDataModelSet>/PaymentData/Bechangespaytterm}" placeholder="{i18n>select} {i18n>ChangesPayTerm}">
+					<core:Item key="{NavPaymentTermSet>terms_of_payment}"
+						text="{parts:[{path:'NavPaymentTermSet>terms_of_payment'},{path:'NavPaymentTermSet>explanation'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>ToleranceGroup}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/TolerncGrpCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/TolerncGrpCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="onLivechangeofToleranceGroup" items="{NavToleranceGroupSet>/results}"
+					valueStateText="{AccountingDataModelSet>/PaymentData/ToleranceGroupMessage}"
+					tooltip="{AccountingDataModelSet>/PaymentData/ToleranceGroupTooltip}" valueState="{AccountingDataModelSet>/PaymentData/ToleranceGroupState}"
+					selectedKey="{AccountingDataModelSet>/PaymentData/ToleranceGroup}" placeholder="{i18n>select} {i18n>ToleranceGroup}">
+					<core:Item key="{NavToleranceGroupSet>Togru}"
+						text="{parts:[{path:'NavToleranceGroupSet>Togru'},{path:'NavToleranceGroupSet>Txt30'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>PaymentMethods}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/PaymntMethCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/PaymntMethCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="onLivechangeofPaymentMethods" items="{NavPaymentMethodSet>/results}"
+					valueStateText="{AccountingDataModelSet>/PaymentData/PaymentMethodsMessage}"
+					tooltip="{AccountingDataModelSet>/PaymentData/PaymentMethodsTooltip}" valueState="{AccountingDataModelSet>/PaymentData/PaymentMethodsState}"
+					selectedKey="{AccountingDataModelSet>/PaymentData/PaymentMethods}" placeholder="{i18n>select} {i18n>PaymentMethods}">
+					<core:Item key="{NavPaymentMethodSet>Paymentmethod}"
+						text="{parts:[{path:'NavPaymentMethodSet>Paymentmethod'},{path:'NavPaymentMethodSet>Description'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>HouseBank}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/HouseBankCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/HouseBankCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="onLivechangeofHouseBank" tooltip="{AccountingDataModelSet>/PaymentData/HouseBankTooltip}" items="{NavHouseBankSet>/results}"
+					valueStateText="{AccountingDataModelSet>/PaymentData/HouseBankMessage}" valueState="{AccountingDataModelSet>/PaymentData/HouseBankState}"
+					selectedKey="{AccountingDataModelSet>/PaymentData/HouseBank}" placeholder="{i18n>select} {i18n>HouseBank}">
+					<core:Item key="{NavHouseBankSet>Hbkid}"
+						text="{parts:[{path:'NavHouseBankSet>Hbkid'},{path:'NavHouseBankSet>Text1'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>SelectionRule}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/SelectnRuleCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox enabled="{path:'RequiredOptionalSet>/SelectnRuleCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="onLivechangeofSelectionRule" items="{NavSelectionRuleSet>/results}"
+					valueStateText="{AccountingDataModelSet>/PaymentData/SelectionRuleMessage}"
+					tooltip="{AccountingDataModelSet>/PaymentData/SelectionRuleTooltip}" valueState="{AccountingDataModelSet>/PaymentData/SelectionRuleState}"
+					selectedKey="{AccountingDataModelSet>/PaymentData/SelectionRule}" placeholder="{i18n>select} {i18n>SelectionRule}">
+					<core:Item key="{NavSelectionRuleSet>Sregl}"
+						text="{parts:[{path:'NavSelectionRuleSet>Sregl'},{path:'NavSelectionRuleSet>Txt20'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<Label textAlign="Left" text="{i18n>PaymentHistoryRecord}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/PayHisRecod',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<CheckBox width="10%" valueStateText="{AccountingDataModelSet>/PaymentData/PaymentHisRecodMessage}"
+					valueState="{AccountingDataModelSet>/PaymentData/PaymentHisRecoState}" select="selectPaymentHisRecord"
+					enabled="{path:'RequiredOptionalSet>/PayHisRecod',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selected="{AccountingDataModelSet>/PaymentData/PaymentHistoryRecord}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

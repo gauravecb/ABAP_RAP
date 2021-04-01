@@ -1,0 +1,66 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="false">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>CompanyContactDetail}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm class="editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="8" labelSpanS="2"
+			adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="4" columnsM="4">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>Telephone}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/N_AddTelepDefault/Telephone}"/>
+				<Label textAlign="Left" text="{i18n>Fax}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/N_AddFaxDefault/Fax}"/>
+				<Label textAlign="Left" text="{i18n>Email}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/N_AddMailDefault/Email}"/>
+				<Label textAlign="Left" text="{i18n>URL}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/N_AddURLDefault/UrlHomepage}"/>
+				<Label textAlign="Left" text="{i18n>TeleboxNumber}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/N_CompContactDet/Telebox}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>TelephoneExtension}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/N_AddTelepDefault/TelephoneExt}"/>
+				<Label textAlign="Left" text="{i18n>FaxExtension}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/N_AddFaxDefault/FaxExt}"/>
+				<Label textAlign="Left" text="{i18n>Comments}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/N_AddMailDefault/MailComments}"/>
+				<Label textAlign="Left" text="{i18n>Comments}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/N_AddURLDefault/UrlComments}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>Comments}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/N_AddTelepDefault/TeleComments}"/>
+				<Label textAlign="Left" text="{i18n>Comments}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/N_AddFaxDefault/FaxComments}"/>
+				<core:Title/>
+					
+					<Link press="onPressAddTelephoneFrag"
+					text="{parts:[{path:'SearchDisplayModelSet>/TotalAdditionalTelephones'},{path:'i18n>additionalTelephone'}],formatter:'MDMZCUSTOMER.model.Formatter.countBasedTelephone'}">
+					<layoutData>
+						<l:GridData span="XL2 L8 M2 S2"/>
+					</layoutData>
+				</Link>
+				<Link press="onPressAddFaxFrag"
+					text="{parts:[{path:'SearchDisplayModelSet>/TotalAdditionalFaxs'},{path:'i18n>additionalFax'}],formatter:'MDMZCUSTOMER.model.Formatter.countBasedTelephone'}">
+					<layoutData>
+						<l:GridData span="XL2 L8 M2 S2"/>
+					</layoutData>
+				</Link>
+					<Link press="onPressAddEmailFrag"
+					text="{parts:[{path:'SearchDisplayModelSet>/TotalAdditionalMails'},{path:'i18n>additionalEmail'}],formatter:'MDMZCUSTOMER.model.Formatter.countBasedTelephone'}">
+					<layoutData>
+						<l:GridData span="XL2 L8 M2 S2"/>
+					</layoutData>
+				</Link>
+				<Link press="onPressAddURLFrag"
+					text="{parts:[{path:'SearchDisplayModelSet>/TotalAdditionalURLs'},{path:'i18n>additionalURL'}],formatter:'MDMZCUSTOMER.model.Formatter.countBasedTelephone'}">
+					<layoutData>
+						<l:GridData span="XL2 L8 M2 S2"/>
+					</layoutData>
+				</Link>
+			</f:content>
+		</f:SimpleForm>
+		
+	</Panel>
+</core:FragmentDefinition>

@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:smartForm="sap.ui.comp.smartform"
+    xmlns:smartField="sap.ui.comp.smartfield"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:f="sap.ui.layout.form">
+
+    <Table id="idWorkflowTable" mode="MultiSelect">
+        <headerToolbar>
+            <OverflowToolbar>
+                <Title text="Alt Languages(3)"></Title>
+                <ToolbarSpacer />
+                <Button icon="sap-icon://add" text="Add" press="handleAddItem"></Button>
+                <Button icon="sap-icon://edit" text="Edit" press="handleAddItem"></Button>
+                <Button icon="sap-icon://delete" text="Delete" press="handleAddItem"></Button>
+            </OverflowToolbar>
+        </headerToolbar>
+        <columns>
+            <Column>
+                <header>
+                    <Text text="Language"></Text>
+                </header>
+            </Column>
+            <Column>
+                <header>
+                    <Text text="Description"></Text>
+                </header>
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <Text></Text>
+                    <Text></Text>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

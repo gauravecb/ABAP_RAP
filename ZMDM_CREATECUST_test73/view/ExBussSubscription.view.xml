@@ -1,0 +1,149 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	controllerName="MDMZCUSTOMER.controller.ExBussSubscription" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>existingBusPartsubsubpage}" class="sapUiSizeCompact" showNavButton="true"
+		navButtonPress="onPressBackFromSubcriptionExBus">
+		<content>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8" labelSpanS="6" adjustLabelSpan="false"
+				emptySpanL="0" emptySpanM="0" columnsL="1" columnsM="1">
+				<f:content>
+					<OverflowToolbar>
+						<Label text="{i18n>GoldenRecordID}" design="Bold"></Label>
+						<Text text="{ExtBusPartnerModelSet>/results/BUSINESSPARTNER/bsnsPrtnrId}"/>
+					</OverflowToolbar>
+				</f:content>
+			</f:SimpleForm>
+			<Panel expandable="true" expanded="true">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Label text="{i18n>NameAddress}" design="Bold"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<VBox items="{searchNameAndAdressModelSet>/NameAndAddress}">
+					<VBox>
+						<f:SimpleForm visible="{searchNameAndAdressModelSet>VisibleBasedOnNext}" editable="true" layout="ResponsiveGridLayout" labelSpanL="5"
+							labelSpanM="5" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+							<f:content>
+								<core:Title/>
+								<Label text="{i18n>Country}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Country}"/>
+								<Label text="{i18n>AddressVersion}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Address_Version}"/>
+								<Label text="{i18n>PreferredAddressVersion}"></Label>
+								<CheckBox enabled="false"
+									selected="{path:'searchNameAndAdressModelSet>PreferredAddressVersion',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+								<Label text="{i18n>Name1}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Name_1}"></Input>
+								<Label text="{i18n>Name2}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Name_2}"></Input>
+								<Label text="{i18n>Name3}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Name_3}"></Input>
+								<Label text="{i18n>Name4}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Name_4}"></Input>
+								<Label></Label>
+								<Text/>
+								<Label></Label>
+								<Text/>
+								<Label></Label>
+								<Text/>
+								<Label></Label>
+								<HBox>
+									<Button tooltip="{i18n>PriviousBtn}" press="priviosNameAndAddress" icon="sap-icon://slim-arrow-left"></Button>
+									<Text text="{searchNameAndAdressModelSet>AddCountNo}"></Text>
+									<Button iconFirst="false" tooltip="{i18n>NextBtn}" press="nextNameAndAddress" icon="sap-icon://slim-arrow-right"></Button>
+								</HBox>
+								<core:Title/>
+								<Label text="{i18n>Street1}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Street_1}"></Input>
+								<Label text="{i18n>Street2}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Street_2}"></Input>
+								<Label text="{i18n>Street3}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Street_3}"></Input>
+								<Label text="{i18n>Street4}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Street_4}"></Input>
+								<Label text="{i18n>Street5}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Street_5}"></Input>
+								<Label text="{i18n>House}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>House_No}"></Input>
+								<Label text="{i18n>HouseSupplement}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>House_No_Supplement}"></Input>
+								<Label text="{i18n>Building}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Building}"></Input>
+								<Label text="{i18n>Floor}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Floor}"></Input>
+								<Label text="{i18n>Room}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Room}"></Input>
+								<core:Title/>
+								<Label text="{i18n>PostalCode}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Postal_Code}"></Input>
+								<Label text="{i18n>District}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>District}"></Input>
+								<Label text="{i18n>City}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>City}"></Input>
+								<Label text="{i18n>Region}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>RegionDesc}"></Input>
+								<Label text="{i18n>FreeTradeRegion}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>Free_Trade_Region}"></Input>
+								<Label text="{i18n>POBoxNumber}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>PO_Box}"></Input>
+								<Label text="{i18n>POBoxPostalCode}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>PO_Box_Code}"></Input>
+								<Label text="{i18n>POBoxCity}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>PO_Box_City}"></Input>
+								<Label text="{i18n>AccountType}"></Label>
+								<Input enabled="false" value="{searchNameAndAdressModelSet>AccountType}"></Input>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</VBox>
+			</Panel>
+			<Panel expandable="true" expanded="true">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Label text="{i18n>ExistingSubscriptions}" design="Bold"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<Table items="{ExtBusPartnerModelSet>/ExtSubItems}" select="onPressExistSubTableItem" enableBusyIndicator="false">
+					<columns>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>domainsubPage}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>roleSubPage}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>deletionFlagSub}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>systemSubPage}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>loacalIdSub}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet"></Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Text text="{ExtBusPartnerModelSet>/ExtSubDomain/cusTypeRowid/cusType}"></Text>
+								<Text text="{ExtBusPartnerModelSet>Role}"></Text>
+								<Text text="{ExtBusPartnerModelSet>DeletionFlag}"></Text>
+								<Text text="{ExtBusPartnerModelSet>System}"></Text>
+								<Text text="{ExtBusPartnerModelSet>LocalID}"></Text>
+								<Link text="{i18n>ClickHereforDetails}" press="onPressMoreDetails"></Link>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</Panel>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button text="{i18n>newSubscriptionsubBtn}" tooltip="{i18n>newSubscriptionsubBtn}" type="Accept" icon="sap-icon://create"
+					visible="{path:'OpenEditModelSet>/EditOrOpen',formatter:'MDMZCUSTOMER.model.Formatter.buttonHanldeiExBusSubEdit'}"
+					press="onPressNewSubScription"/>
+				<Button text="{i18n>closeSubBtn}" tooltip="{i18n>closeSubBtn}" type="Reject" press="onCloseSubRequest" icon="sap-icon://decline"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/BusPartDataCustClassPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>CustomerClassification}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm class="customClassTitle editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8"
+			labelSpanS="6" adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>AccountType}"/>
+				<Input enabled="false" value="{CustClassficationModelSet>/CustClassification/cusTypeRowid/cusType}"/>
+				<Label textAlign="Left" text="{i18n>IndustryClassification1}" wrapping="true"/>
+				<Input enabled="false" value="{CustClassficationModelSet>/CustClassification/indstryClsfnL1Rowid/lbl}"/>
+				<Label textAlign="Left" text="{i18n>IndustryClassification2}" wrapping="true"/>
+				<Input enabled="false" value="{CustClassficationModelSet>/CustClassification/indstryClsfnL2Rowid/lbl}"/>
+				<Label textAlign="Left" text="{i18n>Banner}"/>
+				<Input enabled="false"
+					value="{parts:[{path:'CustClassficationModelSet>/CustClassification/cusBannerRowid/code'},{path:'CustClassficationModelSet>/CustClassification/cusBannerRowid/description'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>IndirectCustomerType}" wrapping="true"/>
+				<Input enabled="false" value="{CustClassficationModelSet>/CustClassification/indirectCusType/indirectCusType}"/>
+				<Label textAlign="Left" text="{i18n>BusinessActivityType}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'CustClassficationModelSet>/CustClassification/cusBsnsActvtyRowid/literalAcronym'},{path:'CustClassficationModelSet>/CustClassification/cusBsnsActvtyRowid/literalValue'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label textAlign="Left" text="{i18n>OrganizationLevel}" wrapping="true"/>
+				<Input enabled="false" value="{CustClassficationModelSet>/OrgnisationLevel}"/>
+				<Label textAlign="Left" text="{i18n>AccountLegalStatus}" wrapping="true"/>
+				<Input enabled="false" value="{CustClassficationModelSet>/AccountLegalStatus}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>CommercialDeal-to}" wrapping="true"/>
+				<Checkbox enabled="false"
+					selected="{path:'CustClassficationModelSet>/CustClassification/dealTo',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+				<Label textAlign="Left" text="{i18n>ServiceDeal-to}" wrapping="true"/>
+				<Checkbox enabled="false"
+					selected="{path:'CustClassficationModelSet>/CustClassification/serviceDealTo',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+				<Label textAlign="Left" text="{i18n>Store}"/>
+				<Checkbox enabled="false"
+					selected="{path:'CustClassficationModelSet>/CustClassification/store',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

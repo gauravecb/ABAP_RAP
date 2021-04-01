@@ -1,0 +1,103 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" displayBlock="true" xmlns:ui="sap.ui.table" xmlns="sap.m"
+	controllerName="MDMZCUSTOMER.controller.searchCustomer">
+	<!--	<App id="idAppControl">
+		<pages>-->
+	<Page class="sapUiSizeCompact" id="ID_PAGE_SEARCH">
+		<content>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8" labelSpanS="6" adjustLabelSpan="false"
+				emptySpanL="0" emptySpanM="0" columnsL="1" columnsM="1">
+				<f:content>
+					<Toolbar>
+						<ToolbarSpacer></ToolbarSpacer>
+						<SearchField search="onPressLiveSearchField" value="{searchAndAdvancedSearchModelSet>/Search/SearchFieldValue}" width="50%"></SearchField>
+						<Button text="{i18n>AdvancedSearch}" press="onPressAdvancedSearchButton" type="Accept"/>
+						<ToolbarSpacer></ToolbarSpacer>
+					</Toolbar>
+				</f:content>
+			</f:SimpleForm>
+			<ui:Table sort="onTableSort" rowSelectionChange="onPressSearchDataTableRow" rows="{searchModelSet>/results}" selectionMode="Single"
+				visibleRowCount="10" selectionBehavior="RowOnly" class="sapUiSmallMarginBeginEnd">
+				<ui:extension>
+					<OverflowToolbar>
+						<Title text="Results ({searchResultsSet>/results/length})"/>
+						<ToolbarSpacer></ToolbarSpacer>
+					</OverflowToolbar>
+				</ui:extension>
+				<ui:columns>
+					<ui:Column sortProperty="GoldenRecordID">
+						<Label text="{i18n>GoldenRecordID}"/>
+						<ui:template>
+							<Text text="{searchModelSet>GoldenRecordID}"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column sortProperty="AccountName">
+						<Label text="{i18n>AccountName}"/>
+						<ui:template>
+							<Text text="{searchModelSet>AccountName}"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column sortProperty="Street">
+						<Label text="{i18n>Street}"/>
+						<ui:template>
+							<Text text="{searchModelSet>Street}"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column sortProperty="City">
+						<Label text="{i18n>City}"/>
+						<ui:template>
+							<Text text="{searchModelSet>City}"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column sortProperty="PostalCode">
+						<Label text="{i18n>PostalCode}"/>
+						<ui:template>
+							<Text text="{searchModelSet>PostalCode}"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column sortProperty="Region">
+						<Label text="{i18n>Region}"/>
+						<ui:template>
+							<Text text="{searchModelSet>RegionDesc}"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column sortProperty="Country">
+						<Label text="{i18n>Country}"/>
+						<ui:template>
+							<Text text="{searchModelSet>Country}"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column sortProperty="VATNumber">
+						<Label text="{i18n>VATNumber}"/>
+						<ui:template>
+							<Text text="{searchModelSet>VATNumber}"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column sortProperty="TaxNumber">
+						<Label text="{i18n>TaxNumber}"/>
+						<ui:template>
+							<Text text="{searchModelSet>TaxNumber}"/>
+						</ui:template>
+					</ui:Column>
+				</ui:columns>
+			</ui:Table>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button text="{i18n>openSubPage}" enabled="{searchAndAdvancedSearchModelSet>/Search/openButtonEnable}"
+					visible="{searchAndAdvancedSearchModelSet>/Search/OpenBtnVisible}" tooltip="{i18n>openSubPage}" icon="sap-icon://e-learning" type="Accept"
+					press="onClickOpenRecod"/>
+				<Button text="{i18n>createsubPage}" enabled="{searchAndAdvancedSearchModelSet>/Search/CreateButtonEnable}"
+					visible="{searchAndAdvancedSearchModelSet>/Search/CreateBtnVisible}" tooltip="{i18n>createsubPage}" icon="sap-icon://create" type="Accept"
+					press="onCreateButtonPress"/>
+				<Button text="{i18n>changesubPage}" enabled="{searchAndAdvancedSearchModelSet>/Search/changeButtonEnable}"
+					visible="{searchAndAdvancedSearchModelSet>/Search/ChangeBtnVisible}" tooltip="{i18n>changesubPage}" icon="sap-icon://edit" type="Emphasized"
+					press="onClickEditRecod"/>
+				<Button tooltip="{i18n>Cancel}" icon="sap-icon://decline" text="{i18n>Cancel}" type="Reject" press="onCancelRequest"/>
+			</Toolbar>
+		</footer>
+	</Page>
+	<!--	</pages>
+	</App>-->
+</mvc:View>

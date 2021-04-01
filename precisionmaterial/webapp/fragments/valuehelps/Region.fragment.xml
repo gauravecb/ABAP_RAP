@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog title="Business Region" class="sapUiPopupWithPadding sapUiSizeCompact" items="{path: '/BusinessRegionSet'}" search="_handleRegionSearch" confirm="_handleRegionConfirm">
+        <StandardListItem class="sapUiSizeCompact" title="{BusinessRegio}" description="{BusinessRegionDec}"/>
+    </SelectDialog>
+</core:FragmentDefinition>

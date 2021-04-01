@@ -1,0 +1,131 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/CustDataGeneralDataPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>GeneralData}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8" labelSpanS="6" adjustLabelSpan="false"
+			emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>AlternateBusinessName}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/AlterBusNameCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input  
+				maxLength="40"
+				value="{CustomerDataSet>/GenData/AltBusiName}" showValueStateMessage="false" valueState="{CustomerDataSet>/GenData/AltBusiNameMsg}"
+					liveChange="liveChangeAltBusnessNameCD"
+					enabled="{path:'RequiredOptionalSet>/AlterBusNameCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					tooltip="{CustomerDataSet>/GenData/AltBusiNameTooltip}"/>
+				<Label textAlign="Left" text="{i18n>SearchTerm1}"
+					required="{path:'RequiredOptionalSet>/SearchTerm1Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="10" value="{CustomerDataSet>/GenData/SearchTearm1}" showValueStateMessage="false" valueState="{CustomerDataSet>/GenData/SearchTearm1Msg}"
+					enabled="{path:'RequiredOptionalSet>/SearchTerm1Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					liveChange="liveChangeSearchTerm1CD" tooltip="{i18n>theFirst4charactersofName1AndFirst4charactersForTheCityofthepreferredlocallanguage}"/>
+				<Label textAlign="Left" text="{i18n>SearchTerm2}"
+					required="{path:'RequiredOptionalSet>/SearchTerm2Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="10" value="{CustomerDataSet>/GenData/SearchTearm2}" showValueStateMessage="false" valueState="{CustomerDataSet>/GenData/SearchTearm2Msg}"
+					enabled="{path:'RequiredOptionalSet>/SearchTerm2Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					liveChange="liveChangeSearchTerm2CD"
+					tooltip="{CustomerDataSet>/GenData/SearchTearm2Tooltip}"/>
+				<Label text="{i18n>CommunicationLanguage}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/CommLangCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox items="{CommunicationLangCDCombSet>/results}" showValueStateMessage="false" selectedKey="{CustomerDataSet>/GenData/CommuLang}"
+					valueState="{CustomerDataSet>/GenData/CommuLangMsg}"
+					enabled="{path:'RequiredOptionalSet>/CommLangCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="liveChangeCommunicationLanguageCD"
+					tooltip="{CustomerDataSet>/GenData/CommuLangTooltip}">
+					<core:Item key="{CommunicationLangCDCombSet>code}"
+						text="{parts:[{path:'CommunicationLangCDCombSet>code'},{path:'CommunicationLangCDCombSet>name'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<Label></Label>
+				<Text></Text>
+				<Label></Label>
+				<Text></Text>
+				<Label text="{i18n>locationNo1}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/LocationNo1Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input  value="{CustomerDataSet>/GenData/LocationNo1}" showValueStateMessage="false"
+					valueState="{CustomerDataSet>/GenData/LocationNo1Msg}"
+					enabled="{path:'RequiredOptionalSet>/LocationNo1Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					liveChange="liveChangeLocationNo1"
+					tooltip="{CustomerDataSet>/GenData/LocationNo1Tooltip}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>AuthorizationGroup}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/AuthGrpCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input value="{CustomerDataSet>/GenData/AuthoGrp}" showValueStateMessage="false" valueState="{CustomerDataSet>/GenData/AuthoGrpMsg}"
+					enabled="{path:'RequiredOptionalSet>/AuthGrpCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					liveChange="liveChangeAuthorizationGroupCD" maxLength="4" tooltip="{CustomerDataSet>/GenData/AuthoGrpTooltip}"/>
+				<Label textAlign="Left" text="{i18n>VendorNumber}"
+					required="{path:'RequiredOptionalSet>/VendorNumCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input value="{CustomerDataSet>/GenData/VendNum}" showValueStateMessage="false" valueState="{CustomerDataSet>/GenData/VendNumMsg}"
+					enabled="{path:'RequiredOptionalSet>/VendorNumCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					liveChange="liveChangeVendorNumCD"  tooltip="{CustomerDataSet>/GenData/VendNumTooltip}"/>
+				<Label text="{i18n>TransportationZone}" wrapping="true"
+					required="true"/>
+				<ComboBox items="{TransportZoneCDCombSet>/results}" showValueStateMessage="false" change="liveChangeTransportationZoneCD"
+					valueState="{CustomerDataSet>/GenData/TranspoZoneMsg}"
+					enabled="{path:'RequiredOptionalSet>/TransZoneCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selectedKey="{CustomerDataSet>/GenData/TranspoZone}" tooltip="{CustomerDataSet>/GenData/TranspoZoneTooltip}">
+					<core:Item key="{TransportZoneCDCombSet>Zone}"
+						text="{parts:[{path:'TransportZoneCDCombSet>Zone'},{path:'TransportZoneCDCombSet>Text'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<Label text="{i18n>altTransportationZone}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/AltTranspZoneCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox items="{TransporAlttZoneCDCombSet>/results}" showValueStateMessage="false" change="liveChangeAltTransportationZoneCD"
+					valueState="{CustomerDataSet>/GenData/AltTranspoZoneMsg}"
+					enabled="{path:'RequiredOptionalSet>/AltTranspZoneCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selectedKey="{CustomerDataSet>/GenData/AltTranspoZone}" tooltip="{CustomerDataSet>/GenData/AltTranspoZoneTooltip}">
+					<core:Item key="{TransporAlttZoneCDCombSet>Zone1}"
+						text="{parts:[{path:'TransporAlttZoneCDCombSet>Zone1'},{path:'TransporAlttZoneCDCombSet>Vtext'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<Label></Label>
+				<Text></Text>
+				<Label></Label>
+				<Text></Text>
+				<Label text="{i18n>locationNo2}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/LocationNo2Cond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input value="{CustomerDataSet>/GenData/LocationNo2}" showValueStateMessage="false" valueState="{CustomerDataSet>/GenData/LocationNo2Msg}"
+					enabled="{path:'RequiredOptionalSet>/LocationNo2Cond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					liveChange="liveChangeLocationNo2" tooltip="{CustomerDataSet>/GenData/LocationNo2Tooltip}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>RegStructGrp}"
+					required="{path:'RequiredOptionalSet>/RegStructGrpCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox items="{RegionStructModelSet>/results}" showValueStateMessage="false" valueState="{CustomerDataSet>/GenData/RegStructGrpMsg}"
+					enabled="{path:'RequiredOptionalSet>/RegStructGrpCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="liveChangeRegStructGrpCD" selectedKey="{CustomerDataSet>/GenData/RegStructGrp}" tooltip="{CustomerDataSet>/GenData/RegStructGrpTooltip}">
+					<core:Item key="{RegionStructModelSet>Regstrgrp}"
+						text="{parts:[{path:'RegionStructModelSet>Regstrgrp'},{path:'RegionStructModelSet>Descript'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<!--<Input value="{CustomerDataSet>/GenData/RegStructGrp}" liveChange="liveChangeRegStructGrpCD"/>-->
+				<Label text="{i18n>GroupKey}" required="{path:'RequiredOptionalSet>/GroupKeyCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<ComboBox items="{GroupKeyCDCombSet>/results}" showValueStateMessage="false" valueState="{CustomerDataSet>/GenData/cMsg}"
+					enabled="{path:'RequiredOptionalSet>/GroupKeyCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" change="liveChangeGroupKeyCD"
+					selectedKey="{CustomerDataSet>/GenData/GroupKey}" tooltip="{CustomerDataSet>/GenData/RegStructGrpTooltip}">
+					<core:Item key="{GroupKeyCDCombSet>Zgrup}"
+						text="{parts:[{path:'GroupKeyCDCombSet>Zgrup'},{path:'GroupKeyCDCombSet>Ttext'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				</ComboBox>
+				<Label text="{i18n>tradingPartner}"
+					required="{path:'RequiredOptionalSet>/TradinParCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input valueState="{CustomerDataSet>/GenData/TradingPartnerMsg}" showValueStateMessage="false" enabled="false"
+					value="{CustomerDataSet>/GenData/TradingPartner}" maxLength="6" liveChange="liveChangeTradingPartnerCD" tooltip="{CustomerDataSet>/GenData/TradingPartnerTooltip}" />
+				<Label textAlign="Left" text="{i18n>MainlyCivilianUsage}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/MainlyCivilUsgCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<RadioButton  groupName="CUST_GEN_USG" width="10%" valueState="{CustomerDataSet>/GenData/MainlyCivilianUsgMsg}" showValueStateMessage="false"
+					enabled="{path:'RequiredOptionalSet>/MainlyCivilUsgCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selected="{CustomerDataSet>/GenData/MainlyCivilianUsg}" select="onSelectMainlyCivilUsgCD"/>
+				<Label textAlign="Left" text="{i18n>MainlyMilitaryUsage}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/MainlyMilitUsgCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<RadioButton groupName="CUST_GEN_USG" width="10%" valueState="{CustomerDataSet>/GenData/MainlyMailitaryUsgMsg}" showValueStateMessage="false"
+					enabled="{path:'RequiredOptionalSet>/MainlyMilitUsgCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					selected="{CustomerDataSet>/GenData/MainlyMailitaryUsg}" select="onSelectMainlyMailitaryUsgCD"/>
+				<Label></Label>
+				<Text></Text>
+				<Label text="{i18n>checkDegit}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/CheckDigitCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input valueState="{CustomerDataSet>/GenData/CheckDegitMsg}" showValueStateMessage="false"
+					enabled="{path:'RequiredOptionalSet>/CheckDigitCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					value="{CustomerDataSet>/GenData/CheckDegit}" liveChange="liveChangeCheckDigit" tooltip="{CustomerDataSet>/GenData/CheckDegitTooltip}" />
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

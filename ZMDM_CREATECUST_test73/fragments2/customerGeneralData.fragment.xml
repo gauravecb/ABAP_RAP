@@ -1,0 +1,66 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/CustDataGeneralDataPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>GeneralData}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8" labelSpanS="6" adjustLabelSpan="false"
+			emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>AlternateBusinessName}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/results/AltBusinessName}"/>
+				<Label textAlign="Left" text="{i18n>SearchTerm1}"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/results/SrchTerm1}"/>
+				<Label textAlign="Left" text="{i18n>SearchTerm2}"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/results/SrchTerm2}"/>
+				<Label text="{i18n>CommunicationLanguage}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/CommLang'},{path:'SearchDisplayModelSet>/results/CommLangDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label></Label>
+				<Text></Text>
+				<Label></Label>
+				<Text></Text>
+				<Label text="{i18n>locationNo1}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/results/LocationNo1}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>AuthorizationGroup}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/results/AuthorizationGroup}"/>
+				<Label textAlign="Left" text="{i18n>VendorNumber}"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/results/Vendor}"/>
+				<Label text="{i18n>TransportationZone}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/TransportationZone'},{path:'SearchDisplayModelSet>/results/TransportationZoneDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label text="{i18n>altTransportationZone}" wrapping="true"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/AltTransportationZone'},{path:'SearchDisplayModelSet>/results/AltTransportationZoneDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label></Label>
+				<Text></Text>
+				<Label></Label>
+				<Text></Text>
+				<Label text="{i18n>locationNo2}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/results/LocationNo2}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>RegStructGrp}"/>
+				<Input enabled="false" 
+				value="{parts:[{path:'SearchDisplayModelSet>/results/RegStrGrp'},{path:'SearchDisplayModelSet>/results/RegStrGrpDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label text="{i18n>GroupKey}"/>
+				<Input enabled="false"
+					value="{parts:[{path:'SearchDisplayModelSet>/results/GroupKey'},{path:'SearchDisplayModelSet>/results/GroupKeyDesc'}],formatter:'MDMZCUSTOMER.model.Formatter.codeValuePair'}"/>
+				<Label text="{i18n>tradingPartner}"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/results/TradingPartner}"/>
+				<Label textAlign="Left" text="{i18n>MainlyCivilianUsage}" wrapping="true"/>
+				<RadioButton groupName="CUST_GEN_USG1" enabled="false"
+					selected="{path:'SearchDisplayModelSet>/results/CivilianUsage',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+				<Label textAlign="Left" text="{i18n>MainlyMilitaryUsage}" wrapping="true"/>
+				<RadioButton groupName="CUST_GEN_USG1" enabled="false"
+					selected="{path:'SearchDisplayModelSet>/results/MilitaryUsage',formatter:'MDMZCUSTOMER.model.Formatter.checkBoxCheck'}"/>
+				<Label></Label>
+				<Text></Text>
+				<Label text="{i18n>checkDegit}" wrapping="true"/>
+				<Input enabled="false" value="{SearchDisplayModelSet>/results/CheckDigit}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

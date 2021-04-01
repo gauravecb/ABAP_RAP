@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Panel expandable="false" expanded="true">
+		<!--<headerToolbar>-->
+		<!--	<OverflowToolbar>-->
+		<!--		<Title text="Comments"/>-->
+		<!--	</OverflowToolbar>-->
+		<!--</headerToolbar>-->
+		<content>
+			<l:VerticalLayout class="sapUiContentPadding" width="100%">
+				<l:content>
+					<List id = "idCommentList" headerText="Comments" items="{/HDRCommentsSet}">
+						<FeedListItem sender="{StaffId}" timestamp="{Date}" text="{Comment}" convertLinksToAnchorTags="All">
+							<FeedListItemAction text="Delete" icon="sap-icon://delete" key="delete" press="onCommentDelete"/>
+						</FeedListItem>
+					</List>
+				<TextArea id="idComments" rows="6" cols="50" value="" placeholder="Enter the comments">
+						<layoutData>
+							<l:GridData span="XL6 L6 M12 S12"/>
+						</layoutData>
+					</TextArea>
+					<Button text="Save Comments" icon="sap-icon://save" press="handleSaveComments">
+						<layoutData>
+							<l:GridData span="XL3 L3 M5 S6"/>
+						</layoutData>
+					</Button>
+				</l:content>
+			</l:VerticalLayout>
+			<!--<f:SimpleForm editable="true" emptySpanXL=" 0" emptySpanL=" 0" emptySpanM=" 0" emptySpanS=" 0" singleContainerFullSize="false"-->
+			<!--	layout="ResponsiveGridLayout" labelSpanXL="1" labelSpanL="1" labelSpanM="6" labelSpanS="12">-->
+			<!--	<f:content>-->
+			<!--		<core:Title text="Previous Comment"/>-->
+			<!--		<TextArea rows="6" cols="50" value="{prtext>/text}" editable="false"></TextArea>-->
+			<!--		<core:Title text="Current Comment"/>-->
+			<!--		<TextArea id="idComments" rows="6" cols="50" value="" placeholder="Enter the comments">-->
+			<!--			<layoutData>-->
+			<!--				<layout:GridData span="XL6 L6 M12 S12"/>-->
+			<!--			</layoutData>-->
+			<!--		</TextArea>-->
+			<!--		<Button text="Save Comments" icon="sap-icon://save" press="handleSaveComments">-->
+			<!--			<layoutData>-->
+			<!--				<layout:GridData span="XL3 L3 M5 S6"/>-->
+			<!--			</layoutData>-->
+			<!--		</Button>-->
+			<!--	</f:content>-->
+			<!--</f:SimpleForm>-->
+		</content>
+	</Panel>
+</core:FragmentDefinition>

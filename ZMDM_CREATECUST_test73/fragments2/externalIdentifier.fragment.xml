@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/BusPartDataExtIdntPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>ExternalIdentifier}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="8" labelSpanS="6" adjustLabelSpan="false"
+			emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" class="newclass" text="{i18n>ChamberofCommerce}" wrapping="true"/>
+				<Input enabled="false" value="{ExtIdentModelSet>/ExternalIdentifer/ChamberOf_Commerce}"/>
+				<core:Title/>
+				<Label textAlign="Left" class="newclass" text="{i18n>DUNS}"/>
+				<Input enabled="false" value="{ExtIdentModelSet>/ExternalIdentifer/DUNS}"/>
+				<core:Title/>
+				<Label></Label>
+				<Link press="onPressExtIdentFrag"
+					text="{parts:[{path:'ExtIdentModelSet>/ExternalIdentifer/TotalExternalIdent'},{path:'i18n>labelCountExternIdent'}],formatter:'MDMZCUSTOMER.model.Formatter.countBasedExtTypeValue'}"></Link>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

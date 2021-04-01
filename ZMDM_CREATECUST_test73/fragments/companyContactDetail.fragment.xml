@@ -1,0 +1,139 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt">
+	<Panel expandable="true" expanded="{PanelModelSet>/CompanyContactDetailPanel}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Label text="{i18n>CompanyContactDetail}" design="Bold"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<f:SimpleForm class="editableForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="8" labelSpanS="2"
+			adjustLabelSpan="false" emptySpanL="0" emptySpanM="0" columnsL="4" columnsM="4">
+			<f:content>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>Telephone}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/TelephoneCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input value="{ContactDetailsSet>/ContactDetails/Telephone/Telephone}"
+					editable="{ContactDetailsSet>/ContactDetails/Telephone/TelephoneEditable}" liveChange="onLiveChangeOfTelephoneView"
+					valueState="{ContactDetailsSet>/ContactDetails/Telephone/TelephoneViewState}"
+					valueStateText="{ContactDetailsSet>/ContactDetails/Telephone/TelephoneViewMessage}"
+					enabled="{path:'RequiredOptionalSet>/TelephoneCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" change="changeEventForTelephone"
+					tooltip="{ContactDetailsSet>/ContactDetails/Telephone/TelephoneTooltip}"/>
+				<Label textAlign="Left" text="{i18n>Fax}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/FaxCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="20" value="{ContactDetailsSet>/ContactDetails/Fax/Fax}" liveChange="onLiveChangeOfFaxView"
+					editable="{ContactDetailsSet>/ContactDetails/Fax/FaxEditable}" valueState="{ContactDetailsSet>/ContactDetails/Fax/FaxViewState}"
+					valueStateText="{ContactDetailsSet>/ContactDetails/Fax/FaxViewMessage}"
+					enabled="{path:'RequiredOptionalSet>/FaxCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" change="onFaxChange"
+					tooltip="{ContactDetailsSet>/ContactDetails/Fax/FaxTooltip}"/>
+				<Label textAlign="Left" text="{i18n>Email}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/EmailCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="130" value="{ContactDetailsSet>/ContactDetails/Email/Email}" change="onEmailChange"
+					 editable="{ContactDetailsSet>/ContactDetails/Email/EmailEditable}"
+					valueState="{ContactDetailsSet>/ContactDetails/Email/EmailValueState}"
+					valueStateText="{ContactDetailsSet>/ContactDetails/Email/EmailValueStateText}"
+					enabled="{path:'RequiredOptionalSet>/EmailCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					tooltip="{ContactDetailsSet>/ContactDetails/Email/EmailTooltip}" liveChange="liveChangeURLEmailFRag"/>
+				<Label textAlign="Left" text="{i18n>URL}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/URLCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="40" value="{ContactDetailsSet>/ContactDetails/URL/URL}" liveChange="onLiveChangeOfUrlView"
+					editable="{ContactDetailsSet>/ContactDetails/URL/URLEditable}" valueState="{ContactDetailsSet>/ContactDetails/URL/UrlViewState}"
+					valueStateText="{ContactDetailsSet>/ContactDetails/URL/UrlViewMessage}" change="onURLChange"
+					enabled="{path:'RequiredOptionalSet>/URLCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					tooltip="{ContactDetailsSet>/ContactDetails/URL/URLTooltip}"/>
+				<Label textAlign="Left" text="{i18n>TeleboxNumber}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/TeleboxNumCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="40" value="{ContactDetailsSet>/ContactDetails/Telebox/TeleboxNO}"
+					valueState="{ContactDetailsSet>/ContactDetails/Telebox/TeleboxState}" liveChange="onLiveChangeOfTelebox"
+					valueStateText="{ContactDetailsSet>/ContactDetails/Telebox/TeleboxMesage}"
+					enabled="{path:'RequiredOptionalSet>/TeleboxNumCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					tooltip="{ContactDetailsSet>/ContactDetails/Telebox/TeleboxNOTooltip}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>TelephoneExtension}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/TeleExtCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="10" editable="{ContactDetailsSet>/ContactDetails/Telephone/ExtensionEditable}" liveChange="onLiveChangeOfExtenView"
+					valueState="{ContactDetailsSet>/ContactDetails/Telephone/ExtenViewState}"
+					valueStateText="{ContactDetailsSet>/ContactDetails/Telephone/ExtenViewMessage}"
+					enabled="{path:'RequiredOptionalSet>/TeleExtCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					value="{ContactDetailsSet>/ContactDetails/Telephone/Extension}" change="onTelephoneChange"
+					tooltip="{ContactDetailsSet>/ContactDetails/Telephone/ExtensionTooltip}"/>
+				<Label textAlign="Left" text="{i18n>FaxExtension}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/FaxExtCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="10" value="{ContactDetailsSet>/ContactDetails/Fax/Extension}" liveChange="onLiveChangeOfFaxExtenView"
+					editable="{ContactDetailsSet>/ContactDetails/Fax/ExtensionEditable}" valueState="{ContactDetailsSet>/ContactDetails/Fax/ExtenViewState}"
+					valueStateText="{ContactDetailsSet>/ContactDetails/Fax/ExtenViewMessage}"
+					enabled="{path:'RequiredOptionalSet>/FaxExtCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" change="onFaxChange"
+					tooltip="{ContactDetailsSet>/ContactDetails/Fax/ExtensionTooltip}"/>
+				<Label textAlign="Left" text="{i18n>Comments}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/EmailCommentCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="20" value="{ContactDetailsSet>/ContactDetails/Email/Comments}" liveChange="onLiveChangeOfCommentView"
+					editable="{ContactDetailsSet>/ContactDetails/Email/CommentsEditable}"
+					valueState="{ContactDetailsSet>/ContactDetails/Email/CommentViewState}"
+					valueStateText="{ContactDetailsSet>/ContactDetails/Email/CommentViewMessage}"
+					enabled="{path:'RequiredOptionalSet>/EmailCommentCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					change="onEmailCommentChange" tooltip="{ContactDetailsSet>/ContactDetails/Email/CommentsTooltip}"/>
+				<Label textAlign="Left" text="{i18n>Comments}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/URLCommentCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="20" value="{ContactDetailsSet>/ContactDetails/URL/Comments}" liveChange="onLiveChangeOfUrlComments"
+					editable="{ContactDetailsSet>/ContactDetails/URL/CommentsEditable}" valueState="{ContactDetailsSet>/ContactDetails/URL/CommentViewState}"
+					valueStateText="{ContactDetailsSet>/ContactDetails/URL/CommentViewMessage}"
+					enabled="{path:'RequiredOptionalSet>/URLCommentCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" change="onURLChange"
+					tooltip="{ContactDetailsSet>/ContactDetails/URL/CommentsTooltip}"/>
+				<core:Title/>
+				<Label textAlign="Left" text="{i18n>Comments}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/TeleCommentCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="20" value="{ContactDetailsSet>/ContactDetails/Telephone/Comments}"
+					editable="{ContactDetailsSet>/ContactDetails/Telephone/CommentsEditable}" liveChange="onLiveChangeOfTeleComments"
+					valueState="{ContactDetailsSet>/ContactDetails/Telephone/CommentViewState}"
+					valueStateText="{ContactDetailsSet>/ContactDetails/Telephone/CommentViewMessage}"
+					enabled="{path:'RequiredOptionalSet>/TeleCommentCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}" change="onTelephoneChange"
+					tooltip="{ContactDetailsSet>/ContactDetails/Telephone/CommentsTooltip}"/>
+				<Label textAlign="Left" text="{i18n>Comments}" wrapping="true"
+					required="{path:'RequiredOptionalSet>/FaxCommentCond',formatter:'MDMZCUSTOMER.model.Formatter.requiredLabel'}"/>
+				<Input maxLength="20" liveChange="onLiveChangeOfFaxCommentViewState" editable="{ContactDetailsSet>/ContactDetails/Fax/CommentsEditable}"
+					valueState="{ContactDetailsSet>/ContactDetails/Fax/CommentViewState}"
+					valueStateText="{ContactDetailsSet>/ContactDetails/Fax/CommentViewMessage}"
+					enabled="{path:'RequiredOptionalSet>/FaxCommentCond',formatter:'MDMZCUSTOMER.model.Formatter.optionalDisabled'}"
+					value="{ContactDetailsSet>/ContactDetails/Fax/Comments}" change="onFaxChange"
+					tooltip="{ContactDetailsSet>/ContactDetails/Fax/CommentsTooltip}"/>
+				<!--<Label textAlign="Left" text="{i18n>Default}" wrapping="true"/>-->
+				<!--<CheckBox selected="{}" select=""/><Button press="addNewTelephoneRow" text="+" width="5px"/>-->
+				<!--<Label textAlign="Left" text="{i18n>Default}" wrapping="true"/>-->
+				<!--<CheckBox selected="{}" select=""/><Button press="onAddTelephone" text="+" width="5px"/>-->
+				<core:Title/>
+				<!--<Label textAlign="Left" text="{i18n>Default}" wrapping="true">-->
+				<!--	<layoutData>-->
+				<!--		<l:GridData span="XL2 L3 M2 S2"/>-->
+				<!--	</layoutData>-->
+				<!--</Label>-->
+				<!--<CheckBox selected="{ContactDetailsSet>/ContactDetails/Telephone/Default}" select=""></CheckBox>-->
+				<Link press="onPressAddTelephoneFrag"
+					text="{parts:[{path:'ContactDetailsSet>/ContactDetails/Telephone/TotalTelephone'},{path:'i18n>additionalTelephone'}],formatter:'MDMZCUSTOMER.model.Formatter.countBasedTelephone'}">
+					<layoutData>
+						<l:GridData span="XL2 L8 M2 S2"/>
+					</layoutData>
+				</Link>
+				<Link press="onPressAddFaxFrag"
+					text="{parts:[{path:'ContactDetailsSet>/ContactDetails/Fax/TotalFax'},{path:'i18n>additionalFax'}],formatter:'MDMZCUSTOMER.model.Formatter.countBasedTelephone'}">
+					<layoutData>
+						<l:GridData span="XL2 L8 M2 S2"/>
+					</layoutData>
+				</Link>
+				<Link press="onPressAddEmailFrag"
+					text="{parts:[{path:'ContactDetailsSet>/ContactDetails/Email/TotalEmail'},{path:'i18n>additionalEmail'}],formatter:'MDMZCUSTOMER.model.Formatter.countBasedTelephone'}">
+					<layoutData>
+						<l:GridData span="XL2 L8 M2 S2"/>
+					</layoutData>
+				</Link>
+				<Link press="onPressAddURLFrag"
+					text="{parts:[{path:'ContactDetailsSet>/ContactDetails/URL/TotalURL'},{path:'i18n>additionalURL'}],formatter:'MDMZCUSTOMER.model.Formatter.countBasedTelephone'}">
+					<layoutData>
+						<l:GridData span="XL2 L8 M2 S2"/>
+					</layoutData>
+				</Link>
+				<!--<Label textAlign="Left" text="{i18n>Default}" wrapping="true"/>-->
+				<!--<CheckBox selected="{}" select=""/>-->
+				<!--<Button press="onPressAddTelephoneFrag" text="+" width="5px"/>-->
+				<!--<core:Title/>-->
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>
