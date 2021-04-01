@@ -1,7 +1,0 @@
-<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
-<!--	<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments.customerBusinessArea"></core:Fragment>-->
-<VBox>
-	<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.deletionFlag"></core:Fragment>
-	<core:Fragment type="XML" fragmentName="MDMZCUSTOMER.fragments2.blockData"></core:Fragment>
-	</VBox>
-</core:FragmentDefinition>

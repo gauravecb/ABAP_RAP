@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: '1.0'
+metadata:
+  name: 'alp'
+type: application
+ui5Theme: sap_fiori_3
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: abap-cloud-abap_adt
+          url: https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com
+          scp: true
+        app:
+          name: ALP
+          description: DeployALP
+          package: ZRAP_TRAVEL_MARCH2021
+          transport: TRLK900372

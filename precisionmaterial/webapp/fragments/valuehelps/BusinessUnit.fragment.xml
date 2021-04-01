@@ -1,6 +1,0 @@
-<core:FragmentDefinition xmlns="sap.m"
-    xmlns:core="sap.ui.core">
-    <SelectDialog title="Business Unit" class="sapUiPopupWithPadding sapUiSizeCompact" items="{path: '/BusinessUnitSet'}" search="_handleBusinessUnitSearch" confirm="_handleBusinessUnitConfirm">
-        <StandardListItem class="sapUiSizeCompact" title="{BusiUnit}" description="{BusiUnit}"/>
-    </SelectDialog>
-</core:FragmentDefinition>

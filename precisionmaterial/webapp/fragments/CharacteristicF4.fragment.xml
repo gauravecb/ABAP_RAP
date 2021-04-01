@@ -1,6 +1,0 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<SelectDialog title="Characteristic:" class="sapUiPopupWithPadding sapUiSizeCompact" items="{ path: '/CharacteristicsSet' }"
-		search="_handleCharacteristicValueHelpSearch" confirm="_handleCharacteristicValueHelpClose">
-		<StandardListItem class="sapUiSizeCompact" title="{CharacteristicsId}" description="{CharacteristicsDesc}"/>
-	</SelectDialog>
-</core:FragmentDefinition>

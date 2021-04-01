@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zsrd_travel2021" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="AgencyType" sap:label="Agency View - CDS Data Model" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AgencyID"/>
+                </Key>
+                <Property Name="AgencyID" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:text="Name" sap:label="Agency ID"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="80" sap:label="Agency Name"/>
+                <Property Name="Street" Type="Edm.String" MaxLength="60" sap:label="Street"/>
+                <Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postal Code"/>
+                <Property Name="City" Type="Edm.String" MaxLength="40" sap:label="City"/>
+                <Property Name="CountryCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country/Region Key" sap:value-list="standard"/>
+                <Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Phone No."/>
+                <Property Name="EMailAddress" Type="Edm.String" MaxLength="256" sap:label="E-Mail Address"/>
+                <Property Name="WebAddress" Type="Edm.String" MaxLength="256" sap:label="Web Address"/>
+                <NavigationProperty Name="to_Country" Relationship="cds_zsrd_travel2021.assoc_0A4A6B791DC74AA2CA306A7AF245CCEC" FromRole="FromRole_assoc_0A4A6B791DC74AA2CA306A7AF245CCEC" ToRole="ToRole_assoc_0A4A6B791DC74AA2CA306A7AF245CCEC"/>
+            </EntityType>
+            <EntityType Name="xDMOxI_AirportType" sap:label="Airport View - CDS Data Model" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AirportID"/>
+                </Key>
+                <Property Name="AirportID" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="Name" sap:label="Airport ID"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="40" sap:label="Airport Name"/>
+                <Property Name="City" Type="Edm.String" MaxLength="40" sap:label="City"/>
+                <Property Name="CountryCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country/Region Key" sap:value-list="standard"/>
+            </EntityType>
+            <EntityType Name="CarrierType" sap:label="Carrier View - CDS Data Model" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AirlineID"/>
+                </Key>
+                <Property Name="AirlineID" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="Name" sap:label="Airline ID"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="40" sap:label="Airline Name"/>
+                <Property Name="CurrencyCode" Type="Edm.String" MaxLength="5" sap:label="Currency Code" sap:semantics="currency-code"/>
+                <NavigationProperty Name="to_Currency" Relationship="cds_zsrd_travel2021.assoc_91FC4A027400FA1285E0AF9D9E0AD5AC" FromRole="FromRole_assoc_91FC4A027400FA1285E0AF9D9E0AD5AC" ToRole="ToRole_assoc_91FC4A027400FA1285E0AF9D9E0AD5AC"/>
+            </EntityType>
+            <EntityType Name="ConnectionType" sap:label="Connection View - CDS Data Model" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AirlineID"/>
+                    <PropertyRef Name="ConnectionID"/>
+                </Key>
+                <Property Name="AirlineID" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="AirlineID_Text" sap:label="Airline ID" sap:value-list="standard"/>
+                <Property Name="AirlineID_Text" Type="Edm.String" MaxLength="40" sap:label="Airline Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ConnectionID" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Flight Number"/>
+                <Property Name="DepartureAirport" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Departure Airport" sap:value-list="standard"/>
+                <Property Name="DestinationAirport" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Destination Airport" sap:value-list="standard"/>
+                <Property Name="DepartureTime" Type="Edm.Time" Precision="0" sap:label="Departure"/>
+                <Property Name="ArrivalTime" Type="Edm.Time" Precision="0" sap:label="Arrival"/>
+                <Property Name="Distance" Type="Edm.Int32" sap:unit="DistanceUnit" sap:label="Flight Distance"/>
+                <Property Name="DistanceUnit" Type="Edm.String" MaxLength="3" sap:label="Internal UoM" sap:semantics="unit-of-measure"/>
+                <NavigationProperty Name="to_Airline" Relationship="cds_zsrd_travel2021.assoc_9FB13578F60A348F1EFBC0FB3C174674" FromRole="FromRole_assoc_9FB13578F60A348F1EFBC0FB3C174674" ToRole="ToRole_assoc_9FB13578F60A348F1EFBC0FB3C174674"/>
+            </EntityType>
+            <EntityType Name="CustomerType" sap:label="Customer View - CDS Data Model" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerID"/>
+                </Key>
+                <Property Name="CustomerID" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:text="LastName" sap:label="Customer ID"/>
+                <Property Name="FirstName" Type="Edm.String" MaxLength="40" sap:label="First Name"/>
+                <Property Name="LastName" Type="Edm.String" MaxLength="40" sap:label="Last Name"/>
+                <Property Name="Title" Type="Edm.String" MaxLength="10" sap:label="Title"/>
+                <Property Name="Street" Type="Edm.String" MaxLength="60" sap:label="Street"/>
+                <Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postal Code"/>
+                <Property Name="City" Type="Edm.String" MaxLength="40" sap:label="City"/>
+                <Property Name="CountryCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country/Region Key" sap:value-list="standard"/>
+                <Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Phone No."/>
+                <Property Name="EMailAddress" Type="Edm.String" MaxLength="256" sap:label="E-Mail Address"/>
+                <NavigationProperty Name="to_Country" Relationship="cds_zsrd_travel2021.assoc_9F82666C535B458E9058C040B381550E" FromRole="FromRole_assoc_9F82666C535B458E9058C040B381550E" ToRole="ToRole_assoc_9F82666C535B458E9058C040B381550E"/>
+            </EntityType>
+            <EntityType Name="FlightType" sap:label="Flight View - CDS Data Model" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AirlineID"/>
+                    <PropertyRef Name="ConnectionID"/>
+                    <PropertyRef Name="FlightDate"/>
+                </Key>
+                <Property Name="AirlineID" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="AirlineID_Text" sap:label="Airline ID" sap:value-list="standard"/>
+                <Property Name="AirlineID_Text" Type="Edm.String" MaxLength="40" sap:label="Airline Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ConnectionID" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Flight Number" sap:value-list="standard"/>
+                <Property Name="FlightDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Flight Date"/>
+                <Property Name="Price" Type="Edm.Decimal" Precision="17" Scale="3" sap:unit="CurrencyCode" sap:label="Flight Price"/>
+                <Property Name="CurrencyCode" Type="Edm.String" MaxLength="5" sap:label="Currency Code" sap:semantics="currency-code"/>
+                <Property Name="PlaneType" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Plane Type"/>
+                <Property Name="MaximumSeats" Type="Edm.Int32" sap:label="Maximum Capacity"/>
+                <Property Name="OccupiedSeats" Type="Edm.Int32" sap:label="Occupied Seats"/>
+                <NavigationProperty Name="to_Airline" Relationship="cds_zsrd_travel2021.assoc_F57E2C3A10D68B6410BA7905E8DB14D9" FromRole="FromRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9" ToRole="ToRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9"/>
+                <NavigationProperty Name="to_Connection" Relationship="cds_zsrd_travel2021.assoc_28A80BB01D314B72C04D044C4E76C474" FromRole="FromRole_assoc_28A80BB01D314B72C04D044C4E76C474" ToRole="ToRole_assoc_28A80BB01D314B72C04D044C4E76C474"/>
+                <NavigationProperty Name="to_Currency" Relationship="cds_zsrd_travel2021.assoc_B10E4AB7137D86654192BDF828D2234F" FromRole="FromRole_assoc_B10E4AB7137D86654192BDF828D2234F" ToRole="ToRole_assoc_B10E4AB7137D86654192BDF828D2234F"/>
+            </EntityType>
+            <EntityType Name="CountryType" sap:label="Country" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Country"/>
+                </Key>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="Country_Text" sap:label="Country/Region Key"/>
+                <Property Name="Country_Text" Type="Edm.String" MaxLength="50" sap:label="Country/Region Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CountryThreeLetterISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO Code 3 Char"/>
+                <Property Name="CountryThreeDigitISOCode" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="ISO Code Num. 3"/>
+                <Property Name="CountryISOCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="ISO code"/>
+            </EntityType>
+            <EntityType Name="CurrencyType" sap:label="Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Currency"/>
+                </Key>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="Currency_Text" sap:label="Currency" sap:semantics="currency-code"/>
+                <Property Name="Currency_Text" Type="Edm.String" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Decimals" Type="Edm.Byte" sap:label="Decimal Places"/>
+                <Property Name="CurrencyISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO Code"/>
+                <Property Name="AlternativeCurrencyKey" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Alternative Key"/>
+                <Property Name="IsPrimaryCurrencyForISOCrcy" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Primary"/>
+            </EntityType>
+            <EntityType Name="BookingsType" sap:label="Bookings Table" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BookingUuid"/>
+                </Key>
+                <Property Name="BookingUuid" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TravelUuid" Type="Edm.Guid" sap:label="UUID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BookingId" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Booking Number"/>
+                <Property Name="BookingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Booking Date"/>
+                <Property Name="CustomerId" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:text="CustomerName" sap:label="Customer ID" sap:value-list="standard"/>
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="40" sap:label="Last Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CarrierId" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:text="CarrierName" sap:label="Airline ID" sap:value-list="standard"/>
+                <Property Name="CarrierName" Type="Edm.String" MaxLength="40" sap:label="Airline Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ConnectionId" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Flight Number" sap:value-list="standard"/>
+                <Property Name="FlightDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Flight Date"/>
+                <Property Name="FlightPrice" Type="Edm.Decimal" Precision="17" Scale="3" sap:unit="CurrencyCode" sap:label="Flight Price"/>
+                <Property Name="CurrencyCode" Type="Edm.String" MaxLength="5" sap:label="Currency Code" sap:value-list="standard" sap:semantics="currency-code"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_Carrier" Relationship="cds_zsrd_travel2021.assoc_F3F87E456676E709B8173F6885E6235E" FromRole="FromRole_assoc_F3F87E456676E709B8173F6885E6235E" ToRole="ToRole_assoc_F3F87E456676E709B8173F6885E6235E"/>
+                <NavigationProperty Name="to_Connection" Relationship="cds_zsrd_travel2021.assoc_23D109402A88A0213E2AE41360EABF51" FromRole="FromRole_assoc_23D109402A88A0213E2AE41360EABF51" ToRole="ToRole_assoc_23D109402A88A0213E2AE41360EABF51"/>
+                <NavigationProperty Name="to_Currency" Relationship="cds_zsrd_travel2021.assoc_1179AD498D79BBE270C823245F19125B" FromRole="FromRole_assoc_1179AD498D79BBE270C823245F19125B" ToRole="ToRole_assoc_1179AD498D79BBE270C823245F19125B"/>
+                <NavigationProperty Name="to_Customer" Relationship="cds_zsrd_travel2021.assoc_418249DEA8D78917D45DF001D001FC33" FromRole="FromRole_assoc_418249DEA8D78917D45DF001D001FC33" ToRole="ToRole_assoc_418249DEA8D78917D45DF001D001FC33"/>
+                <NavigationProperty Name="to_Flight" Relationship="cds_zsrd_travel2021.assoc_343A3D891473483B644A2A22C5805771" FromRole="FromRole_assoc_343A3D891473483B644A2A22C5805771" ToRole="ToRole_assoc_343A3D891473483B644A2A22C5805771"/>
+                <NavigationProperty Name="to_Travel" Relationship="cds_zsrd_travel2021.assoc_751132328F8A10F2747A37EFB0E15834" FromRole="FromRole_assoc_751132328F8A10F2747A37EFB0E15834" ToRole="ToRole_assoc_751132328F8A10F2747A37EFB0E15834"/>
+            </EntityType>
+            <EntityType Name="travelType" sap:label="Projection View: Travel" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TravelUuid"/>
+                </Key>
+                <Property Name="asceptTravel_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="rejectTravel_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TravelUuid" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TravelId" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Travel ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="AgencyId" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:text="AgencyName" sap:label="Agency ID" sap:value-list="standard"/>
+                <Property Name="AgencyName" Type="Edm.String" MaxLength="80" sap:label="Agency Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerId" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:text="CustomerName" sap:label="Customer ID" sap:value-list="standard"/>
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="40" sap:label="Last Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BeginDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Starting Date"/>
+                <Property Name="EndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="End Date"/>
+                <Property Name="BookingFee" Type="Edm.Decimal" Precision="17" Scale="3" sap:unit="CurrencyCode" sap:label="Booking Fee"/>
+                <Property Name="TotalPrice" Type="Edm.Decimal" Precision="17" Scale="3" sap:unit="CurrencyCode" sap:label="Total Price" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" MaxLength="5" sap:label="Currency Code" sap:value-list="standard" sap:semantics="currency-code"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="1024" sap:label="Description"/>
+                <Property Name="OverallStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Overall Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name"/>
+                <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp"/>
+                <Property Name="LocalLastChagedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp"/>
+                <NavigationProperty Name="to_Agency" Relationship="cds_zsrd_travel2021.assoc_090D5BFB1F9CA29EA7A5F9243D3A1A3F" FromRole="FromRole_assoc_090D5BFB1F9CA29EA7A5F9243D3A1A3F" ToRole="ToRole_assoc_090D5BFB1F9CA29EA7A5F9243D3A1A3F"/>
+                <NavigationProperty Name="to_Bookings" Relationship="cds_zsrd_travel2021.assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB" FromRole="FromRole_assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB" ToRole="ToRole_assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB"/>
+                <NavigationProperty Name="to_Currency" Relationship="cds_zsrd_travel2021.assoc_1869A0C36DB3D259106C6E7037141D66" FromRole="FromRole_assoc_1869A0C36DB3D259106C6E7037141D66" ToRole="ToRole_assoc_1869A0C36DB3D259106C6E7037141D66"/>
+                <NavigationProperty Name="to_Customer" Relationship="cds_zsrd_travel2021.assoc_87F8E7190ED702A98306F89F50ECE2CF" FromRole="FromRole_assoc_87F8E7190ED702A98306F89F50ECE2CF" ToRole="ToRole_assoc_87F8E7190ED702A98306F89F50ECE2CF"/>
+            </EntityType>
+            <Association Name="assoc_0A4A6B791DC74AA2CA306A7AF245CCEC" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.AgencyType" Multiplicity="1" Role="FromRole_assoc_0A4A6B791DC74AA2CA306A7AF245CCEC"/>
+                <End Type="cds_zsrd_travel2021.CountryType" Multiplicity="0..1" Role="ToRole_assoc_0A4A6B791DC74AA2CA306A7AF245CCEC"/>
+            </Association>
+            <Association Name="assoc_91FC4A027400FA1285E0AF9D9E0AD5AC" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.CarrierType" Multiplicity="1" Role="FromRole_assoc_91FC4A027400FA1285E0AF9D9E0AD5AC"/>
+                <End Type="cds_zsrd_travel2021.CurrencyType" Multiplicity="0..1" Role="ToRole_assoc_91FC4A027400FA1285E0AF9D9E0AD5AC"/>
+            </Association>
+            <Association Name="assoc_090D5BFB1F9CA29EA7A5F9243D3A1A3F" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.travelType" Multiplicity="1" Role="FromRole_assoc_090D5BFB1F9CA29EA7A5F9243D3A1A3F"/>
+                <End Type="cds_zsrd_travel2021.AgencyType" Multiplicity="0..1" Role="ToRole_assoc_090D5BFB1F9CA29EA7A5F9243D3A1A3F"/>
+            </Association>
+            <Association Name="assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.travelType" Multiplicity="1" Role="FromRole_assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_zsrd_travel2021.BookingsType" Multiplicity="*" Role="ToRole_assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB">
+                        <PropertyRef Name="TravelUuid"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB">
+                        <PropertyRef Name="TravelUuid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_1869A0C36DB3D259106C6E7037141D66" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.travelType" Multiplicity="1" Role="FromRole_assoc_1869A0C36DB3D259106C6E7037141D66"/>
+                <End Type="cds_zsrd_travel2021.CurrencyType" Multiplicity="0..1" Role="ToRole_assoc_1869A0C36DB3D259106C6E7037141D66"/>
+            </Association>
+            <Association Name="assoc_87F8E7190ED702A98306F89F50ECE2CF" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.travelType" Multiplicity="1" Role="FromRole_assoc_87F8E7190ED702A98306F89F50ECE2CF"/>
+                <End Type="cds_zsrd_travel2021.CustomerType" Multiplicity="0..1" Role="ToRole_assoc_87F8E7190ED702A98306F89F50ECE2CF"/>
+            </Association>
+            <Association Name="assoc_F57E2C3A10D68B6410BA7905E8DB14D9" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.FlightType" Multiplicity="1" Role="FromRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9"/>
+                <End Type="cds_zsrd_travel2021.CarrierType" Multiplicity="0..1" Role="ToRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9"/>
+            </Association>
+            <Association Name="assoc_28A80BB01D314B72C04D044C4E76C474" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.FlightType" Multiplicity="1" Role="FromRole_assoc_28A80BB01D314B72C04D044C4E76C474"/>
+                <End Type="cds_zsrd_travel2021.ConnectionType" Multiplicity="0..1" Role="ToRole_assoc_28A80BB01D314B72C04D044C4E76C474"/>
+            </Association>
+            <Association Name="assoc_B10E4AB7137D86654192BDF828D2234F" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.FlightType" Multiplicity="1" Role="FromRole_assoc_B10E4AB7137D86654192BDF828D2234F"/>
+                <End Type="cds_zsrd_travel2021.CurrencyType" Multiplicity="0..1" Role="ToRole_assoc_B10E4AB7137D86654192BDF828D2234F"/>
+            </Association>
+            <Association Name="assoc_9FB13578F60A348F1EFBC0FB3C174674" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.ConnectionType" Multiplicity="1" Role="FromRole_assoc_9FB13578F60A348F1EFBC0FB3C174674"/>
+                <End Type="cds_zsrd_travel2021.CarrierType" Multiplicity="1" Role="ToRole_assoc_9FB13578F60A348F1EFBC0FB3C174674"/>
+            </Association>
+            <Association Name="assoc_F3F87E456676E709B8173F6885E6235E" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.BookingsType" Multiplicity="1" Role="FromRole_assoc_F3F87E456676E709B8173F6885E6235E"/>
+                <End Type="cds_zsrd_travel2021.CarrierType" Multiplicity="1" Role="ToRole_assoc_F3F87E456676E709B8173F6885E6235E"/>
+            </Association>
+            <Association Name="assoc_23D109402A88A0213E2AE41360EABF51" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.BookingsType" Multiplicity="1" Role="FromRole_assoc_23D109402A88A0213E2AE41360EABF51"/>
+                <End Type="cds_zsrd_travel2021.ConnectionType" Multiplicity="1" Role="ToRole_assoc_23D109402A88A0213E2AE41360EABF51"/>
+            </Association>
+            <Association Name="assoc_1179AD498D79BBE270C823245F19125B" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.BookingsType" Multiplicity="1" Role="FromRole_assoc_1179AD498D79BBE270C823245F19125B"/>
+                <End Type="cds_zsrd_travel2021.CurrencyType" Multiplicity="1" Role="ToRole_assoc_1179AD498D79BBE270C823245F19125B"/>
+            </Association>
+            <Association Name="assoc_418249DEA8D78917D45DF001D001FC33" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.BookingsType" Multiplicity="1" Role="FromRole_assoc_418249DEA8D78917D45DF001D001FC33"/>
+                <End Type="cds_zsrd_travel2021.CustomerType" Multiplicity="1" Role="ToRole_assoc_418249DEA8D78917D45DF001D001FC33"/>
+            </Association>
+            <Association Name="assoc_343A3D891473483B644A2A22C5805771" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.BookingsType" Multiplicity="1" Role="FromRole_assoc_343A3D891473483B644A2A22C5805771"/>
+                <End Type="cds_zsrd_travel2021.FlightType" Multiplicity="1" Role="ToRole_assoc_343A3D891473483B644A2A22C5805771"/>
+            </Association>
+            <Association Name="assoc_751132328F8A10F2747A37EFB0E15834" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.BookingsType" Multiplicity="1" Role="FromRole_assoc_751132328F8A10F2747A37EFB0E15834"/>
+                <End Type="cds_zsrd_travel2021.travelType" Multiplicity="1" Role="ToRole_assoc_751132328F8A10F2747A37EFB0E15834"/>
+            </Association>
+            <Association Name="assoc_9F82666C535B458E9058C040B381550E" sap:content-version="1">
+                <End Type="cds_zsrd_travel2021.CustomerType" Multiplicity="1" Role="FromRole_assoc_9F82666C535B458E9058C040B381550E"/>
+                <End Type="cds_zsrd_travel2021.CountryType" Multiplicity="0..1" Role="ToRole_assoc_9F82666C535B458E9058C040B381550E"/>
+            </Association>
+            <EntityContainer Name="cds_zsrd_travel2021_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Agency" EntityType="cds_zsrd_travel2021.AgencyType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="xDMOxI_Airport" EntityType="cds_zsrd_travel2021.xDMOxI_AirportType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Carrier" EntityType="cds_zsrd_travel2021.CarrierType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Connection" EntityType="cds_zsrd_travel2021.ConnectionType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Customer" EntityType="cds_zsrd_travel2021.CustomerType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Flight" EntityType="cds_zsrd_travel2021.FlightType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Country" EntityType="cds_zsrd_travel2021.CountryType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Currency" EntityType="cds_zsrd_travel2021.CurrencyType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Bookings" EntityType="cds_zsrd_travel2021.BookingsType" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="travel" EntityType="cds_zsrd_travel2021.travelType" sap:searchable="true" sap:content-version="1"/>
+                <AssociationSet Name="assoc_91FC4A027400FA1285E0AF9D9E0AD5AC" Association="cds_zsrd_travel2021.assoc_91FC4A027400FA1285E0AF9D9E0AD5AC" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Carrier" Role="FromRole_assoc_91FC4A027400FA1285E0AF9D9E0AD5AC"/>
+                    <End EntitySet="Currency" Role="ToRole_assoc_91FC4A027400FA1285E0AF9D9E0AD5AC"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_28A80BB01D314B72C04D044C4E76C474" Association="cds_zsrd_travel2021.assoc_28A80BB01D314B72C04D044C4E76C474" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Flight" Role="FromRole_assoc_28A80BB01D314B72C04D044C4E76C474"/>
+                    <End EntitySet="Connection" Role="ToRole_assoc_28A80BB01D314B72C04D044C4E76C474"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB" Association="cds_zsrd_travel2021.assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="travel" Role="FromRole_assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB"/>
+                    <End EntitySet="Bookings" Role="ToRole_assoc_1F6FB5A8B78ADCCBE0E58FBB2EE79FDB"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_751132328F8A10F2747A37EFB0E15834" Association="cds_zsrd_travel2021.assoc_751132328F8A10F2747A37EFB0E15834" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Bookings" Role="FromRole_assoc_751132328F8A10F2747A37EFB0E15834"/>
+                    <End EntitySet="travel" Role="ToRole_assoc_751132328F8A10F2747A37EFB0E15834"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_090D5BFB1F9CA29EA7A5F9243D3A1A3F" Association="cds_zsrd_travel2021.assoc_090D5BFB1F9CA29EA7A5F9243D3A1A3F" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="travel" Role="FromRole_assoc_090D5BFB1F9CA29EA7A5F9243D3A1A3F"/>
+                    <End EntitySet="Agency" Role="ToRole_assoc_090D5BFB1F9CA29EA7A5F9243D3A1A3F"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_9F82666C535B458E9058C040B381550E" Association="cds_zsrd_travel2021.assoc_9F82666C535B458E9058C040B381550E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Customer" Role="FromRole_assoc_9F82666C535B458E9058C040B381550E"/>
+                    <End EntitySet="Country" Role="ToRole_assoc_9F82666C535B458E9058C040B381550E"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_87F8E7190ED702A98306F89F50ECE2CF" Association="cds_zsrd_travel2021.assoc_87F8E7190ED702A98306F89F50ECE2CF" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="travel" Role="FromRole_assoc_87F8E7190ED702A98306F89F50ECE2CF"/>
+                    <End EntitySet="Customer" Role="ToRole_assoc_87F8E7190ED702A98306F89F50ECE2CF"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_B10E4AB7137D86654192BDF828D2234F" Association="cds_zsrd_travel2021.assoc_B10E4AB7137D86654192BDF828D2234F" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Flight" Role="FromRole_assoc_B10E4AB7137D86654192BDF828D2234F"/>
+                    <End EntitySet="Currency" Role="ToRole_assoc_B10E4AB7137D86654192BDF828D2234F"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_F57E2C3A10D68B6410BA7905E8DB14D9" Association="cds_zsrd_travel2021.assoc_F57E2C3A10D68B6410BA7905E8DB14D9" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Flight" Role="FromRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9"/>
+                    <End EntitySet="Carrier" Role="ToRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_343A3D891473483B644A2A22C5805771" Association="cds_zsrd_travel2021.assoc_343A3D891473483B644A2A22C5805771" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Bookings" Role="FromRole_assoc_343A3D891473483B644A2A22C5805771"/>
+                    <End EntitySet="Flight" Role="ToRole_assoc_343A3D891473483B644A2A22C5805771"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_418249DEA8D78917D45DF001D001FC33" Association="cds_zsrd_travel2021.assoc_418249DEA8D78917D45DF001D001FC33" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Bookings" Role="FromRole_assoc_418249DEA8D78917D45DF001D001FC33"/>
+                    <End EntitySet="Customer" Role="ToRole_assoc_418249DEA8D78917D45DF001D001FC33"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_1179AD498D79BBE270C823245F19125B" Association="cds_zsrd_travel2021.assoc_1179AD498D79BBE270C823245F19125B" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Bookings" Role="FromRole_assoc_1179AD498D79BBE270C823245F19125B"/>
+                    <End EntitySet="Currency" Role="ToRole_assoc_1179AD498D79BBE270C823245F19125B"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_F3F87E456676E709B8173F6885E6235E" Association="cds_zsrd_travel2021.assoc_F3F87E456676E709B8173F6885E6235E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Bookings" Role="FromRole_assoc_F3F87E456676E709B8173F6885E6235E"/>
+                    <End EntitySet="Carrier" Role="ToRole_assoc_F3F87E456676E709B8173F6885E6235E"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_23D109402A88A0213E2AE41360EABF51" Association="cds_zsrd_travel2021.assoc_23D109402A88A0213E2AE41360EABF51" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Bookings" Role="FromRole_assoc_23D109402A88A0213E2AE41360EABF51"/>
+                    <End EntitySet="Connection" Role="ToRole_assoc_23D109402A88A0213E2AE41360EABF51"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_0A4A6B791DC74AA2CA306A7AF245CCEC" Association="cds_zsrd_travel2021.assoc_0A4A6B791DC74AA2CA306A7AF245CCEC" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Agency" Role="FromRole_assoc_0A4A6B791DC74AA2CA306A7AF245CCEC"/>
+                    <End EntitySet="Country" Role="ToRole_assoc_0A4A6B791DC74AA2CA306A7AF245CCEC"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_1869A0C36DB3D259106C6E7037141D66" Association="cds_zsrd_travel2021.assoc_1869A0C36DB3D259106C6E7037141D66" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="travel" Role="FromRole_assoc_1869A0C36DB3D259106C6E7037141D66"/>
+                    <End EntitySet="Currency" Role="ToRole_assoc_1869A0C36DB3D259106C6E7037141D66"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_9FB13578F60A348F1EFBC0FB3C174674" Association="cds_zsrd_travel2021.assoc_9FB13578F60A348F1EFBC0FB3C174674" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Connection" Role="FromRole_assoc_9FB13578F60A348F1EFBC0FB3C174674"/>
+                    <End EntitySet="Carrier" Role="ToRole_assoc_9FB13578F60A348F1EFBC0FB3C174674"/>
+                </AssociationSet>
+                <FunctionImport Name="asceptTravel" ReturnType="cds_zsrd_travel2021.travelType" EntitySet="travel" m:HttpMethod="POST" sap:action-for="cds_zsrd_travel2021.travelType" sap:applicable-path="asceptTravel_ac">
+                    <Parameter Name="TravelUuid" Type="Edm.Guid" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="rejectTravel" ReturnType="cds_zsrd_travel2021.travelType" EntitySet="travel" m:HttpMethod="POST" sap:action-for="cds_zsrd_travel2021.travelType" sap:applicable-path="rejectTravel_ac">
+                    <Parameter Name="TravelUuid" Type="Edm.Guid" Mode="In"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations Target="cds_zsrd_travel2021.AgencyType/CountryCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Country/Region Key"/>
+                        <PropertyValue Property="CollectionPath" String="Country"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CountryCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeLetterISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeDigitISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryISOCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.xDMOxI_AirportType/CountryCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Country/Region Key"/>
+                        <PropertyValue Property="CollectionPath" String="Country"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CountryCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeLetterISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeDigitISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryISOCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.ConnectionType/AirlineID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Airline ID"/>
+                        <PropertyValue Property="CollectionPath" String="Carrier"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="AirlineID"/>
+                                    <PropertyValue Property="ValueListProperty" String="CarrierID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AirlineID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.ConnectionType/DepartureAirport" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Departure Airport"/>
+                        <PropertyValue Property="CollectionPath" String="xDMOxI_Airport"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DepartureAirport"/>
+                                    <PropertyValue Property="ValueListProperty" String="Airport_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AirportID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="City"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.ConnectionType/DestinationAirport" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Destination Airport"/>
+                        <PropertyValue Property="CollectionPath" String="xDMOxI_Airport"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DestinationAirport"/>
+                                    <PropertyValue Property="ValueListProperty" String="Airport_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AirportID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="City"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.CustomerType/CountryCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Country/Region Key"/>
+                        <PropertyValue Property="CollectionPath" String="Country"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CountryCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeLetterISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeDigitISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryISOCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.FlightType/AirlineID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Airline ID"/>
+                        <PropertyValue Property="CollectionPath" String="Carrier"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="AirlineID"/>
+                                    <PropertyValue Property="ValueListProperty" String="AirlineID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.FlightType/ConnectionID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Flight Number"/>
+                        <PropertyValue Property="CollectionPath" String="Connection"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="AirlineID"/>
+                                    <PropertyValue Property="ValueListProperty" String="AirlineID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ConnectionID"/>
+                                    <PropertyValue Property="ValueListProperty" String="ConnectionID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AirlineID_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DepartureAirport"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DestinationAirport"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DepartureTime"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ArrivalTime"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Distance"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DistanceUnit"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.BookingsType/CustomerId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="Customer"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerId"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FirstName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="LastName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Title"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Street"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PostalCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="City"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PhoneNumber"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="EMailAddress"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.BookingsType/CarrierId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="Carrier"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CarrierId"/>
+                                    <PropertyValue Property="ValueListProperty" String="AirlineID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.BookingsType/ConnectionId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="Flight"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ConnectionId"/>
+                                    <PropertyValue Property="ValueListProperty" String="ConnectionID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CarrierId"/>
+                                    <PropertyValue Property="ValueListProperty" String="AirlineId"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CurrencyCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="FlightPrice"/>
+                                    <PropertyValue Property="ValueListProperty" String="FlightPrice"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="FlightDate"/>
+                                    <PropertyValue Property="ValueListProperty" String="FlightDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AirlineID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AirlineID_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Price"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlaneType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaximumSeats"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OccupiedSeats"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.BookingsType/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="Currency"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CurrencyCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Decimals"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AlternativeCurrencyKey"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsPrimaryCurrencyForISOCrcy"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.travelType/AgencyId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="Agency"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="AgencyId"/>
+                                    <PropertyValue Property="ValueListProperty" String="AgencyID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Street"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PostalCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="City"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PhoneNumber"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="EMailAddress"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WebAddress"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.travelType/CustomerId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="Customer"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerId"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FirstName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="LastName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Title"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Street"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PostalCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="City"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PhoneNumber"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="EMailAddress"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.travelType/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="Currency"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CurrencyCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Decimals"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AlternativeCurrencyKey"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsPrimaryCurrencyForISOCrcy"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.cds_zsrd_travel2021_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.cds_zsrd_travel2021_Entities/Agency" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="EMailAddress"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="WebAddress"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>EMailAddress</PropertyPath>
+                                <PropertyPath>WebAddress</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.cds_zsrd_travel2021_Entities/Bookings" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.cds_zsrd_travel2021_Entities/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="EMailAddress"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>EMailAddress</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.cds_zsrd_travel2021_Entities/travel" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>asceptTravel_ac</PropertyPath>
+                                <PropertyPath>rejectTravel_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Bookings"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="true"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>asceptTravel_ac</PropertyPath>
+                                <PropertyPath>rejectTravel_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.CurrencyType/Currency" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.UnitSpecificScale" Path="Decimals"/>
+            </Annotations>
+            <Annotations Target="cds_zsrd_travel2021.cds_zsrd_travel2021_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com/sap/opu/odata/sap/ZUI_RAP_TRAVEL2022/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://8a95f173-1107-4496-97bc-934cfd92bf99.abap.eu10.hana.ondemand.com/sap/opu/odata/sap/ZUI_RAP_TRAVEL2022/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
